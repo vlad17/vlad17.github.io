@@ -11,6 +11,21 @@ I use [Jekyll](https://jekyllrb.com/) to generate my content and [s3_website](ht
 TODO: deploy to s3
 TODO: host with cloudfront
 
-## Requirements for building and deploying
+## Building and Deploying Locally
 
-Nothing beyond transitive deps for Jekyll and s3_website.
+Install:
+
+1. Transitive deps for Jekyll (not Jekyll itself).
+1. Package binaries: `nodejs`
+1. Make sure you have `bundler`: `sudo gem install bundler`
+1. In `jekyll-project` subdirectory, `bundler update && bundler install`
+
+Local deployment:
+
+1. In `jekyll-project` subdirectory, run `bundler exec jekyll serve`
+
+## Requirements for deploying on S3
+
+1. Transitive dependencies for s3_website.
+
+
