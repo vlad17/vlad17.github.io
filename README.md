@@ -23,8 +23,6 @@ Local deployment:
 
 ## Other site TODOs:
 
-* copyright
-* privacy link
 * email form + about page with requests
 * finish TODOs in ligra
 * Test for open but unreachable links
