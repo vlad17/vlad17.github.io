@@ -1,12 +1,14 @@
 ---
 layout: default
 ---
-<script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 <div class="post-content well">
 <article class="content">
-    <div class="post">{{ content }}</div>
+  <div class="post">
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    {{ content }}
+  </div>
     <hr />
     {% include share-page.html %}
 </article>

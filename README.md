@@ -23,10 +23,12 @@ Local deployment:
 
 ## Other site TODOs:
 
-* Test for open but unreachable links
-* robots.txt
 * copyright
 * privacy link
+* email form + about page with requests
+* finish TODOs in ligra
+* Test for open but unreachable links
+* robots.txt
 * Add Apache licenses to all personal code, tags, project script
 * Work info
 * Edu info
