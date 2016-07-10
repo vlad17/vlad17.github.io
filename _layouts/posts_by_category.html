@@ -19,7 +19,9 @@ layout: default
         {% endfor %}
     {% endfor %}
     <hr />
-
+    <div>
+    {{ content }}
+    </div>
     {% if site.categories[page.categories] %}
     <div class="list-group">
         {% for post in site.categories[page.categories] %}

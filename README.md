@@ -30,3 +30,4 @@ Local deployment:
 * Add Apache licenses to all personal code, tags, project script
 * Work info
 * Edu info
+* Make subcategories: e.g., parallel->(distributed, pram), machine learning->(...). Change description to blog-series, give it subcategories

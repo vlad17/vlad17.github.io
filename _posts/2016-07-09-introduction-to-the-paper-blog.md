@@ -2,7 +2,7 @@
 layout: post
 title:  "Introduction to the Paper Blog"
 date:   2016-07-09
-categories: description paper-blog
+categories: new-series paper-series
 ---
 
 # Paper Blog Series
