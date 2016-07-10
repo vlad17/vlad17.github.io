@@ -1,17 +1,17 @@
 ---
 layout: post
-title:  "Introduction to the Paper Blog"
+title:  "The Paper Series"
 date:   2016-07-09
 categories: new-series paper-series
 ---
 
 # Paper Blog Series
 
-This blog series is the main reason I've started my personal GitHub page. I intent to release some blog posts about research papers I'm reading. My intention here is to just catalog my notes, but I figured other people might find the summaries useful. Since I was going to keep my notes in Markdown anyway, Jekyll was not too difficult to set up.
+This blog series is the main reason I've started my personal GitHub page. I intend to release some blog posts about research papers I'm reading. My intention here is to just catalog my notes, but I figured other people might find the summaries useful. Since I was going to keep my notes in Markdown anyway, Jekyll was not too difficult to set up.
 
 ## Topics
 
-I anticipate these will change over time, but these are the topics I'm intereted in, so they'll be the ones I will make posts for:
+I anticipate these will change over time, but the following are the topics I'm intereted in:
 
 * Machine Learning
 * Optimization

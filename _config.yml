@@ -12,6 +12,9 @@ urls:
     - text: About
       url: /about
       icon: fa-comments
+    - text: Categories
+      url: /categories
+      icon: fa-folder
     - text: Education
       url: /education
       icon: fa-graduation-cap
