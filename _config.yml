@@ -1,0 +1,54 @@
+title: Vlad Feinberg
+description: My Personal Blog
+author: Vlad Feinberg
+about: dev | ml | math
+disqus_shortname: vladfeinberg
+
+urls:
+    - text: Home
+      url: /
+      icon: fa-home
+      layout: post
+    - text: About
+      url: /about
+      icon: fa-comments
+    - text: Education
+      url: /education
+      icon: fa-graduation-cap
+    - text: Projects
+      url: /projects
+      icon: fa-desktop
+    - text: Work
+      url: /work
+      icon: fa-bank
+    - text: XML Feed
+      url: /feed.xml
+      icon: fa-feed
+
+logo: /assets/default-open-graph.png
+
+github: https://github.com/vlad17
+
+social:
+    - icon: fa-linkedin
+      link: 'https://www.linkedin.com/in/vladimir-feinberg-64b92895'
+    - icon: fa-stack-exchange
+      link: 'http://stackexchange.com/users/1611424/vf1'
+    - icon: fa-github
+      link: 'https://github.com/vlad17'
+
+share:
+  twitter_username: \#
+  fb_appid: 000000000000
+
+
+enableTags: true
+tagarray: []
+
+paginate: 20
+per_page: 20
+paginate_path: "/page:num/"
+markdown: kramdown
+gems:
+  - jekyll-paginate
+  - jekyll-gist

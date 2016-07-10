@@ -6,10 +6,7 @@ TODO: aws link
 
 ## Frameworks and Infrastructure
 
-I use [Jekyll](https://jekyllrb.com/) to generate my content and [s3_website](https://github.com/laurilehmijoki/s3_website) for deployment to Amazon S3.
-
-TODO: deploy to s3
-TODO: host with cloudfront
+I use [Jekyll](https://jekyllrb.com/) to generate my content and [GitHub Pages](https://pages.github.com/) to host it.
 
 ## Building and Deploying Locally
 
@@ -24,8 +21,12 @@ Local deployment:
 
 1. In `jekyll-project` subdirectory, run `bundler exec jekyll serve`
 
-## Requirements for deploying on S3
+## Other site TODOs:
 
-1. Transitive dependencies for s3_website.
-
-
+* Test for open but unreachable links
+* robots.txt
+* copyright
+* privacy link
+* Add Apache licenses to all personal code, tags, project script
+* Work info
+* Edu info
