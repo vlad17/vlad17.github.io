@@ -46,7 +46,7 @@ share:
   twitter_username: \#
   fb_appid: 000000000000
 
-production_url: "vlad17.github.io"
+url: "vlad17.github.io"
 
 enableTags: true
 tagarray: []

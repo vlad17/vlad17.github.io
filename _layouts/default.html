@@ -50,25 +50,6 @@
           <meta content="{{ tag }}" property="article:tag">
           {% endfor %}
         {% endif %}
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="@{{ site.share.twitter_username }}">
-        <meta name="twitter:creator" content="@{{ site.share.twitter_username }}">
-        {% if page.title %}
-          <meta name="twitter:title" content="{{ page.title }}">
-        {% else %}
-          <meta name="twitter:title" content="{{ site.title }}">
-        {% endif %}
-        {% if page.url %}
-          <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-        {% endif %}
-        {% if page.description %}
-          <meta name="twitter:description" content="{{ page.description }}">
-        {% else %}
-          <meta name="twitter:description" content="{{ site.description }}">
-        {% endif %}
-        {% if page.header-img %}
-          <meta name="twitter:image:src" content="{{ site.url }}/{{ page.header-img }}">
-        {% endif %}
 
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
         <!-- Custom Fonts -->
@@ -80,15 +61,15 @@
         <!-- Core BootStrap CSS -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- Material Design CSS -->
-        <link rel="stylesheet" href="{{ site.url }}/static/css/bootstrap-material-design.min.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/css/bootstrap-material-design.min.css">
 
         <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="{{ site.url }}/static/css/syntax.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/css/syntax.css">
 
         <!-- Custom CSS -->        
-        <link rel="stylesheet" href="{{ site.url }}/static/css/thickbox.css">
-        <link rel="stylesheet" href="{{ site.url }}/static/css/main.css">
-        <link rel="stylesheet" href="{{ site.url }}/static/css/projects.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/css/thickbox.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/css/main.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/css/projects.css">
         {% include analytics.html %}
     </head>
 
@@ -175,9 +156,9 @@
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-        <script src="{{ site.url }}/static/js/thickbox-compressed.js"></script>
-        <script src="{{ site.url }}/static/js/material.min.js"></script>
-        <script src="{{ site.url }}/static/js/main.js"></script>
-        <script src="{{ site.url }}/static/js/projects.js"></script>
+        <script src="{{ site.baseurl }}/static/js/thickbox-compressed.js"></script>
+        <script src="{{ site.baseurl }}/static/js/material.min.js"></script>
+        <script src="{{ site.baseurl }}/static/js/main.js"></script>
+        <script src="{{ site.baseurl }}/static/js/projects.js"></script>
     </body>
 </html>
