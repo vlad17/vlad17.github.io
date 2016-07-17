@@ -1,8 +1,6 @@
 # personal-web
 
-Repository for local creation of my personal web site:
-
-TODO: aws link
+Repository for local creation of my personal web site: [vlad17.github.io](vlad17.github.io).
 
 ## Frameworks and Infrastructure
 
