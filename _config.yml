@@ -2,7 +2,6 @@ title: Vlad Feinberg
 description: Vlad's Blog
 author: Vlad Feinberg
 about: dev | ml | math
-disqus_shortname: vladfeinberg
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "LICENSE", "Gemfile", "Gemfile.lock"]
 

@@ -27,3 +27,4 @@ Local deployment:
 * Add Apache licenses to all personal code, tags, project script
 * Work info
 * Edu info
+* Fix the off-center sharing stuff
