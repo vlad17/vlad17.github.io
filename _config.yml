@@ -4,6 +4,8 @@ author: Vlad Feinberg
 about: dev | ml | math
 disqus_shortname: vladfeinberg
 
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "LICENSE", "Gemfile", "Gemfile.lock"]
+
 urls:
     - text: Home
       url: /
@@ -44,6 +46,7 @@ share:
   twitter_username: \#
   fb_appid: 000000000000
 
+production_url: "vlad17.github.io"
 
 enableTags: true
 tagarray: []
