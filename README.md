@@ -21,7 +21,6 @@ Local deployment:
 
 ## Other site TODOs:
 
-* Test for open but unreachable links
 * robots.txt
 * Add Apache licenses to all personal code, tags, project script
 * Work info
