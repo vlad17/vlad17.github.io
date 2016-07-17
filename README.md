@@ -21,8 +21,8 @@ Local deployment:
 
 ## Other site TODOs:
 
-* robots.txt
+* Make subcategories: e.g., parallel->(distributed, pram), machine learning->(...). Change description to blog-series, give it subcategories
+* robots.txt / [SEO](https://www.google.com/webmasters/tools/home?hl=en&authuser=0)
 * Add Apache licenses to all personal code, tags, project script
 * Work info
 * Edu info
-* Make subcategories: e.g., parallel->(distributed, pram), machine learning->(...). Change description to blog-series, give it subcategories
