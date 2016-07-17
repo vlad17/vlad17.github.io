@@ -9,8 +9,6 @@ categories: paper-series parallel distributed-systems online-learning scalabilit
 
 **Published** August 2013
 
-**Read** July 2016
-
 # Notes
 
 ## Observations
