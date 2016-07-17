@@ -23,8 +23,6 @@ Local deployment:
 
 ## Other site TODOs:
 
-* email form + about page with requests
-* finish TODOs in ligra
 * Test for open but unreachable links
 * robots.txt
 * Add Apache licenses to all personal code, tags, project script
