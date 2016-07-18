@@ -22,6 +22,7 @@ Local deployment:
 ## Other site TODOs:
 
 * Make subcategories: e.g., parallel->(distributed, pram), machine learning->(...). Change description to blog-series, give it subcategories
+* New icon in tabs
 * Make scripts (excluded from site) for generating new paper posts, new categories
 * robots.txt / [SEO](https://www.google.com/webmasters/tools/home?hl=en&authuser=0)
 * Add Apache licenses to all personal code, tags, project script

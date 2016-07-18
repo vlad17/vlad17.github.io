@@ -12,3 +12,8 @@ If you find any typos or incorrect information, I would really appreciate it if 
 
 If you want to contact me for some other reason, or don't have a GitHub account, then you can email me. To prevent spam bots (the site code is available in a public repository in plaintext) from finding it, you'll have to guess what it is. I use Google mail, and my username is my full first name concatenated with my last. Note that Vlad is a nickname.
 
+Blogs I follow:
+
+* [Fast ML](http://fastml.com/)
+* [Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/)
+* [Machine Learning (Theory)](http://hunch.net/)
