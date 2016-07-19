@@ -5,11 +5,11 @@ date:   2016-07-09
 categories: paper-series parallel distributed-systems online-learning scalability
 ---
 
-[Paper link](http://dl.acm.org/citation.cfm?id=2488200)
-
 # Ad Click Prediction: a View from the Trenches
 
 **Published** August 2013
+
+[Paper link](http://dl.acm.org/citation.cfm?id=2488200)
 
 ## Abstract
 
@@ -47,39 +47,60 @@ Its unregularized gradient is:
 \nabla \ell_t(\textbf{w}\_t)=(p\_t-y\_t)\textbf{x}\_t
 \\]
 
+The \\(i\\)-th element of a vector \\(\textbf{v}\\) will be be given by the unbolded letter \\(v\_i\\).
+
 ##### Sparsity
 
 Completely-0 sparsity is essential because of the large number of features (thus susceptibility to overfitting) and because a sparse coefficient representation scales memory consumption with non-zeros.
 
-\\(L\_1\\) penalty subgradient approaches alone aren't good enough. \\(L\_1\\) won't actively discourage zeros [like \\(L\_2\\) does](stackoverflow), but while usually considered "sparsity-inducing" it's more accurately "sparsity ambivalent": as a weight gets smaller, its penalty follows linearly.
+\\(L\_1\\) penalty subgradient approaches alone aren't good enough. \\(L\_1\\) won't actively discourage zeros [like \\(L\_2\\) does](stackoverflow), but while usually considered _sparsity-inducing_ it's more accurately _sparsity ambivalent_: as a weight gets smaller, its penalty follows linearly.
 
 Some alternative approaches have more active sparsity induction: FOBOS and RDA. I have no idea what they are, but apparently FTRL-Proximal is better anyway (see Table 1 in the paper).
 
 ##### FTRL-Proximal
 
-FTRL-Proximal is an \\(L\_1\\)-regularized version of the Follow The Regularized Leader. Bare FTRL is a core online learning algorithm. It improves upon a naive one, called Follow The Leader, or FTL, where the historically best coefficients in hindsight are chosen for the next step:
+FTRL-Proximal is an \\(L\_1\\)-regularized version of the Follow The Regularized Leader. FTRL is a core online learning algorithm. It improves upon a naive one, called Follow The Leader, or FTL, where the historically best coefficients in hindsight \\(\textbf{w}\_{t}^*\\) are chosen for the next step:
+
 \\[
-\textbf{w}\_{t+1}=\underset{\textbf{w}}{\mathrm{argmin}}\sum\_{i=1}^t\ell_i(\textbf{w})
+\textbf{w}\_{t+1}=\textbf{w}\_t^*=\underset{\textbf{w}}{\mathrm{argmin}}\sum\_{i=1}^t\ell\_i(\textbf{w})
 \\]
+
 Of course, this strategy can be pathologically unstable; consider the expert problem where two experts are alternatingly correct, but the one you choose first is wrong - then you'd be switching to the wrong expert each time.
 
-Let us denote gradient (continue pg. 75 hazan)
-For convex losses \\(\ell\_t\\),
+Borrowing Prof. Hazan's notation \\(\nabla\_i=\nabla\ell\_i(\textbf{w}\_i)\\), the regret contribution for the \\(i\\)-th guess at time \\(t\\) is
+\\(\ell\_i(\textbf{w}\_i)-\ell\_i(\textbf{w}\_{t}^*)\\).
 
-Update step + sigma definition
+This is bounded above by \\(\nabla\_t^T (\textbf{w}\_i-\textbf{w}\_{t}^*)\\) assuming convexity of each \\(\ell\_i\\).
 
-Get to closed form actual solution for update.
+If we look at the related equation for the upper bound of the total regret up to time \\(t\\):
 
-The above all coalesce into the following online algorithm:
+\\[
+\text{regret}\_t\le \sum_{i=1}^t \nabla\_t^T (\textbf{w}\_i-\textbf{w}\_{t}^*)
+\\]
 
-TODO: algorithm1
+We see that FTL is equivalent to **optimizing that bound for the previous iterations**. But, as the example above mentioned, it performs poorly because it can be unstable. FTRL introduces some notion of stability to the algorithm by changing the optimization goal to:
+
+\\[
+\textbf{w}\_{t+1}=\underset{\textbf{w}}{\mathrm{argmin}} \sum_{i=1}^t \nabla\_t^T (\textbf{w}\_i-\textbf{w}\_{t}^*) +R(\textbf{w})
+\\]
+
+The \\(\eta\_t\\) factors control how much the regularization function affects the next guess. By observing that \\(\textbf{w}\_{t}^*\\) is a constant, and choosing \\(R\\) appropriately, we have the new convex update for a particular FTRL algorithm, FTRL-Proximal:
+
+![ftrlprox](/assets/2016-07-17-ad-click-prediction/ftrlprox-update.png){: .center-image }
+
+We inductively define \\(\sigma\_{1:i}=\eta\_{i}^{-1}\\) and let \\(\textbf{g}\_i=\nabla\_i\\). As noted in the paper, if \\(\lambda_1=0\\) and \\(\eta_i=i^{-1/2}\\) then FTRL-Proximal reduces to OGD: \\(\textbf{w}\_{t+1}=\textbf{w}\_t-\eta\_t\textbf{g}_t\\) (verify this by deriving the optimization equation wrt \\(\textbf{w}\\)).
+
+Through a derivation done fairly well in the paper, the weight update step for the proximal algorithm can be done quickly with the intermediate state \\(\textbf{z}\_t=\textbf{g}\_{1:t}-\sum\_{s=1}^t\sigma\_s\textbf{w}\_s\\). Updating the intermediate state is constant-time too.
+
+![ftrlprox](/assets/2016-07-17-ad-click-prediction/noadapt-update.png){: .center-image }
 
 ### Per-Coordinate Learning Rates
 
-TODO
-Basically adagrad
+TODO: motivation, describe how it's basically adagrad
 
-## section 4 TODO
+TODO: paste the algorithm here
+
+## TODO: Continue with section 4.
 
 # Notes
 
