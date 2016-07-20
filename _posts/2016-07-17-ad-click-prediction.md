@@ -29,7 +29,7 @@ Further problem details:
 
 Given sparsity level and scalability requirements, online regularized logisitic regression seems to be the way to go. How do we build a holistic machine learning solution for it?
 
-[Vowpal Wabbit](https://arxiv.org/abs/1110.4198) was developed a few years before a solution to these kinds of problems, but handled several orders of magnitudes less (its dictionary 
+[Vowpal Wabbit](https://arxiv.org/abs/1110.4198) was developed a few years before a solution to these kinds of problems, but handled several orders of magnitudes less (its dictionary size is \\(2^{18}\\) by default).
 
 ## Online Learning and Sparsity
 
@@ -37,7 +37,7 @@ Given sparsity level and scalability requirements, online regularized logisitic 
 
 The paper uses the compressed notation for the sum of the \\(i\\)-th gradients: \\(\textbf{g}\_{1:t}=\sum\_{i=1}^t\textbf{g}\_i\\), where the gradient is computed from the logistic loss of the \\(t\\)-th example \\(\textbf{x}\_t\\), given for the prediction \\(y_t\in\{0,1\}\\) given the current weight \\(\textbf{w}\_t\\).
 
-Predictions are made according to the sigmoid, where \\(p\_t=\sigma(\textbf{w}\_t\cdot\textbf{x}\_t\\) and \\(\sigma(a)=(1+\exp(-a))^{-1}\\). Loss is:
+Predictions are made according to the sigmoid, where \\(p\_t=\sigma(\textbf{w}\_t\cdot\textbf{x}\_t)\\) and \\(\sigma(a)=(1+\exp(-a))^{-1}\\). Loss is:
 \\[
 \ell\_t(\textbf{w}\_t)=-y\_t\log p\_t-(1-y\_t)\log(1-p\_t)
 \\]
@@ -59,7 +59,7 @@ Some alternative approaches have more active sparsity induction: FOBOS and RDA. 
 
 ##### FTRL-Proximal
 
-FTRL-Proximal is an \\(L\_1\\)-regularized version of the Follow The Regularized Leader. FTRL is a core online learning algorithm. It improves upon a naive one, called Follow The Leader, or FTL, where the historically best coefficients in hindsight \\(\textbf{w}\_{t}^*\\) are chosen for the next step:
+FTRL-Proximal is an \\(L\_1\\)-regularized version of the Follow The Regularized Leader. FTRL is a core online learning algorithm. It improves upon a naive one, called Follow The Leader, or FTL, where the best coefficients in hindsight \\(\textbf{w}\_{t}^*\\) are chosen for the next step:
 
 \\[
 \textbf{w}\_{t+1}=\textbf{w}\_t^*=\underset{\textbf{w}}{\mathrm{argmin}}\sum\_{i=1}^t\ell\_i(\textbf{w})
@@ -78,17 +78,17 @@ If we look at the related equation for the upper bound of the total regret up to
 \text{regret}\_t\le \sum_{i=1}^t \nabla\_t^T (\textbf{w}\_i-\textbf{w}\_{t}^*)
 \\]
 
-We see that FTL is equivalent to **optimizing that bound for the previous iterations**. But, as the example above mentioned, it performs poorly because it can be unstable. FTRL introduces some notion of stability to the algorithm by changing the optimization goal to:
+We see that FTL is equivalent to **optimizing that bound for the previous iterations**. In fact, optimizing this bound is all we _can_ do: we don't know each \\(\ell_i\\) ahead of time, so we solve the generic bound for any differentiable convex loss, only using the observed gradient \\(\nabla_i\\), instead. But, as the example above mentioned, it performs poorly because it can be unstable. FTRL introduces some notion of stability to the algorithm by changing the optimization goal to:
 
 \\[
-\textbf{w}\_{t+1}=\underset{\textbf{w}}{\mathrm{argmin}} \sum_{i=1}^t \nabla\_t^T (\textbf{w}\_i-\textbf{w}\_{t}^*) +R(\textbf{w})
+\textbf{w}\_{t+1}=\underset{\textbf{w}}{\mathrm{argmin}} \sum_{i=1}^t \eta_t\nabla\_t^T (\textbf{w}\_i-\textbf{w}\_{t}^*) +R(\textbf{w})
 \\]
 
 The \\(\eta\_t\\) factors control how much the regularization function affects the next guess. By observing that \\(\textbf{w}\_{t}^*\\) is a constant, and choosing \\(R\\) appropriately, we have the new convex update for a particular FTRL algorithm, FTRL-Proximal:
 
 ![ftrlprox](/assets/2016-07-17-ad-click-prediction/ftrlprox-update.png){: .center-image }
 
-We inductively define \\(\sigma\_{1:i}=\eta\_{i}^{-1}\\) and let \\(\textbf{g}\_i=\nabla\_i\\). As noted in the paper, if \\(\lambda_1=0\\) and \\(\eta_i=i^{-1/2}\\) then FTRL-Proximal reduces to OGD: \\(\textbf{w}\_{t+1}=\textbf{w}\_t-\eta\_t\textbf{g}_t\\) (verify this by deriving the optimization equation wrt \\(\textbf{w}\\)).
+We inductively define \\(\sigma\_{1:i}=\eta\_{i}^{-1}\\) (for \\(\eta_t=O(t^{-1})\\) this is eventually montonically nonincreasing) and let \\(\textbf{g}\_i=\nabla\_i\\). As noted in the paper, if \\(\lambda_1=0\\) and \\(\eta_i=i^{-1/2}\\) then FTRL-Proximal reduces to OGD: \\(\textbf{w}\_{t+1}=\textbf{w}\_t-\eta\_t\textbf{g}_t\\) (verify this by deriving the optimization equation wrt \\(\textbf{w}\\)).
 
 Through a derivation done fairly well in the paper, the weight update step for the proximal algorithm can be done quickly with the intermediate state \\(\textbf{z}\_t=\textbf{g}\_{1:t}-\sum\_{s=1}^t\sigma\_s\textbf{w}\_s\\). Updating the intermediate state is constant-time too.
 
@@ -115,3 +115,8 @@ TODO: paste the algorithm here
 ## Takeaways
 
 # Open Questions
+
+* Maybe we can't solve the regret bound for the adversarial case where arbitrary differentiable convex loss functions are presented to us. However, we know \\(\ell_i\\) take a log-loss shape always. Perhaps there exists an analytical solution to the exact FTRL problem:
+\\[
+\textbf{w}\_{t+1}=\underset{\textbf{w}}{\mathrm{argmin}}\;\; \eta_t\sum\_{i=1}^t\left(\ell\_i(\textbf{w})-\ell\_i(\textbf{w}\_{t}^*)\right) +R(\textbf{w})
+\\]
