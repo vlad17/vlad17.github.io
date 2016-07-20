@@ -17,3 +17,4 @@ Blogs I follow:
 * [Fast ML](http://fastml.com/)
 * [Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/)
 * [Machine Learning (Theory)](http://hunch.net/)
+* [I'm a Bandit](https://blogs.princeton.edu/imabandit/)
