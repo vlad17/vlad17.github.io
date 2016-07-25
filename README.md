@@ -25,9 +25,7 @@ Favicon image is from [this random site](http://www.playbuzz.com/martinshaba10/w
 
 ## Other site TODOs:
 
-* New icon in tabs
 * Make scripts (excluded from site) for generating new paper posts, new categories
-* robots.txt / [SEO](https://www.google.com/webmasters/tools/home?hl=en&authuser=0)
 * Add Apache licenses to all personal code, tags, project script
 * Work info
 * Edu info
