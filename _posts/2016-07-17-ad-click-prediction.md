@@ -136,7 +136,9 @@ Due to the range of coefficients that were being dealt with, encoding values as 
 
 ### A Single Value Structure
 
-TODO
+When training multiple models with shared sets of features at the same time, it was efficient to consolidate the weights for the shared variables. Training would work by performing averaged feature updates across models with the same set of coefficients. A bit field keeps track of which coefficient is active where.
+
+This would only seem valid with a Naive-Bayes like assumption for the features.
 
 ### Computing Learning Rates with Counts
 
