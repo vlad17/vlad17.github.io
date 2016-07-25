@@ -169,10 +169,7 @@ Click-through happens very infrequently, much less than 50% of the time. For thi
 
 * Naive Bayes is a safe assumption when learning how adaptive to be for feature rates.
 
-
-# Insight
-
-## Takeaways
+# Takeaways
 
 * To what degree do our non-Google problems, as readers, have such a large feature space? What can we adopt in systems from here when we have to deal with different tradeoffs?
 
