@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ad Click Prediction"
-date:   2016-07-09
+date:   2016-07-17
 categories: paper-series parallel distributed-systems online-learning scalability
 ---
 
@@ -136,6 +136,8 @@ Due to the range of coefficients that were being dealt with, encoding values as 
 
 ### A Single Value Structure
 
+TODO
+
 ### Computing Learning Rates with Counts
 
 While not quantified, this method makes the assumption that for any event \\(\textbf{x}\_i\\), the activation of feature \\(f\\) gives a constant probability of click-through:
@@ -151,27 +153,68 @@ Effectively, this makes a Naive-Bayes assumption for adaptive learning, but does
 
 Click-through happens very infrequently, much less than 50% of the time. For this reason, just training on all the data evenly would lead to a model that is much more educated in the negatives than the positives. By subsampling negatives by some rate \\(r\\) and magifying their gradients by \\(1/r\\) overall validity of the model can be maintained in terms of expected loss, but we also have the nice property that the probability we are correct **given** we have a true positive is the same as that for a true a true negative.
 
+## Evaluating Model Performance
+
+### Progressive Validation
+Use relative changes (compared to some initial baseline) in all performance metrics to achieve stability.
+
+### Deep Understanding Through Visualization
+
+## Confidence Estimates
+
+Because of the lack of linear algorithms for confidence estimates, a proxy based on the upper bound of model prediction change is used.
+\\[
+\left\vert\textbf{x}\cdot\textbf{w}\_{t}-\textbf{x}\cdot\textbf{w}\_{t+1}\right\vert
+\\]
+
+This proved "highly correlated" with actual confidence intervals in log-odds space using bootstrap for ground truth.
+
+## Calibrating Predictions
+
+As a sort of stop-gap measure, the model's average prediction rate \\(\hat{p}\\) over a batch of inputs is compared to the true rate of click-through, \\(p\\). If there's systematic bias in the model, it's corrected by an additional isotonic regression fitting \\(\hat{p}\\) to \\(p\\).
+
+## Automated Feature Management
+
+## Unsuccessful Experiments
+
+### Feature Hashing
+
+Using a hash to represent features instead of strings is a memory-saving trick that worked well in other contexts, but required too large of a dimension for the hashtable to be applicable (since collisions hurt accuracy).
+
+### Dropout
+
+Dropout is useful for vision but not here because in vision there is a dense amount of redundant information.
+
+### Feature Bagging
+
+### Feature Vector Normalization
+
 # Notes
 
 ## Observations
 
 * Fundamentally, it looks like RAM is the bottleneck to more AUC improvement: more RAM means more features, more features apparently always helped in the heavily regularized setting.
+* You can take a lot of seemingly required assumptions for online algorithm metadata, but still maintain accuracy.
+* Amazingly, the single value structure did not worsen performance. I was surprised that two different models, only one of which has a feature with a strong correlation with a shared feature, wouldn't have antagonistic gradient updates for the shared feature.
 
 ## Weaknesses
 
 * Certain recommendations seem unapplicable outside of companies with huge amountes of resources:
   * New floating point values? That must've been a whole re-write.
-  * Exploring such a large space of approaches takes a lot of people and a lot of machines. There were probably a lot of failed approaches that didn't make it to the paper: to what extent is the approach presented here "overfit" to CTR prediction?
-* It's unclear what kind of tradeoff considerations went into using [count-based learning rates](#computing-learning-rates-with-counts) - how much did using the approximation hurt accuracy?
+  * Exploring such a large space of approaches takes a lot of people and a lot of machines. There were probably a lot of failed approaches that didn't make it to the paper: to what extent is the approach presented here "overfit" to CTR prediction? Some of the "failed approaches" even mentioned in the paper don't have a good explanation behind them, which is indicative of the aforementioned problem.
+* It's unclear what lead to using [count-based learning rates](#computing-learning-rates-with-counts) or [prediciton calibration](#calibrating-predictions) - how much did these methods hurt accuracy.
 * How was distributed model training performed? Was parallelism at the per-model level (apparently not completely, with the [single value structure](#a-single-value-structure))?
 
 ## Strengths
 
-* Naive Bayes is a safe assumption when learning how adaptive to be for feature rates.
+* Naive Bayes can be safe assumption when learning how adaptive to be for feature rates.
+* Insane RAM savings through multiple ingenious, well-engineered solutions.
+* Simple methods are made predictive at scale.
 
 # Takeaways
 
 * To what degree do our non-Google problems, as readers, have such a large feature space? What can we adopt in systems from here when we have to deal with different tradeoffs?
+* Probabilistic feature selection is a novel, online method for both reducing noice and RAM use. It can definately be used elsewhere.
 
 # Open Questions
 
