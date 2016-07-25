@@ -19,7 +19,7 @@ categories: paper-series parallel distributed-systems online-learning scalabilit
 
 ##### Problem Statement
 
-For any given a query, ad, and associated interaction and metadata represented as a real feature vector \\(\textbf{x}\in\mathbb{R}^d\\), provide an estimate of the probability that the user making the query will click on the ad. Solving this problem has beneficial implications for ad auction pricing in Google's online advertising business.
+For any given a query, ad, and associated interaction and metadata represented as a real feature vector \\(\textbf{x}\in\mathbb{R}^d\\), provide an estimate of the probability \\(\mathbb{P}(\text{click}(\textbf{x}))\\)that the user making the query will click on the ad. Solving this problem has beneficial implications for ad auction pricing in Google's online advertising business.
 
 Further problem details:
 
@@ -30,6 +30,8 @@ Further problem details:
 Given sparsity level and scalability requirements, online regularized logisitic regression seems to be the way to go. How do we build a holistic machine learning solution for it?
 
 [Vowpal Wabbit](https://arxiv.org/abs/1110.4198) was developed a few years before a solution to these kinds of problems, but handled several orders of magnitudes less (its dictionary size is \\(2^{18}\\) by default).
+
+_Note_: in the discussion below we'll be assuming most of the features are categorical variables, represented as indicators with strings as the feature names.
 
 ## Online Learning and Sparsity
 
@@ -96,23 +98,83 @@ Through a derivation done fairly well in the paper, the weight update step for t
 
 ### Per-Coordinate Learning Rates
 
-TODO: motivation, describe how it's basically adagrad
+The extreme sparsity of the situation requires adaptive learning rates: by intelligently choosing a per-feature \\(\eta\_{t, i}\\) rate, we can better balance the exploration-exploitation tradeoff in a situation where we see different features activated at different rates.
 
-TODO: paste the algorithm here
+The paper's coin example explains this tersely and cogently, so I won't replicate it here. By tracking the \\(\sum\_{s=1}^tg\_{s, i}^2\\), the sum of squares of the \\(i\\)-th feature of each gradient, we have a measure for each feature's activity. Scaling the learning rate inversely with this sum lets us trust a very "active" feature's past more than its immediate changes (and conversely for dormant features). This has asymptotic improvements in the \\(\text{regret}\\) metric described above.
 
-## TODO: Continue with section 4.
+## Saving Memory at Massive Scale
+
+Google makes it clear the bottleneck with this model is RAM: more features included enable higher accuracy.
+
+### Probablistic Feature Inclusion
+
+You can't perform standard offline feature bagging to exclude features: this requires performing a write to the data to exclude said features, expensive in an online context. Instead, the first several instances of a feature can be ignored, with a feature only starting to be tracked in the coefficient vector if it passes a probibalistic inclusion barrier.
+
+##### Poisson Inclusion
+
+A simple randomized form of performing online feature inclusion. Upon activation of an unseen feature, with probability \\(p\\) include the feature: in expectation a feature needs to appear \\(1/p\\) times to be included.
+
+##### Bloom Filter Inclusion
+
+Amending bloom filters to store counts (insert increments a count in each slot for each hash function, delete decrements), if a feature has been inserted \\(n\\) times (with the potential of false postivies), it is added to the model.
+
+I still don't know what **rolling set of bloom filters** is for sure. In theory, counting bloom filters support deletion (where a recently-added feature would be removed \\(n\\) times). Perhaps use of one bloom filter is an issue because hitting the counter limit for each slot means deletion would induce false negatives (we lose information about other features with extra counts being stored). So periodically clearing the filter instead of deleting everything is an option; but the details on this are not fleshed out and it's unclear what approach Google took. The references don't reveal much, either.
+
+Nonetheless, feature selection in this manner provides exceptional memory savings with low accuracy loss:
+
+![probabilistic feature selection](/assets/2016-07-17-ad-click-prediction/prob-feat-sel.png){: .center-image }
+
+### Encoding Values with Fewer Bits
+
+Due to the range of coefficients that were being dealt with, encoding values as fixed-point 16-bit decimals was possible, with no measurable accuracy losses. Over 64-bit floats, huge savings.
+
+### Training Many Similar Models
+
+1. Using a previous model as the prior saves on training.
+2. Training multiple models at once coalesces metadata (hash table for weight coefficients only uses one key for many models).
+3. [Count-based learning rates](#computing-learning-rates-with-counts) lets Google keep aggregate statistics of number of positives and total examples seen, which can be shared for simultaneously-trained models.
+
+### A Single Value Structure
+
+### Computing Learning Rates with Counts
+
+While not quantified, this method makes the assumption that for any event \\(\textbf{x}\_i\\), the activation of feature \\(f\\) gives a constant probability of click-through:
+\\[
+\mathbb{P}(\text{click}(\textbf{x}\_i)| x\_{i, f}=1)=\frac{P\_f}{N\_f+P\_f}
+\\]
+
+In the above, \\(P\_f,N\_f\\) represent the positive and negative examples for events feature \\(f\\) activated in the past.
+
+Effectively, this makes a Naive-Bayes assumption for adaptive learning, but doesn't make the harsh non-interaction assumption for actual prediction.
+
+### Subsampling Training Data
+
+Click-through happens very infrequently, much less than 50% of the time. For this reason, just training on all the data evenly would lead to a model that is much more educated in the negatives than the positives. By subsampling negatives by some rate \\(r\\) and magifying their gradients by \\(1/r\\) overall validity of the model can be maintained in terms of expected loss, but we also have the nice property that the probability we are correct **given** we have a true positive is the same as that for a true a true negative.
 
 # Notes
 
 ## Observations
 
+* Fundamentally, it looks like RAM is the bottleneck to more AUC improvement: more RAM means more features, more features apparently always helped in the heavily regularized setting.
+
 ## Weaknesses
 
+* Certain recommendations seem unapplicable outside of companies with huge amountes of resources:
+  * New floating point values? That must've been a whole re-write.
+  * Exploring such a large space of approaches takes a lot of people and a lot of machines. There were probably a lot of failed approaches that didn't make it to the paper: to what extent is the approach presented here "overfit" to CTR prediction?
+* It's unclear what kind of tradeoff considerations went into using [count-based learning rates](#computing-learning-rates-with-counts) - how much did using the approximation hurt accuracy?
+* How was distributed model training performed? Was parallelism at the per-model level (apparently not completely, with the [single value structure](#a-single-value-structure))?
+
 ## Strengths
+
+* Naive Bayes is a safe assumption when learning how adaptive to be for feature rates.
+
 
 # Insight
 
 ## Takeaways
+
+* To what degree do our non-Google problems, as readers, have such a large feature space? What can we adopt in systems from here when we have to deal with different tradeoffs?
 
 # Open Questions
 
@@ -120,3 +182,6 @@ TODO: paste the algorithm here
 \\[
 \textbf{w}\_{t+1}=\underset{\textbf{w}}{\mathrm{argmin}}\;\; \eta_t\sum\_{i=1}^t\left(\ell\_i(\textbf{w})-\ell\_i(\textbf{w}\_{t}^*)\right) +R(\textbf{w})
 \\]
+* The paper cites [AdaGrad](http://www.jmlr.org/papers/v12/duchi11a.html) and [Less Regret via Online Conditioning](http://arxiv.org/abs/1002.4862) for a theoretical treatment of adaptive learning. However, these are general FTRL results. Perhaps there is an interaction with the particular FTRL-Proxmal regularization that can yield more specific insights into regret guarantees with an adaptive approach there? To some extent, sparsity and adaptive subgradient approaches seem at odds: the former may make the latter slow to recognize new trends in features.
+* What is a rolling set of bloom filters?
+* At what point does engineering to be memory efficient become more expensive than just purchasing computers with more RAM?
