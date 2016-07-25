@@ -33,15 +33,3 @@ As noted above, these posts should be a summary (they're meant to save us time f
 I'll maintain the paper's structure in the summary, corresponding to the Markdown heading hierarchy, up to three levels. Any further nested levelling is not from the paper itself but for clarity. That is, the first-tier header is my own delimiting; 2 corresponds to a section; 3, a subsection; 4, a subsubsection; and anything beyond is again my own).
 
 For mathematical notation, I'll try my best to respect that used by the originating paper.
-
-# Jekyll Markdown Features (please ignore)
-
-Test image:
-
-![test-image-alt-text](/assets/test-page-image-1.jpg);
-
-\\[
-\int x dx; \mathsf{Testing\ display\ math}
-\\]
-
-Inline math: \\(\sum_{i=1}^n i\\)
