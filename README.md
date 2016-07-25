@@ -19,6 +19,10 @@ Local deployment:
 
 1. In `jekyll-project` subdirectory, run `bundler exec jekyll serve`
 
+## Credits
+
+Favicon image is from [this random site](http://www.playbuzz.com/martinshaba10/what-planet-describes-you-most).
+
 ## Other site TODOs:
 
 * New icon in tabs
