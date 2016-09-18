@@ -50,6 +50,8 @@ Map reduce was built with the intent of distributing work among commodity hardwa
 
 For \\(M\\) map tasks and \\(R\\) reduce tasks, with a partitioning function (which may be either a hash or interval rank, depending on whether output was expected to be sorted or not), MR works in the following manner.
 
+![mapred-exec](/assets/2016-09-17-mapreduce/mapreduce-exec.png){: .center-image }
+
 1. The input is split into \\(M\\) pieces and made available for distributed reading.
 2. A master node initializes the state for the map tasks and reduce tasks; scheduling them with dependencies.
 3. Map workers apply the map function to their chunk of the input, which was first copied to local disk. The outputted key/value pairs are buffered in memory and periodically flushed to the local disk.
