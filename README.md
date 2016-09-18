@@ -10,8 +10,7 @@ I use [Jekyll](https://jekyllrb.com/) to generate my content and [GitHub Pages](
 
 Install:
 
-1. Transitive deps for Jekyll (not Jekyll itself).
-1. Package binaries: `nodejs`
+1. Transitive deps for Jekyll (not Jekyll itself): `nodejs`, `ruby`.
 1. Make sure you have `bundler`: `sudo gem install bundler`
 1. In the root directory, `bundler update && bundler install`
 
