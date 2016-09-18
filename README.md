@@ -24,6 +24,7 @@ Favicon image is from [this random site](http://www.playbuzz.com/martinshaba10/w
 
 ## Other site TODOs:
 
+* Spelling check (make it a script).
 * Add images to project cards
 * Make scripts (excluded from site) for generating new paper posts, new categories
 * Add Apache licenses to all personal code
