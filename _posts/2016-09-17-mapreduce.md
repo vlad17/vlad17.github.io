@@ -7,7 +7,7 @@ categories: paper-series parallel distributed-systems scalability fault-toleranc
 
 # MapReduce: Simplified Data Processing on Large Clusters
 
-**Published** August 2013
+**Published** December 2004
 
 [Paper link](http://research.google.com/archive/mapreduce.html)
 
@@ -84,6 +84,30 @@ The network-scarsity assumption means that the optimal blocking size for the com
 
 Stragglers, caused by bugs or hardware failures, are common with an increase of the number of workers. They are resolved by launching backup tasks near completion, which reduce the probability of all tasks straggling (only one needs to finish). Removing this optimization in the sorting example causes a 44% slowdown.
 
+## Refinements
+
+### Combiner Function
+
+A combiner function is an associative, commutative `Reduce`-type function that can be iteratively applied in a tree structure increase the reduce task's span (level of parallelism). MR applies the combiner on the map task side, which can reduce communication size and overall compute time.
+
+## Performance
+
+Performance was tested on 1800 machines witha two-level tree-shaped switched network of 100 Gbps aggregate bandwidth, 2GHz processors, and 3 GBs of RAM per node.
+
+Distributed grep used \\(M=15000, R=1\\), oversubscribing the map tasks for appropriate task granularity (input was 1TB). End-to-end is 150 seconds.
+
+Terasort takes 891 seconds. For comparison, at the time, the best TeraSort was 1057 seconds. Note that for general sorting, MR recommends a sampling pre-pass for split computations.
+
+MR was observed to be biased towards faster shuffle and input rates. Output is slower because it makes replicated writes.
+
+## Experience
+
+## Related Work
+
+## Conclusions
+
+MR introduced the notion of a **restricted, simple API** that allows for expressiveness required for many tasks while maintaining simple semantics and enabling distributed processing. **Network bandwidth** is observed to be the bottleneck. Finally, replication-based variance reduction for latency is introduced as a technique (though it may be used for other goals as well).
+
 # Notes
 
 ## Observations
@@ -100,11 +124,10 @@ Stragglers, caused by bugs or hardware failures, are common with an increase of 
 ## Strengths
 
 * Speeding up tail performance through replication is an innovation pioneered by MR (see [Backup Tasks](#backup-tasks)).
-
-# Takeaways
-
-*
+* MR also was very innovative in usability, considering that it was an early execution engine. Besides the interface itself, MR provided mechanisms for automatically detecting deterministic user-code bugs (via bad record tracking and ignoring), a local execution mode, out-of-band counters, and HTTP-based status information.
+* For its time, MR was massively enabling for large-scale computation.
 
 # Open Questions
 
-*
+* What would it take to have a master-out-of-the-loop asynchronous execution engine?
+* What needs to happen to alleviate the parallel (1) reentrancy and (2) thread-safety requirements that MR places on its user code in case of failure?
