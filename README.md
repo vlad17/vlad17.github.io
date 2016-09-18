@@ -13,11 +13,11 @@ Install:
 1. Transitive deps for Jekyll (not Jekyll itself).
 1. Package binaries: `nodejs`
 1. Make sure you have `bundler`: `sudo gem install bundler`
-1. In `jekyll-project` subdirectory, `bundler update && bundler install`
+1. In the root directory, `bundler update && bundler install`
 
 Local deployment:
 
-1. In `jekyll-project` subdirectory, run `bundler exec jekyll serve`
+1. In root directory, run `bundler exec jekyll serve`
 
 ## Credits
 
