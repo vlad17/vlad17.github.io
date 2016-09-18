@@ -4,4 +4,4 @@ title: Projects
 permalink: /projects/
 ---
 
-Eventually these project placeholders will be replaced by my GitHub repositories, hopefully through a script writing to Jekyll _data.
+All of these link to my github repo. Please excuse the image placeholder.
