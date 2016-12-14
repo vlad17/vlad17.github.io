@@ -18,3 +18,5 @@ Blogs I follow:
 * [Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/)
 * [Machine Learning (Theory)](http://hunch.net/)
 * [I'm a Bandit](https://blogs.princeton.edu/imabandit/)
+* [Minimizing Regret](http://www.minimizingregret.com/)
+
