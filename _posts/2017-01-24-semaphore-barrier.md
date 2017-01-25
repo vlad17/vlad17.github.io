@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Semaphore Barrier"
-date:   2017-01-25
+date:   2017-01-24
 categories: interview-question parallel
 ---
 
