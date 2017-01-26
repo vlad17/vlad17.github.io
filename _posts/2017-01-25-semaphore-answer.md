@@ -178,10 +178,10 @@ By the reasoning from before, block (2) guarantees that \\(t_{(n-1)k} < t_{j1}\\
 
 In other words, all threads wait on thread 3 (eq. 1).
 
-Next, we focus on block (1). We apply the lemma from solution 1 for each \\(i\\) between \\(2\\) and \\(n-2\\), which, by virtue of `s(i)` only being used once, says that the `s(i).down` instruction on thread \\(i\\) follows the `s(j + 1).up` one on thread \\(j\\), where \\(j = i - 1\\). For \\(j>1\\), this statement is \\(t_{j2}<t_{i1}\\). Next, by the sequence property, we have \\(t_{j1}<t_{j2}\\). Finally, chaining all these inequalities together, we get for \\(j<n-1\\) (eq.2):
+Next, we focus on block (1). We apply the lemma from solution 1 for each \\(i\\) between \\(2\\) and \\(n-2\\), which, by virtue of `s(i)` only being used once, says that the `s(i).down` instruction on thread \\(i\\) follows the `s(j + 1).up` one on thread \\(j\\), where \\(j = i - 1\\). For \\(j<n-2\\), this statement is \\(t\_{j2}<t\_{i1}\\). Next, by the sequence property, we have \\(\forall j,t_{j1}<t_{j2}\\). Finally, chaining all these inequalities together, we get for \\(j<n-1\\) (eq.2):
 
 \\[
-t\_{j1}<t\_{(n-2)1}< t\_{(n-2)2}
+t\_{j1}\le t\_{(n-2)1}< t\_{(n-2)2}
 \\]
 
 We use the lemma from solution 1 once on the semaphore `s(n-1)`, upped exactly at \\(t_{(n-2)2}\\) and downed on \\(t\_{(n-1)2}\\). In turn, we have (eq. 3):
@@ -190,7 +190,7 @@ We use the lemma from solution 1 once on the semaphore `s(n-1)`, upped exactly a
 t\_{(n-2)2} < t\_{(n-1)2}< t\_{(n-1)3}
 \\]
 
-Let's recap. All threads already wait on thread \\(n-1\\). We just need to check that all threads also wait on all threads \\(i\\) between \\(1\\) and \\(n-2\\). For all \\(j\neq i\\):
+Let's recap. All threads already wait on thread \\(n-1\\). We just need to check that all threads also wait on all threads \\(i\\) between \\(1\\) and \\(n-2\\). For all \\(i,j\\):
 
 \\[
 \begin{align} t\_{i1} &< t\_{(n-2)2} & \text{eq. 2}\\\\ &<t\_{(n-1)3} &\text{eq. 3} \\\\ &<t\_{j\left\vert t_j\right\vert} &\text{eq. 1} \\\\ \end{align}
