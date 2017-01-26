@@ -7,7 +7,7 @@ categories: interview-question parallel
 
 # The Semaphore Barrier
 
-I wanted to share a an interview question I came up with. The idea came from my operating systems class, where we were expected to implement synchronization primitives.
+I wanted to share an interview question I came up with. The idea came from my operating systems class, where we were expected to implement synchronization primitives.
 
 Synchronization primitives can be used to coordinate across multiple threads working on a task in parallel.
 
@@ -67,21 +67,21 @@ This can be done with two semaphores.
 
 ### Solution to the Warm-up
 
-As you may have guessed, the only nontrivial semaphore arrangement works. From here on, we let `si` be the `i`-th semaphore, initialized with state 0. Similarly, t\\(i\\) will refer to the \\(i\\)-th thread. Here's what we would want `b.wait()` to do on each thread.
+As you may have guessed, the only nontrivial semaphore arrangement works. From here on, we let `s(i)` be the `i`-th semaphore, initialized with state 0. Similarly, \\(t_i\\) will refer to the \\(i\\)-th thread. Here's what we would want `b.wait()` to do on each thread.
 
 | t0 | | t1 |
 | --- | --- | --- |
-| `s0.up()` | | `s1.up()` |
-| `s1.down()` | | `s0.down()` |
+| `s(0).up` | | `s(1).up` |
+| `s(1).down` | | `s(0).down` |
 
 
-Indeed - t0 can't advance past `b.wait()` unless `s1` is `up`ped, which only happens if t1 call `b.wait()`. Symmetric logic shows that our barrier, if implemented to execute those instructions on each thread, will similarly stop `s2` from advancing without `s1` being ready.
+Indeed - \\(t_0\\) can't advance past `b.wait()` unless `s(1)` is `up`ped, which only happens if \\(t_1\\) call `b.wait()`. Symmetric logic shows that our barrier, if implemented to execute those instructions on each thread, will similarly stop `s(2)` from advancing without `s(1)` being ready.
 
 ### The General Problem
 
 Now, here's the main question:
 
-**Can we implement an arbitrary barrier, capable of blocking `n` threads, with semaphores and control flow?**
+**Can we implement an arbitrary barrier, capable of blocking `n` threads, with semaphores and control flow? Without control flow (non-recursive programs)?** 
 
 Now, can we do so _efficiently_, using as few semaphores as possible? In as little time per thread as possible?
 
@@ -91,10 +91,10 @@ Let's try extending our approach from the 2-thread case. Maybe we can just use 3
 
 | t0 | | t1 | |  t2 |
 | --- | --- | --- | --- | --- |
-| `s0.up()` | | `s1.up()` | | `s2.up()` |
-| `s1.down()` | | `s2.down()` | | `s0.down()` |
+| `s(0).up` | | `s(1).up` | | `s(2).up` |
+| `s(1).down` | | `s(2).down` | | `s(0).down` |
 
-But this won't work, unfortunately: suppose t0 is running slow. Both t1 and t2 finish well ahead of time, and each calls `b.wait()`. Then t2 ups `s2`, after which `t1` can pass through without waiting for `t0` to call `b.wait()`, a violation of our barrier behavior.
+But this won't work, unfortunately: suppose \\(t_0\\) is running slow. Both \\(t_1\\) and \\(t_2\\) finish well ahead of time, and each calls `b.wait()`. Then \\(t_2\\) ups `s(2)`, after which \\(t_1\\) can pass through without waiting for \\(t_0\\) to call `b.wait()`, a violation of our barrier behavior.
 
 #### Answer
 
@@ -104,6 +104,8 @@ Not so fast! Try it yourself! How efficient is your solution? There's a couple o
 0. \\(O(n)\\) space and \\(O(n)\\) time
 0. \\(O(n)\\) space and \\(O(1)\\) average time, \\(O(n)\\) worst-case time
 0. \\(O(n)\\) space and \\(O(1)\\) worst-case time
+
+[Link to answer]({{ site.baseurl }}{% post_url 2017-01-25-semaphore-answer %})
 
 ### A Note on Thread IDs
 
