@@ -31,8 +31,6 @@ If we wanted to make sure that only 5 threads executing `f()` (a function that w
 
 Regardless of how many threads call `f` at the same time, because of the atomic guarantees on `s`'s state, only 5 threads will be let through to print `hello`.
 
-**Note**: I used python above, and some of you may point out that python only allows single-threaded execution. While this is kind-of true (with some nuances regarding GIL-unlocked C calls).
-
 If at any time in the above we had at least 6 threads call `f` and any thread also call `s.up()` at some point, eventually 6 `hello`s would be printed.
 
 In the following, we'll assume the OS provides a magic semaphore implementation.

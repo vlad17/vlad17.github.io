@@ -19,26 +19,33 @@ In our simplified execution model without recursive functions, it suffices to as
 
 ### Order of Execution
 
-Our parallel machine is free to choose a global order of operations \\(g\\) amongst all threads \\(\\{t\_i\\}\_{i}\\), where each \\(g_j=t_{ik}\\) for all \\(j\\) and some corresponding \\(i,k\\). The _sequencing constraint_ is as follows:
+Our parallel machine is free to choose a global order of operations \\(g\\) amongst all threads \\(\\{t\_i\\}\_{i}\\), where each \\(g_j=t_{ik}\\) for all \\(j\\) and some corresponding \\(i,k\\). However, the machine has to choose an ordering that is _valid_.
+
+A valid ordering \\(g\\) satisfies two criteria.
+
+The _sequencing constraint_ is as follows:
 
 \\[
-k<m, g_a=t_{ik}, g_b=t_{im}\implies a<b
+k<m \implies t\_{ik} <\_g t\_{im}
 \\]
 
-For every global ordering of operations \\(g\\), there's a corresponding sequence \\(s\\) with the state of each semaphore (corresponding to the function from semaphore index to semaphore state) after every time point, related to the each operation in the obvious way. Letting \\(s_0=(i\mapsto 0)\\):
+Above, we define an ordering over operations \\(x <\_g y\\) with respect to some ordering in the natural way: in \\(g\\), \\(x\\) comes before \\(y\\). If a statement holds for all (valid) \\(g\\), we omit the subscript: the conclusion of the sequencing constraint can be re-written \\(t\_{ik} < t\_{im}\\).
+
+In addition, for every global ordering of operations \\(g\\), there's a corresponding sequence \\(s\\) (which differs from the un-italicized `s(i)`, the code for the `i`-th semaphore). The \\(j\\)-th element in the sequence \\(s\\) is the state of each semaphore after the \\(j\\)-th instruction \\(g\_j\\). We represent this state as a function from semaphore index to semaphore state. Letting \\(s_0=(i\mapsto 0)\\):
 
 \\[
 s_{j}(i)=s_{j-1}(i)+\begin{cases}
-1 & g_j=\text{s(j).up}\\\\  - 1 & g_j=\text{s(j).down}\\\\ 0 & \text{otherwise}\\\\
+1 & g_j=\text{s(i).up}\\\\  - 1 & g_j=\text{s(i).down}\\\\ 0 & \text{otherwise}\\\\
 \end{cases}
 \\]
 
-Then the _semaphore constraint_ requires that the global order \\(g\\) is chosen such that:
+The above just says that after the `i`-th semaphore is upped, its value should be 1 more than before, and vice-versa for down.
+
+The _semaphore constraint_ requires that the global order \\(g\\) is chosen such that:
 \\[
 \forall i,j\,\,\,\,\, s_j(i)\ge 0
 \\]
-
-A \\(g\\) satifsying both the _sequencing_ and _semaphore_ constraints is called _valid_.
+Here, this constraint just makes sure that semaphores actually work as expected - it can't be that a `down` call succeeds on a semaphore that had state 0 - it should wait until a corresponding `up` call completes, first.
 
 ### Solution Criteria
 
@@ -46,10 +53,8 @@ A solution (which defines the particular values \\(\\{t\_i\\}\_{i}\\)) must sati
 
 (_Correctness_): No thread can finish `b.wait()` before all threads have called the method:
 \\[
-\forall i,j,T\triangleq\left\vert t_i\right\vert, t_{j1}<t_{iT}
+\forall i,j,\,\, t_{j1}<t_{i\left\vert t_i\right\vert}
 \\]
-
-Above, we define an ordering over operations \\(t_{ik}<t_{jm}\\) that holds if for all valid orderings of operations \\(g\\), the smaller operation comes before the larger one in \\(g\\).
 
 (_Liveness_): Eventually, every thread must complete `b.wait()`. There must exist at least one valid ordering \\(g\\) (if there is only one, the parallel processing system is forced to choose it).
 
