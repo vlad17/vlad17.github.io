@@ -79,7 +79,7 @@ Indeed - \\(t_0\\) can't advance past `b.wait()` unless `s(1)` is `up`ped, which
 
 Now, here's the main question:
 
-**Can we implement an arbitrary barrier, capable of blocking `n` threads, with semaphores and control flow? Without control flow (non-recursive programs)?** 
+**Can we implement an arbitrary barrier, capable of blocking `n` threads, with semaphores and no control flow? With control flow?** 
 
 Now, can we do so _efficiently_, using as few semaphores as possible? In as little time per thread as possible?
 
@@ -102,6 +102,7 @@ Not so fast! Try it yourself! How efficient is your solution? There's a couple o
 0. \\(O(n)\\) space and \\(O(n)\\) time
 0. \\(O(n)\\) space and \\(O(1)\\) average time, \\(O(n)\\) worst-case time
 0. \\(O(n)\\) space and \\(O(1)\\) worst-case time
+0. \\(O(1)\\) space and \\(O(1)\\) worst-case time
 
 [Link to answer]({{ site.baseurl }}{% post_url 2017-01-25-semaphore-answer %})
 

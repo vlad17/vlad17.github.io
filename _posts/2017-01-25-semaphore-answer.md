@@ -234,3 +234,29 @@ def wait(thread i):
 ```
 
 The proof is left as an exercise to the reader :)
+
+## Solution 5
+
+\\(O(1)\\) space and \\(O(1)\\) worst-case time. This solution works by simulating a mutex with a semaphore, and implementing the barrier with that mutex.
+
+```
+ctr = 0
+def wait(thread i):
+    if i == 0:
+        ctr += 1
+        local = ctr
+        s(0).up
+    else:
+        s(0).down
+        ctr += 1
+        local = ctr
+        s(0).up
+        
+    if local == n:
+        s(1).up
+    else:
+        s(1).down
+        s(1).up
+```
+
+This one introduces control flow that isn't predicatble given just `i`, so our model isn't sufficient to prove that it works.
