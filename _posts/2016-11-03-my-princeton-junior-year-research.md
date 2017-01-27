@@ -2,7 +2,7 @@
 layout: post
 title:  "My Princeton Junior Year Research"
 date:   2016-11-03
-categories: my-whitepapers machine-learning pram hardware-acceleration
+categories: my-whitepapers machine-learning hardware-acceleration
 ---
 
 # My Princeton Junior Year Research

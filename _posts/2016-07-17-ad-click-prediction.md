@@ -2,7 +2,7 @@
 layout: post
 title:  "Ad Click Prediction"
 date:   2016-07-17
-categories: paper-series parallel distributed-systems online-learning scalability machine-learning
+categories: parallel distributed-systems online-learning machine-learning
 ---
 
 # Ad Click Prediction: a View from the Trenches

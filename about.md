@@ -20,3 +20,10 @@ Blogs I follow:
 * [I'm a Bandit](https://blogs.princeton.edu/imabandit/)
 * [Minimizing Regret](http://www.minimizingregret.com/)
 
+Topics I'm intersted in:
+
+* Machine Learning
+* Optimization
+* Distributed Systems
+* Parallel Programming
+* Programming Languages

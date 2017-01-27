@@ -2,7 +2,7 @@
 layout: post
 title:  "MapReduce"
 date:   2016-09-17
-categories: paper-series parallel distributed-systems scalability fault-tolerance
+categories: parallel distributed-systems 
 ---
 
 # MapReduce: Simplified Data Processing on Large Clusters
