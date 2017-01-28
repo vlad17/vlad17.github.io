@@ -7,7 +7,7 @@ categories: interview-question parallel
 
 # The Semaphore Barrier
 
-I wanted to share an interview question I came up with. The idea came from my operating systems class, where we were expected to implement synchronization primitives.
+I wanted to share an interview question I came up with. The idea came from my operating and distributed systems classes, where we were expected to implement synchronization primitives and reason about parallelism, respectively.
 
 Synchronization primitives can be used to coordinate across multiple threads working on a task in parallel.
 
