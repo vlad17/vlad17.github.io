@@ -7,7 +7,7 @@ categories: my-whitepapers machine-learning
 
 # My Princeton Senior Thesis
 
-**Submitted to the university as part of completion of Computer Science BSE degree** January 2017
+**Submitted to the university as part of completion of Computer Science BSE degree** June 2017
 
 Completed during the 2016-2017 academic year.
 
