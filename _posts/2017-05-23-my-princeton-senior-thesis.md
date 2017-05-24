@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "My Princeton Senior Thesis"
+date:   2017-05-23
+categories: my-whitepapers machine-learning 
+---
+
+# My Princeton Senior Thesis
+
+**Submitted to the university as part of completion of Computer Science BSE degree** January 2017
+
+Completed during the 2016-2017 academic year.
+
+[Link to download report.](/assets/2017-05-23-my-princeton-senior-thesis/thesis.pdf)
+
+[Code repository.](https://github.com/vlad17/runlmc)
