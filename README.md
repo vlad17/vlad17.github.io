@@ -24,7 +24,6 @@ Favicon image is from [this random site](http://www.playbuzz.com/martinshaba10/w
 
 ## Other site TODOs:
 
-* Projects page: min commit - latest commit Month Year auto-retrieve.
 * Spelling check (make it a script).
 * Add Apache licenses to all personal code (all my repos, too)
 * Work/Edu info - make a single page with content
