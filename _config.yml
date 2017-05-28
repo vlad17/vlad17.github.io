@@ -16,15 +16,9 @@ urls:
     - text: Categories
       url: /categories
       icon: fa-folder
-    - text: Education
-      url: /education
-      icon: fa-graduation-cap
     - text: Projects
       url: /projects
       icon: fa-desktop
-    - text: Work
-      url: /work
-      icon: fa-bank
     - text: XML Feed
       url: /feed.xml
       icon: fa-feed
