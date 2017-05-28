@@ -20,10 +20,4 @@ Local deployment:
 
 ## Credits
 
-Favicon image is from [this random site](http://www.playbuzz.com/martinshaba10/what-planet-describes-you-most).
-
-## Other site TODOs:
-
-* Spelling check (make it a script).
-* Add Apache licenses to all personal code (all my repos, too)
-* Work/Edu info - make a single page with content
+Site theme is from [this repository](https://github.com/codeasashu/hcz-jekyll-blog), moderately gutted.
