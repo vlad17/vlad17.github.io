@@ -1,63 +1,54 @@
 [
     {
 	"name": "Cpp-Util",
-	"image": "placeholder.jpg",
 	"url": "https://github.com/vlad17/Cpp-Util",
 	"date": "Nov 2013",
 	"tags": ["C++", "utility"]
     },
     {
 	"name": "Commodities Modeling",
-	"image": "placeholder.jpg",
 	"url": "http://vlad17.github.io/COS513-Blog/",
 	"date": "Sep 2015",
 	"tags": ["blog", "python"]
     },
     {
 	"name": "OCaml Minesweeper",
-	"image": "placeholder.jpg",
 	"url": "https://github.com/vlad17/OCaml-Minesweeper",
 	"date": "May 2015",
 	"tags": ["ocaml", "gui"]
     },
     {
 	"name": "Large Circle",
-	"image": "placeholder.jpg",
 	"url": "https://github.com/vlad17/Large-Circle",
 	"date": "Dec 2014",
 	"tags": ["haskell","genetic-algorithm"]
     },
     {
 	"name": "IPython 2to3",
-	"image": "placeholder.jpg",
         "url": "https://github.com/vlad17/IPython-2to3",
 	"date": "Jun 2015",
 	"tags": ["ipython", "python"]
     },
     {
 	"name": "Blockchain Detection",
-	"image": "placeholder.jpg",
         "url": "https://github.com/PrincetonUniversity/blockchain-detect",
 	"date": "Mar 2016",
 	"tags": ["ipython", "report", "graph"]
     },
     {
 	"name": "Methylation Prediction",
-	"image": "placeholder.jpg",
         "url": "https://github.com/PrincetonUniversity/methyl-cluster",
 	"date": "Mar 2016",
 	"tags": ["ipython", "report", "regression"]
     },
     {
 	"name": "Vox Music Classification",
-	"image": "placeholder.jpg",
         "url": "https://github.com/PrincetonUniversity/vox-music-classification",
 	"date": "Feb 2016",
 	"tags": ["ipython", "report", "classification"]
     },
     {
 	"name": "Diagonal GMM EM",
-	"image": "placeholder.jpg",
         "url": "https://github.com/PrincetonUniversity/final-proj-cos-424",
 	"date": "Apr 2016",
 	"tags": ["ipython", "report", "tensorflow"]
