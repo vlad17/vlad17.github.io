@@ -1,9 +1,21 @@
 [
     {
-	"name": "Cpp-Util",
+        "name": "Numpy Learn",
+	"url": "https://github.com/vlad17/np-learn",
+	"date": "May 2017",
+	"tags": ["python"]
+    },
+    {
+        "name": "Multi-output GP Learning",
+	"url": "https://github.com/vlad17/runlmc",
+	"date": "Oct 2016",
+	"tags": ["python", "supervised-ml"]
+    },
+    {
+	"name": "Cpp Utilities",
 	"url": "https://github.com/vlad17/Cpp-Util",
 	"date": "Nov 2013",
-	"tags": ["C++", "utility"]
+	"tags": ["C++"]
     },
     {
 	"name": "Commodities Modeling",
@@ -39,13 +51,13 @@
 	"name": "Methylation Prediction",
         "url": "https://github.com/PrincetonUniversity/methyl-cluster",
 	"date": "Mar 2016",
-	"tags": ["ipython", "report", "regression"]
+	"tags": ["ipython", "report", "supervised-ml"]
     },
     {
 	"name": "Vox Music Classification",
         "url": "https://github.com/PrincetonUniversity/vox-music-classification",
 	"date": "Feb 2016",
-	"tags": ["ipython", "report", "classification"]
+	"tags": ["ipython", "report", "supervised-ml"]
     },
     {
 	"name": "Diagonal GMM EM",
