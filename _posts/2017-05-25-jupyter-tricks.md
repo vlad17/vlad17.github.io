@@ -90,7 +90,7 @@ Docs accessible with `%<magic>?`.
 
 ## Extensions
 
-My extensions here enable emacs keybindings, but unfortunately Chrome intercepts `ctrl-n`, so you can't use that one keybinding from Emacs. It sucks. Let me know if you know a workaround. [Enable with](https://github.com/ipython-contrib/jupyter_contrib_nbextensions):
+My extensions here enable emacs key bindings, but unfortunately Chrome intercepts `ctrl-n`, so you can't use that one key binding from Emacs. It sucks. Let me know if you know a workaround. [Enable with](https://github.com/ipython-contrib/jupyter_contrib_nbextensions):
 
 ```
 conda install -c conda-forge jupyter_contrib_nbextensions

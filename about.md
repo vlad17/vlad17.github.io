@@ -26,7 +26,7 @@ Blogs I follow:
 * [OpenAI](https://blog.openai.com/)
 * [Google](https://research.googleblog.com/)
 
-Topics I'm intersted in:
+Topics I'm interested in:
 
 * Machine Learning
 * Optimization

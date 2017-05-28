@@ -26,9 +26,9 @@ _Note_: the types I offer here are not identical to the original map reduce; my 
 1. `type Map T K V = T -> [(K, V)]`
 2. `type Reduce K V U = K -> [V] -> U`
 
-Run-time type requirements (necessary for the implementation) are that `K` is both "shuffle-able" and equality-checkable. The ability to shuffle a type depends on one's partioning function. In the paper, this may be a requirement on orderability or hashability.
+Run-time type requirements (necessary for the implementation) are that `K` is both "shuffle-able" and equality-checkable. The ability to shuffle a type depends on one's partitioning function. In the paper, this may be a requirement on orderability or hashability.
 
-Evaluation's signature, as presented in the MR paper, in psuedo Haskell, would be:
+Evaluation's signature, as presented in the MR paper, in pseudo Haskell, would be:
 ```{haskell}
 -- Assume all are Serializable
 evaluate :: (Hashable k, Eq k) => Map t k v -> Reduce k v u -> [t] -> [u]
@@ -78,7 +78,7 @@ Non-deterministic functions result in outputted reduce tasks from some combinati
 
 ### Locality
 
-The network-scarsity assumption means that the optimal blocking size for the computation should be around the size that the distributed state store uses, to avoid extra low-capacity blocks from being passed around. For GFS, this was 64MB. By integrating with GFS, the master is able to schedule map tasks in locations that house the actual data. This allows for step (1) from above to avoid any network reads.
+The network-scarcity assumption means that the optimal blocking size for the computation should be around the size that the distributed state store uses, to avoid extra low-capacity blocks from being passed around. For GFS, this was 64MB. By integrating with GFS, the master is able to schedule map tasks in locations that house the actual data. This allows for step (1) from above to avoid any network reads.
 
 ### Task Granularity
 
@@ -94,7 +94,7 @@ A combiner function is an associative, commutative `Reduce`-type function that c
 
 ## Performance
 
-Performance was tested on 1800 machines witha two-level tree-shaped switched network of 100 Gbps aggregate bandwidth, 2GHz processors, and 3 GBs of RAM per node.
+Performance was tested on 1800 machines with a two-level tree-shaped switched network of 100 Gbps aggregate bandwidth, 2GHz processors, and 3 GBs of RAM per node.
 
 Distributed grep used \\(M=15000, R=1\\), oversubscribing the map tasks for appropriate task granularity (input was 1TB). End-to-end is 150 seconds.
 
@@ -116,12 +116,12 @@ MR introduced the notion of a **restricted, simple API** that allows for express
 
 * MR set the standard assumption that **network is constraining**; this notion was key in design of such distributed processing systems until newer technologies like Spark emerged, which moved bottlenecks elsewhere (see [this performance analysis for more details](http://dl.acm.org/citation.cfm?id=2789791)).
 * Output is made reliable by storage to a replicated distributed state store (such as GFS). This interactivity between the execution engine (MR) and the store (GFS) is repeated in open-source versions of the product, such as Hadoop, with its MapReduce and HDFS.
-* MR chooses to have a master-in-the loop synchronous evaluation style, where the map task completion alerts the master and then starts the reduce operation. This thinking helps correctness. It was used in subsequent execution engines (like Spark). Unfortunately, even though for one task the \\(O(M R)\\) state in the master is managable, especially with an efficient implementation, as the number of concurrent MR tasks increases (as is common nowadays with a shared cluster environment), scheduling becomes a large portion of the overhead that is also unparallelizable.
+* MR chooses to have a master-in-the loop synchronous evaluation style, where the map task completion alerts the master and then starts the reduce operation. This thinking helps correctness. It was used in subsequent execution engines (like Spark). Unfortunately, even though for one task the \\(O(M R)\\) state in the master is manageable, especially with an efficient implementation, as the number of concurrent MR tasks increases (as is common nowadays with a shared cluster environment), scheduling becomes a large portion of the overhead that is also unparallelizable.
 
 ## Weaknesses
 
-* For correctness, MR requires that functions with side effects respect parallel re-entrancy and thread-safety across machines (as well as locally, if multiple tasks can be scheduled on one thread). Typical operations that would violate this are non-idempotent or non-associative or non-commutative transcations to a database.
-* As mentioned above, master-in-the-loop evaluation causes scheduling delays. Workers maintiaining some metadata themselves could allow for faster transitions between mapping and reducing. With additional bookkeeping (for handling failures), even **asynchronous** information-passing can be introduced.
+* For correctness, MR requires that functions with side effects respect parallel re-entrancy and thread-safety across machines (as well as locally, if multiple tasks can be scheduled on one thread). Typical operations that would violate this are non-idempotent or non-associative or non-commutative transactions to a database.
+* As mentioned above, master-in-the-loop evaluation causes scheduling delays. Workers maintaining some metadata themselves could allow for faster transitions between mapping and reducing. With additional bookkeeping (for handling failures), even **asynchronous** information-passing can be introduced.
 
 ## Strengths
 
@@ -132,4 +132,4 @@ MR introduced the notion of a **restricted, simple API** that allows for express
 # Open Questions
 
 * What would it take to have a master-out-of-the-loop asynchronous execution engine?
-* What needs to happen to alleviate the parallel (1) reentrancy and (2) thread-safety requirements that MR places on its user code in case of failure?
+* What needs to happen to alleviate the parallel (1) re-entrancy and (2) thread-safety requirements that MR places on its user code in case of failure?

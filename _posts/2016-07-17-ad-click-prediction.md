@@ -27,7 +27,7 @@ Further problem details:
 * Features are "extremely sparse"
 * Serving must happen quickly, at a rate of billions of predictions per day. Though never mentioned explicitly in the paper, I'm assuming the training rate (dependent on the actual number of ads shown, not considered) is thus a small fraction of this but still considerable.
 
-Given sparsity level and scalability requirements, online regularized logisitic regression seems to be the way to go. How do we build a holistic machine learning solution for it?
+Given sparsity level and scalability requirements, online regularized logistic regression seems to be the way to go. How do we build a holistic machine learning solution for it?
 
 [Vowpal Wabbit](https://arxiv.org/abs/1110.4198) was developed a few years before a solution to these kinds of problems, but handled several orders of magnitudes less (its dictionary size is \\(2^{18}\\) by default).
 
@@ -55,7 +55,7 @@ The \\(i\\)-th element of a vector \\(\textbf{v}\\) will be be given by the unbo
 
 Completely-0 sparsity is essential because of the large number of features (thus susceptibility to overfitting) and because a sparse coefficient representation scales memory consumption with non-zeros.
 
-\\(L\_1\\) penalty subgradient approaches alone aren't good enough. \\(L\_1\\) won't actively discourage zeros [like \\(L\_2\\) does](stackoverflow), but while usually considered _sparsity-inducing_ it's more accurately _sparsity ambivalent_: as a weight gets smaller, its penalty follows linearly.
+\\(L\_1\\) penalty subgradient approaches alone aren't good enough. \\(L\_1\\) won't actively discourage zeros [like \\(L\_2\\) does](https://stats.stackexchange.com/questions/45643), but while usually considered _sparsity-inducing_ it's more accurately _sparsity ambivalent_: as a weight gets smaller, its penalty follows linearly.
 
 Some alternative approaches have more active sparsity induction: FOBOS and RDA. I have no idea what they are, but apparently FTRL-Proximal is better anyway (see Table 1 in the paper).
 
@@ -90,7 +90,7 @@ The \\(\eta\_t\\) factors control how much the regularization function affects t
 
 ![ftrlprox](/assets/2016-07-17-ad-click-prediction/ftrlprox-update.png){: .center-image }
 
-We inductively define \\(\sigma\_{1:i}=\eta\_{i}^{-1}\\) (for \\(\eta_t=O(t^{-1})\\) this is eventually montonically nonincreasing) and let \\(\textbf{g}\_i=\nabla\_i\\). As noted in the paper, if \\(\lambda_1=0\\) and \\(\eta_i=i^{-1/2}\\) then FTRL-Proximal reduces to OGD: \\(\textbf{w}\_{t+1}=\textbf{w}\_t-\eta\_t\textbf{g}_t\\) (verify this by deriving the optimization equation wrt \\(\textbf{w}\\)).
+We inductively define \\(\sigma\_{1:i}=\eta\_{i}^{-1}\\) (for \\(\eta_t=O(t^{-1})\\) this is eventually monotonically nonincreasing) and let \\(\textbf{g}\_i=\nabla\_i\\). As noted in the paper, if \\(\lambda_1=0\\) and \\(\eta_i=i^{-1/2}\\) then FTRL-Proximal reduces to OGD: \\(\textbf{w}\_{t+1}=\textbf{w}\_t-\eta\_t\textbf{g}_t\\) (verify this by deriving the optimization equation wrt \\(\textbf{w}\\)).
 
 Through a derivation done fairly well in the paper, the weight update step for the proximal algorithm can be done quickly with the intermediate state \\(\textbf{z}\_t=\textbf{g}\_{1:t}-\sum\_{s=1}^t\sigma\_s\textbf{w}\_s\\). Updating the intermediate state is constant-time too.
 
@@ -106,9 +106,9 @@ The paper's coin example explains this tersely and cogently, so I won't replicat
 
 Google makes it clear the bottleneck with this model is RAM: more features included enable higher accuracy.
 
-### Probablistic Feature Inclusion
+### Probabilistic Feature Inclusion
 
-You can't perform standard offline feature bagging to exclude features: this requires performing a write to the data to exclude said features, expensive in an online context. Instead, the first several instances of a feature can be ignored, with a feature only starting to be tracked in the coefficient vector if it passes a probibalistic inclusion barrier.
+You can't perform standard offline feature bagging to exclude features: this requires performing a write to the data to exclude said features, expensive in an online context. Instead, the first several instances of a feature can be ignored, with a feature only starting to be tracked in the coefficient vector if it passes a probabilistic inclusion barrier.
 
 ##### Poisson Inclusion
 
@@ -116,7 +116,7 @@ A simple randomized form of performing online feature inclusion. Upon activation
 
 ##### Bloom Filter Inclusion
 
-Amending bloom filters to store counts (insert increments a count in each slot for each hash function, delete decrements), if a feature has been inserted \\(n\\) times (with the potential of false postivies), it is added to the model.
+Amending bloom filters to store counts (insert increments a count in each slot for each hash function, delete decrements), if a feature has been inserted \\(n\\) times (with the potential of false positives), it is added to the model.
 
 I still don't know what **rolling set of bloom filters** is for sure. In theory, counting bloom filters support deletion (where a recently-added feature would be removed \\(n\\) times). Perhaps use of one bloom filter is an issue because hitting the counter limit for each slot means deletion would induce false negatives (we lose information about other features with extra counts being stored). So periodically clearing the filter instead of deleting everything is an option; but the details on this are not fleshed out and it's unclear what approach Google took. The references don't reveal much, either.
 
@@ -153,7 +153,7 @@ Effectively, this makes a Naive-Bayes assumption for adaptive learning, but does
 
 ### Subsampling Training Data
 
-Click-through happens very infrequently, much less than 50% of the time. For this reason, just training on all the data evenly would lead to a model that is much more educated in the negatives than the positives. By subsampling negatives by some rate \\(r\\) and magifying their gradients by \\(1/r\\) overall validity of the model can be maintained in terms of expected loss, but we also have the nice property that the probability we are correct **given** we have a true positive is the same as that for a true a true negative.
+Click-through happens very infrequently, much less than 50% of the time. For this reason, just training on all the data evenly would lead to a model that is much more educated in the negatives than the positives. By subsampling negatives by some rate \\(r\\) and magnifying their gradients by \\(1/r\\) overall validity of the model can be maintained in terms of expected loss, but we also have the nice property that the probability we are correct **given** we have a true positive is the same as that for a true a true negative.
 
 ## Evaluating Model Performance
 
@@ -201,10 +201,10 @@ Dropout is useful for vision but not here because in vision there is a dense amo
 
 ## Weaknesses
 
-* Certain recommendations seem unapplicable outside of companies with huge amountes of resources:
+* Certain recommendations seem unapplicable outside of companies with huge amounts of resources:
   * New floating point values? That must've been a whole re-write.
   * Exploring such a large space of approaches takes a lot of people and a lot of machines. There were probably a lot of failed approaches that didn't make it to the paper: to what extent is the approach presented here "overfit" to CTR prediction? Some of the "failed approaches" even mentioned in the paper don't have a good explanation behind them, which is indicative of the aforementioned problem.
-* It's unclear what lead to using [count-based learning rates](#computing-learning-rates-with-counts) or [prediciton calibration](#calibrating-predictions) - how much did these methods hurt accuracy.
+* It's unclear what lead to using [count-based learning rates](#computing-learning-rates-with-counts) or [prediction calibration](#calibrating-predictions) - how much did these methods hurt accuracy.
 * How was distributed model training performed? Was parallelism at the per-model level (apparently not completely, with the [single value structure](#a-single-value-structure))?
 
 ## Strengths
@@ -216,11 +216,11 @@ Dropout is useful for vision but not here because in vision there is a dense amo
 # Takeaways
 
 * To what degree do our non-Google problems, as readers, have such a large feature space? What can we adopt in systems from here when we have to deal with different tradeoffs?
-* Probabilistic feature selection is a novel, online method for both reducing noice and RAM use. It can definately be used elsewhere.
+* Probabilistic feature selection is a novel, online method for both reducing noise and RAM use. It can definitely be used elsewhere.
 
 # Open Questions
 
-* Maybe we can't solve the regret bound for the adversarial case where arbitrary differentiable convex loss functions are presented to us. However, we know \\(\ell_i\\) take a log-loss shape always. Perhaps there exists an analytical solution to the exact FTRL problem:
+* Maybe we can't solve the regret bound for the adversarial case where arbitrary differentiable convex loss functions are presented to us. However, we know \\(\ell_i\\) take a log-loss shape always. Perhaps there exists an analytic solution to the exact FTRL problem:
 \\[
 \textbf{w}\_{t+1}=\underset{\textbf{w}}{\mathrm{argmin}}\;\; \eta_t\sum\_{i=1}^t\left(\ell\_i(\textbf{w})-\ell\_i(\textbf{w}\_{t}^*)\right) +R(\textbf{w})
 \\]

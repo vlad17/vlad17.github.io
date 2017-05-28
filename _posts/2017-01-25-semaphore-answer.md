@@ -124,7 +124,7 @@ In other words, if we represent each pairwise constraint \\(\forall i,j,T\triang
 
 This solution can be constructed by augmenting our lemma from before: for any \\(g\\) to be valid (no negative values), any semaphore must be upped more times than it has been downed right before every down.
 
-Then, if a single thread is responsible for upping its own semaphore, and all other threads down it exactly once, _at least one_ up must've occured before each of the downs. This lets us recover the transitive inequality from before for correctness.
+Then, if a single thread is responsible for upping its own semaphore, and all other threads down it exactly once, _at least one_ up must've occurred before each of the downs. This lets us recover the transitive inequality from before for correctness.
 
 In other words, the following works:
 
@@ -259,4 +259,4 @@ def wait(thread i):
         s(1).up
 ```
 
-This one introduces control flow that isn't predicatble given just `i`, so our model isn't sufficient to prove that it works.
+This one introduces control flow that isn't predictable given just `i`, so our model isn't sufficient to prove that it works.
