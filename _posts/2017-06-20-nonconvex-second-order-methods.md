@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Nonconvex Second Order Methods"
-date:   2017-06-19
+date:   2017-06-20
 categories: machine-learning optimization deep-learning
 ---
 

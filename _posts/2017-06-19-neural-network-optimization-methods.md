@@ -21,7 +21,7 @@ Above, \\(\Omega\\) is a regularization term (added to restrict the hypothesis c
 
 An initial source of confusion about the above machine learning notation is the reuse of variable names in the optimization literature, where instead our parameters \\(\bsth\\) are points \\(\vx\\) and our training point errors \\(\ell(\hat{y}\_\bsth(\vx^{(i)}), y^{(i)})\\) are replaced with opaque Lipschitz, differentiable costs \\(f_i(\vx)\\). We now summarize our general task of (unconstrained) NN optimization of our nonconvex composite regularized cost function \\(f:\R^d\rightarrow \R\\):
 \\[
-\argmin\_\vx f(\bsth) = \argmin\_\vx \frac{1}{m}\sum\_{i=1}^mf\_i(\vx)+\Omega(\vx)
+\argmin\_\vx f(\vx) = \argmin\_\vx \frac{1}{m}\sum\_{i=1}^mf\_i(\vx)+\Omega(\vx)
 \\]
 
 In a lot of literature inspiring these algorithms, it's important to keep straight in one's head the various types of minimization problems that are being solved, and whether they're making incompatible assumptions with the NN environment.
@@ -68,12 +68,12 @@ The fact that that theoretical lower bound rates are not relevant for NN trainin
 In the below two linked blog posts, I will review the high-level details existing algorithms for NN nonconvex optimization. Most of these are methods that have been developed for the composite **convex** smooth optimization problem, so they may not even have any theoretical guarantees for the \\(\epsilon\\)-approximate critical point or local min problem. It turns out that indeed we find a general dichotomy between these GD algorithms:
 
 * Algorithms which are practically available, e.g., [TensorFlow's first order methods](https://www.tensorflow.org/api_guides/python/train), but were initially developed for convex problems, and whose nonconvex interpretations are usually only approximate critical point finders
-* Algorithms which are (as of June 2017) cutting-edge research and not widely available, yet have been desined for finding local minima efficiently in nonconvex settings.
+* Algorithms which are (as of June 2017) cutting-edge research and not widely available, yet have been desined for finding local minima efficiently in nonconvex settings. Nonetheless, they're still useful to mention since the respective paper implementaitons might be available and it may be worthwhile to manually implement the optimization, too.
 
 This list of existing algorithms is going to be a bit redundant with the excellent review [Ruder 2016](https://arxiv.org/abs/1609.04747), but my intention is to be a bit more comprehensive but less didactic in terms of update rules covered.
 
 In general, all these rules have the format \\(\vx\_{t+1}=\vx\_t-\eta\_t\vg\_t\\) where \\(\eta\_t\\) is a learning rate and \\(\vg\_t\\) is the gradient descent direction, both making a small local improvement at the \\(t\\)-th discrete time. Theoretical analysis won't be presented, but guarantees, assumptions, intuition, and update rules will be described. Proofs will be linked.
 
-* [First order methods]({{ site.baseurl }}{% post_url 2017-06-19-nonconvex-first-order-methods %})
-* [Second order methods]({{ site.baseurl }}{% post_url 2017-06-19-nonconvex-second-order-methods %})
+* [First order methods]({{ site.baseurl }}{% post_url 2017-06-20-nonconvex-first-order-methods %})
+* [Second order methods]({{ site.baseurl }}{% post_url 2017-06-20-nonconvex-second-order-methods %})
 
