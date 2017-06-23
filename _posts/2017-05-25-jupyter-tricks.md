@@ -23,10 +23,10 @@ It's also faster to use the commands as listed in `Help > Keyboard Shortcuts`; w
 
 Run the kernel on a beefy server, view with a browser on your laptop. You can change the ports appropriately to something high and unused.
 
-#. On laptop, initiate SSH with a tunnel `ssh -L8888:localhost:12321 vlad@my-beefy-server.com`
-#. On server, launch `tmux` if you'd like to persist the Jupyter server (useful if you need to keep running stuff and reconnect notebook later).
-#. On server, `jupyter notebook --no-browser --port=12321`
-#. On laptop, navigate to `localhost:8888` in-browser.
+1. On laptop, initiate SSH with a tunnel `ssh -L8888:localhost:12321 vlad@my-beefy-server.com`
+1. On server, launch `tmux` if you'd like to persist the Jupyter server (useful if you need to keep running stuff and reconnect notebook later).
+1. On server, `jupyter notebook --no-browser --port=12321`
+1. On laptop, navigate to `localhost:8888` in-browser.
 
 ## A Note on TeX
 
