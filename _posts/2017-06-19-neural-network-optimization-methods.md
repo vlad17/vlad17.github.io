@@ -77,5 +77,5 @@ This list of existing algorithms is going to be a bit redundant with the review 
 In general, all these rules have the format \\(\vx\_{t+1}=\vx\_t-\eta\_t\vg\_t\\) where \\(\eta\_t\\) is a learning rate and \\(\vg\_t\\) is the gradient descent direction, both making a small local improvement at the \\(t\\)-th discrete time. Theoretical analysis won't be presented, but guarantees, assumptions, intuition, and update rules will be described. Proofs will be linked.
 
 * [First order methods]({{ site.baseurl }}{% post_url 2017-06-20-nonconvex-first-order-methods %})
-* [Second order methods]({{ site.baseurl }}{% post_url 2017-06-20-nonconvex-second-order-methods %})
+* [Second order methods]({{ site.baseurl }}{% post_url 2017-06-22-nonconvex-second-order-methods %})
 
