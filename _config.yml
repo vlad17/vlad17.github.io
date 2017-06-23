@@ -52,3 +52,5 @@ gems:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-sitemap
+
+permalink: /:year/:month/:day/:title.html
