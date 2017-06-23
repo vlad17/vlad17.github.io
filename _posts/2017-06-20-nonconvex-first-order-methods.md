@@ -106,10 +106,22 @@ Similar update rules have been explored by [Schaul et al 2012](https://arxiv.org
 
 The Adam method, proposed by [Kingma and Ba 2014](https://arxiv.org/abs/1412.6980), improves on AdaGrad-inspired adaptive rate methods by adding both a momentum term and removing first and second moment bias from exponential decay approximations to the gradient accumulators. See [TensorFlow](https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer) for an implementation.
 \\[
-1+1
+\begin{align}
+\vm\_0&=\vv\_0=0\\\\\\\\
+\vm\_{t+1}&=\beta\_1\vm\_t+(1-\beta\_1)\tilde{\nabla}\_t \\\\\\\\
+\vv\_{t+1}&=\beta\_2 \vv\_t+(1-\beta\_2)\tilde{\nabla}\_t^2\\\\\\\\
+\vx\_{t+1}&=\vx\_t-\eta\pa{1-\beta\_2^t}^{1/2}\pa{1-\beta\_1^t}^{-1}\frac{\vm\_{t+1} }{\sqrt{\vv\_{t+1}+\epsilon} }
+\end{align}
 \\]
+**Description**. Adam seeks to combine AdaGrad's adapitivity, which can learn the curvature of the space it's optimizing in (making it able to deal with sparse gradients), and momentum-based approaches like RMSProp, which are able to adapt to new settings during the course of the optimization. The bias correction ensures that, roughly, \\(\E\ha{ \tilde{\nabla}\_t^2} =\vv\_t(1-\beta\_2^t)+\zeta\\) and analogously for \\(\vm\_t\\), with \\(\zeta\\) being the error that occurs from non-stationarity in the gradient. Under the assumption that appropriate \\(\beta\_1,\beta\_2\\) are selected, such that the non-stationarity error is appropriately vanished by the exponential decay, Adam has low bias for the gradient moments \\(\vm,\vv\\). As the paper describes, the unbiased \\(\frac{\vm\_{t+1} }{\sqrt{\vv\_{t+1}+\epsilon} }\\) captures the *signal-to-noise* ratio for the gradient.
 
-[TODO read paper and discuss]
+**Guarantees**. Adam reduces to Adagrad under certain parameter settings. Like Adagrad, it has strong guarantees in an OCO setting, which are valuable but not immediately applicable here.
+
+**Practical Notes**. Given that Adam has fairly intuitive hyperparameters, Adam has pretty decent performance across the board.
+* As before, for stability, a small \\(\epsilon=10^{-8}\\) is typically used.
+* AdaGrad can be recovered with an annealing \\(\eta\sim t^{-1/2}\\) and near-0 values for\\(\beta\_1, 1-\beta\_2\\): these are recommended in the convex setting.
+* For other, nonconvex, settings \\(\beta\_1\\) should be higher, for instance, 0.9. Settings for \\(\beta\_2\\) from the paper are among \\(\{0.99, 0.999,0.9999\}\\). High settings for both \\(\beta\_1,\beta\_2\\) imply stationarity in the gradient moments.
+* I can't seem to find any complaints about Adam online.
 
 ## Visualization
 

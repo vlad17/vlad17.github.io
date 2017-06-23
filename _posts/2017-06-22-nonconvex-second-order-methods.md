@@ -11,7 +11,7 @@ This is a high-level overview of the methods for second order local improvement 
 
 Make sure to read the [general overview post]({{ site.baseurl }}{% post_url 2017-06-19-neural-network-optimization-methods %}) first. Also, we'll borrow the same setting from the introduction of the [first-order methods post]({{ site.baseurl }}{% post_url 2017-06-20-nonconvex-first-order-methods %}) and we will generally add an assumption that \\(f\in\mathcal{C}^2\\), if not even more smooth. Some of these methods might never explicitly touch the Hessian, but their analysis and intuition depend critically on it.
 
-TODO [caution dismissal of 2nd order, like Goodfellow does](https://stats.stackexchange.com/questions/253632/why-is-newtons-method-not-widely-used-in-machine-learning/253655)
+TODO [caution dismissal of 2nd order, like Goodfellow and Kingma in Adam do (noisiness arg)](https://stats.stackexchange.com/questions/253632/why-is-newtons-method-not-widely-used-in-machine-learning/253655)
 
 TODO [Goodfellow 2nd order notes](http://www.deeplearningbook.org/contents/optimization.html)
 
