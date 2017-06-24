@@ -7,6 +7,8 @@ categories: machine-learning optimization deep-learning
 
 # Nonconvex Second Order Methods
 
+[TODO blog post is under construction, please disregard]
+
 This is a high-level overview of the methods for second order local improvement of nonconvex costs with a particular focus on neural networks (NNs).
 
 Make sure to read the [general overview post]({{ site.baseurl }}{% post_url 2017-06-19-neural-network-optimization-methods %}) first. Also, we'll borrow the same setting from the introduction of the [first-order methods post]({{ site.baseurl }}{% post_url 2017-06-20-nonconvex-first-order-methods %}) and we will generally add an assumption that \\(f\in\mathcal{C}^2\\), if not even more smooth. Some of these methods might never explicitly touch the Hessian, but their analysis and intuition depend critically on it.
@@ -18,6 +20,14 @@ TODO [Goodfellow 2nd order notes](http://www.deeplearningbook.org/contents/optim
 TODO [overview](https://arxiv.org/abs/1706.03131)
 
 ## Full-Matrix Methods
+
+
+Second-order methods are based on Newton's method for optimization. This searches for critical points by solving $\nabla J = \bsz$ iteratively. This can be done by iterative line search for $\alpha_t$ and Newton updates:
+$$\bsth_{t+1}=\bsth_{t}-\alpha_{t}H_{t}^{-1}\nabla_t$$
+While this has fast convergence in terms of error [TODO source; under what assumptions; perhaps look in convex opt book?], the convergence is to an $\epsilon$-critical point. As mentioned above, most critical points are saddles, which causes Newton's method to go to a poor solution.
+
+Worse yet, full inverse Hessian construction is cubic in the parameter count. Backprop-based Hessian-vector approximations can more efficiently reconstruct Newton-like iteration, in a family of quasi-Newtonian methods; yet these suffer from the issues mentioned above.
+
 
 Inspiration, full gradient: [Newton's Method](https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization)
 

@@ -21,7 +21,7 @@ Make sure to read the [general overview post]({{ site.baseurl }}{% post_url 2017
 * Arithmetic operations may be applied elementwise to vectors.
 * If smooth and efficiently differentiable, e.g., \\(\Omega(\vx)=\frac{1}{2}\norm{\vx}\_2^2\\), regularization can be folded into each \\(f\_i\\) to make new \\(f\_i'=f\_i+\frac{1}{n}\Omega\\), as if it was never there in the first place. However, we may wish to apply \\(L^1\\) regularization or other non-smooth, non-differntiable but still convex functions--these are the problems I'll label *composite*.
 * I'll use \\(x\simeq y\\) to claim that equality holds up to some fixed multiplicative constants.
-* I will presume an initialization \\(\vx\_0\\) ([see discussion here](TODO link)).
+* I will presume an initialization \\(\vx\_0\\) ([see discussion here](https://github.com/vlad17/ml-notes/blob/master/deep-learning/optimization.pdf)).
 * Finally, recall the two stationary point conditions:
 
     * \\(\epsilon\\)-approximate critical point: \\(\norm{\nabla f(\vx\_\*)}\le \epsilon\\)
