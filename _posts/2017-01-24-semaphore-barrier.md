@@ -23,7 +23,7 @@ A semaphore `s` has two operations: `s.up()` and `s.down()`. A semaphore also ha
 
 `s.up()` doesn't guarantee any blocking either, and raises the number.
 
-If we wanted to make sure that only 5 threads executing `f()` (a function that we implement) ever printed `hello`, and we somehow pre-emptively set the state of semaphore `s` to `5`, then the following code would work:
+If we wanted to make sure that only 5 threads executing `f()` (a function that we implement) ever printed `hello`, and we somehow preemptively set the state of semaphore `s` to `5`, then the following code would work:
 
     def f():
         s.down()

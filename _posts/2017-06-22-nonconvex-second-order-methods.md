@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "Nonconvex Second Order Methods"
+title:  "Non-convex Second Order Methods"
 date:   2017-06-22
 categories: machine-learning optimization deep-learning
 ---
 
-# Nonconvex Second Order Methods
+# Non-convex Second Order Methods
 
 [TODO blog post is under construction, please disregard]
 
-This is a high-level overview of the methods for second order local improvement of nonconvex costs with a particular focus on neural networks (NNs).
+This is a high-level overview of the methods for second order local improvement of non-convex costs with a particular focus on neural networks (NNs).
 
 Make sure to read the [general overview post]({{ site.baseurl }}{% post_url 2017-06-19-neural-network-optimization-methods %}) first. Also, we'll borrow the same setting from the introduction of the [first-order methods post]({{ site.baseurl }}{% post_url 2017-06-20-nonconvex-first-order-methods %}) and we will generally add an assumption that \\(f\in\mathcal{C}^2\\), if not even more smooth. Some of these methods might never explicitly touch the Hessian, but their analysis and intuition depend critically on it.
 

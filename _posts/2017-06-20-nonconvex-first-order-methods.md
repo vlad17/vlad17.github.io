@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Nonconvex First Order Methods"
+title:  "Non-convex First Order Methods"
 date:   2017-06-20
 categories: machine-learning optimization deep-learning
 ---
 
-# Nonconvex First Order Methods
+# Non-convex First Order Methods
 
 This is a high-level overview of the methods for first order local improvement optimization methods for non-convex, Lipschitz, (sub)differentiable, and regularized functions with efficient derivatives, with a particular focus on neural networks (NNs).
 
@@ -36,7 +36,7 @@ Make sure to read the [general overview post]({{ site.baseurl }}{% post_url 2017
 
 **Description**. See [Ghadimi and Lan 2013a](https://arxiv.org/abs/1309.5549) for analysis and TensorFlow's [non-composite](https://www.tensorflow.org/api_docs/python/tf/train/GradientDescentOptimizer)/[composite](https://www.tensorflow.org/api_docs/python/tf/train/ProximalGradientDescentOptimizer) implementation. The intuition behind SGD is to travel in a direction we expect is downhill, at least from where we are now. Put another way, the gradient defines a local linear approximation to our function, and we head in the direction that most directly lowers the cost for that approximation. The learning rate \\(\eta\_t\\) controls how far against the gradient we'd like to go (before we judge the linear approximation to be inaccurate).
 
-**Assumptions**. SGD makes the *gradient estimation assumption*, that \\(\tilde{\nabla}\_t\\) is an unbiased esitmator of \\(\nabla\_t\\) with variance globally bounded, and the assumes that \\(f\\) is *\\(L\\)-gradient-Lipschitz*. [Ghadimi et al 2013](https://arxiv.org/abs/1308.6594) extend to composite costs.
+**Assumptions**. SGD makes the *gradient estimation assumption*, that \\(\tilde{\nabla}\_t\\) is an unbiased estimator of \\(\nabla\_t\\) with variance globally bounded, and the assumes that \\(f\\) is *\\(L\\)-gradient-Lipschitz*. [Ghadimi et al 2013](https://arxiv.org/abs/1308.6594) extend to composite costs.
 
 **Guarantees**. For a *fixed-rate*, \\(\eta\_t=\eta\\), we expect to converge to an approximate critical point in \\(O\pa{ d\epsilon^{-4} }\\) as long as \\(\eta\simeq\min\pa{L^{-1},\epsilon^2}\\). With *annealing*, \\(\eta\_t\simeq\min(L^{-1},\epsilon t^{-1/4})\\) offers the same guarantees.
 
@@ -45,9 +45,9 @@ Make sure to read the [general overview post]({{ site.baseurl }}{% post_url 2017
 * Its theoretical performance is poor, and convergence is only guaranteed to hold if assuming step size is kept small corresponding to smoothness constants of the cost function. The fact that annealing doesn't benefit worst-case runtime is a bit surprising since that's what happens in the strongly convex case, but I believe this is a testament to the fact that the general cost function shape is no longer bowl-like, but can be fractal in nature, so there might never be an end to directions to descend.
 * In practice, I've found that at least for simple problems like logistic regression, where we have \\(L\\) available, using a fixed learning rate of at most \\(L^{-1}\\), is many, many orders of magnitudes slower than a "reasonable" constant. Global Lipschitz properties might be poorer than local ones, so you're dooming yourself to slow learning.
 * A common strategy to cope with this is to use an exponential decay schedule, \\(\eta\_t\simeq e^{-t}\\), with the idea being to traverse a large range of learning rates, hopefully spending most of the time in a range appropriate to the problem. Of course, this will be very sensitive to hyper parameters: note that using exponential decay bounds the diameter of exploration, and even using an inverse-time schedule \\(\eta\_t\simeq t^{-1}\\) for \\(T\\) steps means you can only travel \\(O(\log T)\\) distance from your starting point! Inverse-time schedules, and more generally schedules with \\(\sum\_{t=1}^\infty\eta\_t=\infty\\) but \\(\sum\_{t=1}^\infty\eta\_t^2<\infty\\), can draw on more restrictive smoothness assumptions about \\(f\\) to guarantee almost-sure convergence ([Bottou 1998](http://leon.bottou.org/papers/bottou-98x)).
-* [Ghadimi and Lan 2013a](https://arxiv.org/abs/1309.5549) also offer a treatment of "2-phase random stochastic gradient", which is vanilla SGD with random restarts, for probibalistic guarantees of finding approximate stationary points. Finally, Ghadimi and Lan's SGD technically expects to find \\(\vx_\*\\) with \\(\E\ha{\norm{\nabla f(\vx\_\*)}^2}<\epsilon\\). This implies the above \\(O(d\epsilon^{-4})\\) convergence rate, but is technically slightly stronger.
+* [Ghadimi and Lan 2013a](https://arxiv.org/abs/1309.5549) also offer a treatment of "2-phase random stochastic gradient", which is vanilla SGD with random restarts, for probabilistic guarantees of finding approximate stationary points. Finally, Ghadimi and Lan's SGD technically expects to find \\(\vx_\*\\) with \\(\E\ha{\norm{\nabla f(\vx\_\*)}^2}<\epsilon\\). This implies the above \\(O(d\epsilon^{-4})\\) convergence rate, but is technically slightly stronger.
 
-Most subsequent algorithms have been developed to handle finding \\(\eta\_t\\) on their own, adapting the learning rate as they go along. This was done for the convex case, but that doesn't stop us from applying the same improvements to the nonconvex case!
+Most subsequent algorithms have been developed to handle finding \\(\eta\_t\\) on their own, adapting the learning rate as they go along. This was done for the convex case, but that doesn't stop us from applying the same improvements to the non-convex case!
 
 ## Accelerated (Stochastic) Gradient Descent (AGD)
 
@@ -69,7 +69,7 @@ See [tf.train.MomentumOptimizer](https://www.tensorflow.org/api_docs/python/tf/t
 \\]
 **Practical Notes**. While optimal in the smooth, convex, full gradient setting, and even optimally extended to non-smooth settings (see [Tseng 2008](http://www.mit.edu/~dimitrib/PTseng/papers/apgm.pdf) for an overview), changing the above to use a random gradient estimator ruins asymptotic performance, concede [Sutskever et al 2013](http://proceedings.mlr.press/v28/sutskever13.html). [Goodfellow](http://www.deeplearningbook.org/contents/optimization.html) claims momentum handles ill-conditioning in the Hessian of \\(f\\) and variance in the gradient though the introduction of the stabilizing term \\(\vm\_{t}\\). Indeed, this seems to be the thesis laid out by Sutskever et al 2013, where the authors argue that a certain transient phase of optimization matters more for deep NNs, which AGD accelerates empirically (see also [Bengio et al 2012](https://arxiv.org/abs/1212.0901)). Many authors set \\(\beta=0.9\\), but see [Sutskever et al 2013](http://proceedings.mlr.press/v28/sutskever13.html) for detailed considerations on the momentum schedule.
 
-**Guarantees**. Later work by [Ghadimi and Lan 2013b](https://arxiv.org/abs/1310.3787) solidifies the analysis for AGD in for stochastic, smooth, composite, and nonconvex costs, though it uses a slightly different formulation for momentum. Under the previous gradient estimation assumptions from SGD (including slightly stronger light-tail assumptions about the variance of \\(\tilde{\nabla}\_t\\)), \\(L\\)-gradient-Lipschitz assumptions for \\(f\\), and a schedule which increases mini-batch size *linearly* in the iteration count to refine gradient estimation, AGD requires \\(O(\epsilon^{-2})\\) iterations but \\(O(d\epsilon^{-4})\\) runtime to converge to an approximate critical point. Perhaps with yet stronger assumptions about the concentration of \\(\tilde{\nabla}\_t\\) around \\(\nabla\_t\\) AGD has promise to perform better.
+**Guarantees**. Later work by [Ghadimi and Lan 2013b](https://arxiv.org/abs/1310.3787) solidifies the analysis for AGD in for stochastic, smooth, composite, and non-convex costs, though it uses a slightly different formulation for momentum. Under the previous gradient estimation assumptions from SGD (including slightly stronger light-tail assumptions about the variance of \\(\tilde{\nabla}\_t\\)), \\(L\\)-gradient-Lipschitz assumptions for \\(f\\), and a schedule which increases mini-batch size *linearly* in the iteration count to refine gradient estimation, AGD requires \\(O(\epsilon^{-2})\\) iterations but \\(O(d\epsilon^{-4})\\) runtime to converge to an approximate critical point. Perhaps with yet stronger assumptions about the concentration of \\(\tilde{\nabla}\_t\\) around \\(\nabla\_t\\) AGD has promise to perform better.
 
 ## AdaGrad
 
@@ -143,11 +143,11 @@ A new approach, Stochastic Variance Reduction Gradient (SVRG), was developed by 
 \\]
 Above, \\(\xi\\) is a random variable supported on \\([m]\\). The same guarantees hold without taking expectation wrt \\(\xi\\) for computing \\(\bar{\vx}\_t\\). In particular, for certain \\(\xi,\eta\_t\\) SVRG was shown to reach an approximate critical points in \\(O(dn+dn^{2/3}\epsilon^{-2})\\) time, at least in the non-composite setting, simultaneously by [Reddi et al 2016](https://arxiv.org/abs/1603.06160) and [Allen-Zhu and Hazan 2016](https://arxiv.org/abs/1603.05643). For these problems this improves over the GD runtime cost \\(O(dn\epsilon^{-2})\\). 
 
-Still, it's debatable whether the \\(O(d\epsilon^{-4})\\) SGD is improved upon by SVRG methods, since they depend on \\(n\\). Datasets can be extremely large, so the \\(n^{2/3}\epsilon^{-2}\\) term may be prohibitive. At least in convex settings, [Babanezhad et al 2015](https://arxiv.org/abs/1511.01942) explore using mini-batches for a variance-reduction effect. Perhaps an extension of this to nonconvex costs would be what's necessary to see SVRG applied to NNs. Right now, its use doesn't seem to be very standard.
+Still, it's debatable whether the \\(O(d\epsilon^{-4})\\) SGD is improved upon by SVRG methods, since they depend on \\(n\\). Datasets can be extremely large, so the \\(n^{2/3}\epsilon^{-2}\\) term may be prohibitive. At least in convex settings, [Babanezhad et al 2015](https://arxiv.org/abs/1511.01942) explore using mini-batches for a variance-reduction effect. Perhaps an extension of this to non-convex costs would be what's necessary to see SVRG applied to NNs. Right now, its use doesn't seem to be very standard.
 
 ## Noise-injected SGD
 
-**Noisy SGD**, is a surprisingly cheap and viable new solution proposed to find approximate *local minima* by [Ge et al 2015](https://arxiv.org/abs/1503.02101). Intuitively, jittering the parameters would ensure that the gradient-vanishing pathology of strict saddle points won't be a problem. In particular, even if the gradient shrinks as you near a saddle point, the jitter will be strong enough that you won't have to spend a long time around it before escaping. 
+**Noisy SGD**, is a surprisingly cheap and viable new solution proposed to find approximate *local minima* by [Ge et al 2015](https://arxiv.org/abs/1503.02101). Intuitively, adding jitter the parameters would ensure that the gradient-vanishing pathology of strict saddle points won't be a problem. In particular, even if the gradient shrinks as you near a saddle point, the jitter will be strong enough that you won't have to spend a long time around it before escaping. 
 
 \\[
 \begin{align}
@@ -163,4 +163,4 @@ Above, \\(B\_r\\) is a ball centered at the origin of radius \\(r\\). Unfortunat
 \vx\_{t+1}&=\vx\_t-\eta \nabla\_{t}+\xi\_t
 \end{align}
 \\]
-The radius \\(r\_t\\) is carefully chosen depending on whether or not PGD detects we are near a saddle point. Usually, it is set to 0, so the algorithm mostly behaves like GD. With some additional second-order smoothness assumptions, this runs in time \\(O(nd\epsilon^{-2}\log^4d)\\), showing a cheap extention of GD for finding minima. However, until a similar analysis is performed for stochastic PGD, with equally friendly results, these methods aren't yet ready for prime time.
+The radius \\(r\_t\\) is carefully chosen depending on whether or not PGD detects we are near a saddle point. Usually, it is set to 0, so the algorithm mostly behaves like GD. With some additional second-order smoothness assumptions, this runs in time \\(O(nd\epsilon^{-2}\log^4d)\\), showing a cheap extension of GD for finding minima. However, until a similar analysis is performed for stochastic PGD, with equally friendly results, these methods aren't yet ready for prime time.

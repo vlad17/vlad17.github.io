@@ -19,7 +19,7 @@ In our simplified execution model without recursive functions, it suffices to as
 
 ### Order of Execution
 
-Our parallel machine is free to choose a global order of operations \\(g\\) amongst all threads \\(\\{t\_i\\}\_{i}\\), where each \\(g_j=t_{ik}\\) for all \\(j\\) and some corresponding \\(i,k\\). However, the machine has to choose an ordering that is _valid_.
+Our parallel machine is free to choose a global order of operations \\(g\\) among all threads \\(\\{t\_i\\}\_{i}\\), where each \\(g_j=t_{ik}\\) for all \\(j\\) and some corresponding \\(i,k\\). However, the machine has to choose an ordering that is _valid_.
 
 A valid ordering \\(g\\) satisfies two criteria.
 
