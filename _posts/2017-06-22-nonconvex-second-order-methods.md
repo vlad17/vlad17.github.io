@@ -66,3 +66,5 @@ Inspiration, full gradient: [Newton's Method](https://en.wikipedia.org/wiki/Newt
 [backprop curvature](https://pdfs.semanticscholar.org/126a/a4a6d5775957b89944f958bd3307322b3348.pdf)
 
 [Stochastic meta descent](https://pdfs.semanticscholar.org/42e2/1cd78f578fa6ce61b06b99848697da85ed76.pdf)
+
+[reddit overview](https://www.reddit.com/r/MachineLearning/comments/6ls0s9/d_why_isnt_hessianfree_optimization_more_popular/)
