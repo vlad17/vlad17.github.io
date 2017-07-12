@@ -12,6 +12,7 @@ This is my plan to on-board myself with recent deep learning practice (as of the
 1. Intro tutorials/posts.
     * [Karpathy](http://karpathy.github.io/neuralnets/)
     * Skim lectures from weeks 1-6, 9-10 of [Hinton's Coursera course](https://www.coursera.org/learn/neural-networks)
+    * [Vanhouke's Udacity course](https://www.udacity.com/course/deep-learning--ud730)
 1. Scalar supervised learning theory
   * Read Chapters 6, 7, 8, 9, 11, 12 of [Dr. Goodfellow's Deep Learning Book](http://www.deeplearningbook.org/) and [Efficient Backprop](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf)
     * Keep compacted notes for yourself later [(or pool them with mine!)](https://github.com/vlad17/ml-notes)

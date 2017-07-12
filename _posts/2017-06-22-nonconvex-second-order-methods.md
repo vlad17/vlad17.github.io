@@ -68,3 +68,5 @@ Inspiration, full gradient: [Newton's Method](https://en.wikipedia.org/wiki/Newt
 [Stochastic meta descent](https://pdfs.semanticscholar.org/42e2/1cd78f578fa6ce61b06b99848697da85ed76.pdf)
 
 [reddit overview](https://www.reddit.com/r/MachineLearning/comments/6ls0s9/d_why_isnt_hessianfree_optimization_more_popular/)
+
+http://www.andrewng.org/portfolio/on-optimization-methods-for-deep-learning/
