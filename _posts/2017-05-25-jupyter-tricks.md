@@ -90,11 +90,8 @@ Docs accessible with `%<magic>?`.
 
 ## Extensions
 
-My extensions here enable emacs key bindings, but unfortunately Chrome intercepts `ctrl-n`, so you can't use that one key binding from Emacs. The only workaround I know to fix this is to open the notebook in Chrome's app mode. See my discussion [in this PR](https://github.com/jupyter/notebook/issues/1794) for details. [Enable with](https://github.com/ipython-contrib/jupyter_contrib_nbextensions):
-
 ```
 conda install -c conda-forge jupyter_contrib_nbextensions
 pip install yapf # for code-prettification
-pip install jupyter-emacskeys
-for i in  hide_input/main code_prettify/code_prettify code_font_size/code_font_size comment-uncomment/main spellchecker/main jupyter_emacskeys/init select_keymap/main; do jupyter nbextension enable $i ; done
+for i in hide_input/main code_prettify/code_prettify code_font_size/code_font_size comment-uncomment/main spellchecker/main; do jupyter nbextension enable $i ; done
 ```
