@@ -93,5 +93,5 @@ Docs accessible with `%<magic>?`.
 ```
 conda install -c conda-forge jupyter_contrib_nbextensions
 pip install yapf # for code-prettification
-for i in hide_input/main code_prettify/code_prettify code_font_size/code_font_size comment-uncomment/main spellchecker/main; do jupyter nbextension enable $i ; done
+for i in hide_input/main code_prettify/code_prettify code_font_size/code_font_size comment-uncomment/main spellchecker/main autoscroll/main; do jupyter nbextension enable $i ; done
 ```
