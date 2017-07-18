@@ -18,14 +18,20 @@ This is my plan to on-board myself with recent deep learning practice (as of the
 1. Scalar supervised learning practice
     * Choose an enviornment.
         * Should be TensorFlow-based, given the wealth of ecosystem around it; stuff like [Sonnet](https://github.com/deepmind/sonnet) and [T2T](https://github.com/tensorflow/tensor2tensor).
-        * Among [TF-Slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md), [TFLearn](http://tflearn.org/), [Pretty Tensor](https://github.com/google/prettytensor), [Keras](https://keras.io/), and [TensorLayer](https://github.com/zsdonghao/tensorlayer), TensorLayer is my choice, providing a transparent interface to TF, integration with other frameworks, pre-implemented techniques from research (not as much as Keras, though). See [this TensorLayer how-to](https://github.com/wagamamaz/tensorlayer-tricks).
+        * I tried [TF-Slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md) and and [TensorLayer](https://github.com/zsdonghao/tensorlayer), but I still found [Keras](https://keras.io/) easiest to rapidly prototype in (and expand). TensorFlow is still pretty easy to drop down into from the Keras models.
         * Most tutorials use Theano or Keras, so translating to TensorLayer is a good extra exercise. Additionally, try to extend with techniques from the theory, above.
+    * Google [MNIST](https://www.tensorflow.org/get_started/mnist/pros)
     * Lessons 0-5 from [USF](http://course.fast.ai/index.html)
     * Assignments 1-4 from [Udacity](https://www.udacity.com/course/deep-learning--ud730)
-    * [Stanford CS20S1](http://web.stanford.edu/class/cs20si/syllabus.html)
+    * [CIFAR-10](https://www.tensorflow.org/tutorials/deep_cnn)
+      * Extend to multiple GPUs
+      * Visualizations (with Tensorboard): histogram summary for weights/biases/activations and layer-by-layer gradient norm recordings (+ how does batch norm affect them), graph visualization, cost over time
+      * Visualizations for trained kernels: most-activating image from input set as viz, direct kernel image visualizations + maximizing image from input set as the viz [per maximizing inputs](https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html), activations direct image viz (per [Yosinki et al 2015](http://yosinski.com/media/papers/Yosinski__2015__ICML_DL__Understanding_Neural_Networks_Through_Deep_Visualization__.pdf)). For maximizing inputs use regularization from Yosinki paper.
+      * Faster input pipeline and timing metrics for each stage of operation [input pipeline notes](http://web.stanford.edu/class/cs20si/lectures/notes_09.pdf).
+    * Assignment 2 from [Stanford CS20S1](http://web.stanford.edu/class/cs20si/syllabus.html)
     * Lab 1 from [MIT 6.S191](https://github.com/yala/introdeeplearning)
     * [Stanford CS231n](http://cs231n.github.io/)
-    * Replicate [ResNet by He et al 2015](https://arxiv.org/abs/1512.03385), [Dropconnect](http://cs.nyu.edu/~wanli/dropc/), [Maxout](https://arxiv.org/abs/1302.4389)
+    * Replicate [ResNet by He et al 2015](https://arxiv.org/abs/1512.03385), [Dropconnect](http://cs.nyu.edu/~wanli/dropc/), [Maxout](https://arxiv.org/abs/1302.4389), [Inception](https://github.com/tensorflow/models/tree/master/inception) (do a fine-tuning example with Inception per [this paper](http://proceedings.mlr.press/v32/donahue14.pdf)).
     * Do an end-to-end application from scratch. E.g., convert an equation image to LaTeX.
 1. Sequence supervised learning
     * Gentle introductions
