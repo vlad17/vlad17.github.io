@@ -12,7 +12,6 @@ This is my plan to on-board myself with recent deep learning practice (as of the
 1. Intro tutorials/posts.
     * [Karpathy](http://karpathy.github.io/neuralnets/)
     * Skim lectures from weeks 1-6, 9-10 of [Hinton's Coursera course](https://www.coursera.org/learn/neural-networks)
-    * [Vanhouke's Udacity course](https://www.udacity.com/course/deep-learning--ud730)
 1. Scalar supervised learning theory
   * Read Chapters 6, 7, 8, 9, 11, 12 of [Dr. Goodfellow's Deep Learning Book](http://www.deeplearningbook.org/) and [Efficient Backprop](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf)
     * Keep compacted notes for yourself later [(or pool them with mine!)](https://github.com/vlad17/ml-notes)
@@ -22,12 +21,11 @@ This is my plan to on-board myself with recent deep learning practice (as of the
         * Among [TF-Slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md), [TFLearn](http://tflearn.org/), [Pretty Tensor](https://github.com/google/prettytensor), [Keras](https://keras.io/), and [TensorLayer](https://github.com/zsdonghao/tensorlayer), TensorLayer is my choice, providing a transparent interface to TF, integration with other frameworks, pre-implemented techniques from research (not as much as Keras, though). See [this TensorLayer how-to](https://github.com/wagamamaz/tensorlayer-tricks).
         * Most tutorials use Theano or Keras, so translating to TensorLayer is a good extra exercise. Additionally, try to extend with techniques from the theory, above.
     * Lessons 0-5 from [USF](http://course.fast.ai/index.html)
+    * Assignments 1-4 from [Udacity](https://www.udacity.com/course/deep-learning--ud730)
     * [Stanford CS20S1](http://web.stanford.edu/class/cs20si/syllabus.html)
-    * Tutorials 1-3 from [deeplearning.net](http://deeplearning.net/tutorial/)
-    * Notebooks 00-05, 09, 10 from [nlintz/TensorFlow-Tutorials](https://github.com/nlintz/TensorFlow-Tutorials).
     * Lab 1 from [MIT 6.S191](https://github.com/yala/introdeeplearning)
     * [Stanford CS231n](http://cs231n.github.io/)
-    * Replicate [ResNet by He et al 2015](https://arxiv.org/abs/1512.03385)
+    * Replicate [ResNet by He et al 2015](https://arxiv.org/abs/1512.03385), [Dropconnect](http://cs.nyu.edu/~wanli/dropc/), [Maxout](https://arxiv.org/abs/1302.4389)
     * Do an end-to-end application from scratch. E.g., convert an equation image to LaTeX.
 1. Sequence supervised learning
     * Gentle introductions
