@@ -21,7 +21,7 @@ This is my plan to on-board myself with recent deep learning practice (as of the
         * I tried [TF-Slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md) and and [TensorLayer](https://github.com/zsdonghao/tensorlayer), but I still found [Keras](https://keras.io/) easiest to rapidly prototype in (and expand). TensorFlow is still pretty easy to drop down into from the Keras models.
         * Most tutorials use Theano or Keras, so translating to TensorLayer is a good extra exercise. Additionally, try to extend with techniques from the theory, above.
     * Google [MNIST](https://www.tensorflow.org/get_started/mnist/pros)
-    * Lessons 0-5 from [USF](http://course.fast.ai/index.html)
+    * Lessons 0-4 from [USF](http://course.fast.ai/index.html)
     * Assignments 1-4 from [Udacity](https://www.udacity.com/course/deep-learning--ud730)
     * [CIFAR-10](https://www.tensorflow.org/tutorials/deep_cnn)
       * Extend to multiple GPUs
@@ -36,14 +36,13 @@ This is my plan to on-board myself with recent deep learning practice (as of the
     * Do an end-to-end application from scratch. E.g., convert an equation image to LaTeX.
 1. Sequence supervised learning
     * Gentle introductions
-        * Lessons 6-7 from [USF](http://course.fast.ai/index.html)
+        * Lessons 5-7 from [USF](http://course.fast.ai/index.html)    
+        * Assignments 5-6 from [Udacity](https://www.udacity.com/course/deep-learning--ud730)
         * [Karpathy RNN post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
         * Weeks 7-8 of [Hinton's Coursera course](https://www.coursera.org/learn/neural-networks)
     * Theory
         * Chapter 10 from [Goodfellow](http://www.deeplearningbook.org/)
     * Practice
-        * LSTM and RNN tutorials from [deeplearning.net](http://deeplearning.net/tutorial/)
-        * Notebook 07 from [nlintz/TensorFlow-Tutorials](https://github.com/nlintz/TensorFlow-Tutorials).
         * Lab 2 from [MIT 6.S191](https://github.com/yala/introdeeplearning)
         * End-to-end application from scratch: a Swype keyboard ([Reddit tips](https://www.reddit.com/r/MachineLearning/comments/5ogbd5/d_training_lstms_in_practice_tips_and_tricks/))
     * Paper recreations
