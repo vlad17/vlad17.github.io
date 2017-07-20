@@ -31,6 +31,7 @@ This is my plan to on-board myself with recent deep learning practice (as of the
     * Assignment 2 from [Stanford CS20S1](http://web.stanford.edu/class/cs20si/syllabus.html)
     * Lab 1 from [MIT 6.S191](https://github.com/yala/introdeeplearning)
     * [Stanford CS231n](http://cs231n.github.io/)
+    * Try out slightly less common techniques: compare initialization (orthogonal vs LSUV vs uniform), weight normalization vs batch normalization, Bayesian-inspired weight decay vs early stopping vs proximal regularization
     * Replicate [ResNet by He et al 2015](https://arxiv.org/abs/1512.03385), [Dropconnect](http://cs.nyu.edu/~wanli/dropc/), [Maxout](https://arxiv.org/abs/1302.4389), [Inception](https://github.com/tensorflow/models/tree/master/inception) (do a fine-tuning example with Inception per [this paper](http://proceedings.mlr.press/v32/donahue14.pdf)).
     * Do an end-to-end application from scratch. E.g., convert an equation image to LaTeX.
 1. Sequence supervised learning
