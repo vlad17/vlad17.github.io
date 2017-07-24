@@ -8,7 +8,7 @@ Hello! I'm an EECS Ph.D. student at the University of California, Berkeley.
 
 If you find any typos or incorrect information, I would really appreciate it if you let me know! Please fill in a [GitHub issue form](https://github.com/vlad17/vlad17.github.io/issues/new).
 
-If you want to contact me for some other reason, or don't have a GitHub account, then you can email me. It's my full first name (Vlad is short for Vladimir), with my last name concatenated at gmail.
+If you want to contact me for some other reason, or don't have a GitHub account, then you can email me. It's my full first name (Vlad is short for Vladimir), followed by my last name (Feinberg) at Gmail.
 
 Blogs I follow:
 
