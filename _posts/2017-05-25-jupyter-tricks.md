@@ -88,6 +88,8 @@ Docs accessible with `%<magic>?`.
 
 ## Extensions
 
+These are the extensions I find useful: auto-format code, toggle font size, auto-comment regions, spell check, and control the cutoff at which output starts scrolling, respectively, below.
+
 ```
 conda install -c conda-forge jupyter_contrib_nbextensions
 pip install yapf # for code-prettification
