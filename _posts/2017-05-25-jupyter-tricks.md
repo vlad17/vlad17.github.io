@@ -28,7 +28,7 @@ Run the kernel on a beefy server, view with a browser on your laptop. You can ch
 1. On server, `jupyter notebook --no-browser --port=12321`
 1. On laptop, navigate to `localhost:8888` in-browser.
 
-## A Note on TeX
+## TeX
 
 The way I use TeX in Jupyter notebook depends on the end goal of the notebook itself. 
 
@@ -41,9 +41,7 @@ In both of the above use cases, one may find it useful to generate rendered [TeX
 
 Use MathJax in Markdown cells. In the first equation you can add convenience `\newcommand` items if you prefer (MathJax will evaluate cells top down).
 
-Note you can embed images right in the Markdown, too.
-
-_Note_: The magic `%%latex` works, but I don't use it. It's treated like a code cell, but we're really only interested in the output in this setting.
+_Note:_ The magic `%%latex` works, but I don't use it. It's treated like a code cell, but we're really only interested in the output in this setting. Finally, you can embed images right in the Markdown, too, with `<img src="path/to/image.png">`.
 
 ### Jupyter-prepared Reports
 
