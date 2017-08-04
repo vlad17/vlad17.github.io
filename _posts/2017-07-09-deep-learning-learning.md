@@ -9,17 +9,17 @@ categories: deep-learning
 
 This is my plan to on-board myself with recent deep learning practice (as of the publishing date of this post). Comments and recommendations [via GitHub issues](https://github.com/vlad17/vlad17.github.io/issues) are welcome and appreciated! This plan presumes some probability, linear algebra, and machine learning theory already, but if you're following along [Part 1 of the Deep Learning book](http://www.deeplearningbook.org/) gives an overview of topics to cover.
 
+My notes on these sources are [publicly available](https://github.com/vlad17/ml-notes), as are my [experiments](https://github.com/vlad17/learning-to-deep-learn).
+
 1. Intro tutorials/posts.
     * [Karpathy](http://karpathy.github.io/neuralnets/)
     * Skim lectures from weeks 1-6, 9-10 of [Hinton's Coursera course](https://www.coursera.org/learn/neural-networks)
 1. Scalar supervised learning theory
   * Read Chapters 6, 7, 8, 9, 11, 12 of [Dr. Goodfellow's Deep Learning Book](http://www.deeplearningbook.org/) and [Efficient Backprop](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf)
-    * Keep compacted notes for yourself later [(or pool them with mine!)](https://github.com/vlad17/ml-notes)
 1. Scalar supervised learning practice
     * Choose an enviornment.
         * Should be TensorFlow-based, given the wealth of ecosystem around it; stuff like [Sonnet](https://github.com/deepmind/sonnet) and [T2T](https://github.com/tensorflow/tensor2tensor).
-        * I tried [TF-Slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md) and and [TensorLayer](https://github.com/zsdonghao/tensorlayer), but I still found [Keras](https://keras.io/) easiest to rapidly prototype in (and expand). TensorFlow is still pretty easy to drop down into from the Keras models.
-        * Most tutorials use Theano or Keras, so translating to TensorLayer is a good extra exercise. Additionally, try to extend with techniques from the theory, above.
+        * I tried [TF-Slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md) and and [TensorLayer](https://github.com/zsdonghao/tensorlayer), but I still found [Keras](https://keras.io/) easiest to rapidly prototype in (and expand). TensorFlow is still pretty easy to [drop down into](https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html) from the Keras models.
     * Google [MNIST](https://www.tensorflow.org/get_started/mnist/pros)
     * Lessons 0-4 from [USF](http://course.fast.ai/index.html)
     * Assignments 1-4 from [Udacity](https://www.udacity.com/course/deep-learning--ud730)
