@@ -20,6 +20,7 @@ My notes on these sources are [publicly available](https://github.com/vlad17/ml-
     * Choose an enviornment.
         * Should be TensorFlow-based, given the wealth of ecosystem around it; stuff like [Sonnet](https://github.com/deepmind/sonnet) and [T2T](https://github.com/tensorflow/tensor2tensor).
         * I tried [TF-Slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md) and and [TensorLayer](https://github.com/zsdonghao/tensorlayer), but I still found [Keras](https://keras.io/) easiest to rapidly prototype in (and expand). TensorFlow is still pretty easy to [drop down into](https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html) from the Keras models.
+        * Even with Keras, TF is awkward to prototype in: it's also worth considering [PyTorch](http://pytorch.org/).
     * Google [MNIST](https://www.tensorflow.org/get_started/mnist/pros)
     * Lessons 0-4 from [USF](http://course.fast.ai/index.html)
     * Assignments 1-4 from [Udacity](https://www.udacity.com/course/deep-learning--ud730)
@@ -49,6 +50,8 @@ My notes on these sources are [publicly available](https://github.com/vlad17/ml-
         * Machine translation [Sutskever et al 2014](https://arxiv.org/abs/1409.3215)
         * NLP [Vinyals et al 2015](https://arxiv.org/abs/1412.7449)
         * Dense captioning [Karpathy 2016](http://cs.stanford.edu/people/karpathy/densecap/)
+        * [Pointer nets](https://arxiv.org/abs/1506.03134)
+        * [Attention](https://arxiv.org/abs/1706.03762)        
 1. Unsupervised and semi-supervised approaches
     * Theory
         * Weeks 11-16 of [Hinton's Coursera course](https://www.coursera.org/learn/neural-networks)
@@ -61,6 +64,7 @@ My notes on these sources are [publicly available](https://github.com/vlad17/ml-
         * [WGAN](https://arxiv.org/abs/1701.07875)
         * [VAE](https://arxiv.org/abs/1312.6114)
         * [IAF VAE](https://arxiv.org/abs/1606.04934)
+        * [Ladder Nets](https://arxiv.org/abs/1507.02672)
 
 [//]: # (% LocalWords: TF nlintz deeplearning Coursera Reddit )
         
