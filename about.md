@@ -21,6 +21,7 @@ Blogs I follow:
 * [Almost Sure](https://almostsure.wordpress.com/)
 * [OpenAI](https://blog.openai.com/)
 * [Google](https://research.googleblog.com/)
+* [OffConvex](http://www.offconvex.org/)
 
 Topics I'm interested in:
 
