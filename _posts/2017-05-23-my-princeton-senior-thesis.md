@@ -11,6 +11,8 @@ categories: my-whitepapers machine-learning
 
 Completed during the 2016-2017 academic year.
 
+[A concise an more up-to-date paper version.](https://arxiv.org/abs/1705.10813)
+
 [Link to download report.](/assets/2017-05-23-my-princeton-senior-thesis/thesis.pdf)
 
 [Code repository.](https://github.com/vlad17/runlmc)

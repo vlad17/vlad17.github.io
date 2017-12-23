@@ -26,7 +26,7 @@ Make sure to read the [general overview post]({{ site.baseurl }}{% post_url 2017
 
     * \\(\epsilon\\)-approximate critical point: \\(\norm{\nabla f(\vx\_\*)}\le \epsilon\\)
     * \\(\epsilon\\)-approximate local minimum: there exists a neighborhood \\(N\\) of \\(\vx\_\*\\) such that for any \\(\vx\\) in \\(N\\), \\(f(\vx)-f(\vx\_\*)\le \epsilon\\). For \\(f\\) twice-differentiable at \\(\vx\_\*\\), it suffices to be an \\(\epsilon\\)-approximate critical point and have \\(\nabla^2 f(\vx\_*)\succeq \sqrt{\epsilon}I\\).
-* In this post, many algorithms will depend on a fixed learning rate, even if it's just an initial scale for the learning rate. Convergence is sensitive to this setting; a fixed recommendation will surely be a poor choice for some problem. For a first choice, setting \\(\eta\\) to one of \\( \\{0.001,0.01,0.1, 1\\}\\) based on a guess about the magnitude of the smoothness of the problem at hand is a good bet.
+* In this post, many algorithms will depend on a fixed learning rate, even if it's just an initial scale for the learning rate. Convergence is sensitive to this setting; a fixed recommendation will surely be a poor choice for some problem. For a first choice, setting \\(\eta\\) to one of \\( \\{0.001,0.01,0.1\\}\\) based on a guess about the magnitude of the smoothness of the problem at hand is a good bet.
 
 ## Stochastic Gradient Descent (SGD)
 
