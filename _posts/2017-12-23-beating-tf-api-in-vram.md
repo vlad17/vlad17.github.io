@@ -15,7 +15,7 @@ Briefly, if you have a dataset that fits into a GPU's memory, you're giving away
 
 ## Punchline
 
-Let's get to it. With numbers similar to my use case, 5 epochs of training take about **16 seconds** with the standard `feed_dict` approach, **13-19 seconds** with the TensorFlow Dataset API, and **8 seconds** with a custom TensorFlow control-flow construct.
+Let's get to it. With numbers similar to my use case, 5 epochs of training take about **16 seconds** with the standard `feed_dict` approach, **12-20 seconds** with the TensorFlow Dataset API, and **8 seconds** with a custom TensorFlow control-flow construct.
 
 This was tested on an Nvidia Tesla P100 with a compiled TensorFlow 1.4.1 (CUDA 9, cuDNN 7), Python 3.5. Here is the [test script](https://gist.github.com/vlad17/5d67eef9fb06c6a679aeac6d07b4dc9c). I didn't test it too many times ([exec trace](https://gist.github.com/vlad17/f43dba5783adfc21b1abab520dd2a8f1)). Feel free to change the data sizes to see if the proposed approach would still help in your setting.
 
@@ -62,7 +62,7 @@ with tf.Session() as sess:
             output_ph_ny: Y_ny[batch_ix_b]})
 {% endhighlight %}
 
-This drops whole-dataset loss from \\(4542.5\\) to \\(4.23014\\), taking \\(16.296\\) seconds for training. You might worry that random-number generation might be taking a while, but excluding that doesn't drop the time more than \\(0.5\\) seconds.
+This drops whole-dataset loss from around 4500 to around 4, taking around **16 seconds** for training. You might worry that random-number generation might be taking a while, but excluding that doesn't drop the time more than **0.5 seconds**.
 
 ### Dataset API Approach
 
@@ -82,20 +82,24 @@ ds = ds.batch(batch_size)
 # necessary to keep this from being *worse* than feed_dict
 ds = ds.prefetch(buffer_size=(batch_size * 5))
 it = ds.make_initializable_iterator()
-next_bx, next_by = it.get_next()
-
-pred_by = mlp(next_bx)
-loss = tf.losses.mean_squared_error(next_by, pred_by)
-update = adam.minimize(loss)
-
+# reddit user ppwwyyxx further suggests folding training into a single call
+def while_fn(t):
+    with tf.control_dependencies([t]):
+        next_bx, next_by = it.get_next()
+        pred_by = mlp(next_bx)
+        loss = tf.losses.mean_squared_error(next_by, pred_by)
+        update = adam.minimize(loss)
+        with tf.control_dependencies([update]):
+            return t + 1
+training = tf.while_loop(lambda t: t < nbatches,
+                         while_fn, [0], back_prop=False)
 with tf.Session() as sess:
     fd = {input_ph_nx: X_nx, output_ph_ny: Y_ny}
     sess.run(it.initializer, feed_dict=fd)
-    for _ in range(nbatches):
-        sess.run(update)
+    sess.run(training)
 {% endhighlight %}
 
-For a small `bufsize`, like `1000`, this trains in \\(13.471\\) seconds. But then it's not actually shuffling the data too well (since all data points can only move by a position of 1000). Still, the loss drops from \\(4544.07\\) to \\(3.86128\\). A large `bufsize` like `1000000`, which you'd think should effectively move the dataset onto the GPU entirely, performs _worse_ than `feed_dict` at \\(19.484\\) seconds.
+For a small `bufsize`, like `1000`, this trains in around **12 seconds**. But then it's not actually shuffling the data too well (since all data points can only move by a position of 1000). Still, the loss drops from around 4500 to around 4, as in the `feed_dict` case. A large `bufsize` like `1000000`, which you'd think should effectively move the dataset onto the GPU entirely, performs _worse_ than `feed_dict` at around **20 seconds**.
 
 I don't think I'm unfair in counting `it.initializer` time in my benchmark (which isn't that toy, either, since it's similar to my RL use case size). All the training methods need to load the data onto the GPU, and the data isn't available until run time.
 
@@ -128,7 +132,7 @@ with tf.Session() as sess:
     sess.run(training, feed_dict=fd)
 {% endhighlight %}
 
-This one crushes at \\(8.370\\) seconds, dropping loss from \\(4539.77\\) to \\(4.36041\\).
+This one crushes at around **8 seconds**, dropping loss again from around 4500 to around 4.
 
 ## Discussion
 
