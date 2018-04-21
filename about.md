@@ -4,7 +4,9 @@ title: About
 permalink: /about
 ---
 
-Hello! I'm an EECS Ph.D. student at the University of California, Berkeley.  
+Hello! I'm an EECS Ph.D. student at the University of California, Berkeley.
+
+I work at the RISELab. If you're an undergraduate (especially at Cal) interested in participating in research, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSde_4EVs913k0LlwyG9lu8GwHYfaYbsAiHfsqrdCQIQ1N16xA/viewform?usp=sf_link) and mention me in the Additional Information field.
 
 If you find any typos or incorrect information, I would really appreciate it if you let me know! Please fill in a [GitHub issue form](https://github.com/vlad17/vlad17.github.io/issues/new).
 
