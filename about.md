@@ -4,7 +4,7 @@ title: About
 permalink: /about
 ---
 
-Hello! I'm an EECS Ph.D. student at the University of California, Berkeley.  
+Hello! After graduating from Princeton with a degree in Computer Science, I became an EECS Ph.D. student at the University of California, Berkeley at the [RISELab](https://rise.cs.berkeley.edu/). I took a leave to work at a startup.
 
 If you find any typos or incorrect information, I would really appreciate it if you let me know! Please fill in a [GitHub issue form](https://github.com/vlad17/vlad17.github.io/issues/new).
 
@@ -12,12 +12,10 @@ If you want to contact me for some other reason, or don't have a GitHub account,
 
 Blogs I follow:
 
-* [Fast ML](http://fastml.com/)
-* [Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/)
+* [High Scalability](http://highscalability.com/)
+* [Wes Mckinney's Blog](http://wesmckinney.com/archives.html)
+* [Daniel Abadi's Blog](http://dbmsmusings.blogspot.com/)
 * [Machine Learning (Theory)](http://hunch.net/)
-* [I'm a Bandit](https://blogs.princeton.edu/imabandit/)
-* [Minimizing Regret](http://www.minimizingregret.com/)
-* [Zeyuan Allen-Zhu's blog](https://zeyuan.wordpress.com/)
 * [Almost Sure](https://almostsure.wordpress.com/)
 * [OpenAI](https://blog.openai.com/)
 * [Google](https://research.googleblog.com/)
