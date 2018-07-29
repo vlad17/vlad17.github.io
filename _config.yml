@@ -19,6 +19,9 @@ urls:
     - text: Projects
       url: /projects
       icon: fa-desktop
+    - text: Search
+      url: /search.html
+      icon: fa-search
     - text: XML Feed
       url: /feed.xml
       icon: fa-feed
