@@ -61,7 +61,7 @@ They are all meaningfully different, and each one has a different runtime profil
 
 For starters, we could just apply radix sort to the sorting solution above. This is kind-of cheating since radix sort really needs \\(O(\log n)\\) passes over the data, but we assumed pointers and therefore indices into the array are fixed-width, so we should count this solution as allowed.
 
-After a few iterations iterations, I'm convinced the most elegant solution to this problem is as follows:
+After a few iterations, I'm convinced the most elegant solution to this problem is as follows:
 
     def unwind(xs):
         while xs[-1] != xs[xs[-1]]:
