@@ -85,17 +85,19 @@ Can we get rid of boundedness altogether now, relaxing it to the probibalistic "
 
 ### How's this possible?
 
-[Kontorovich 2014](https://arxiv.org/abs/1309.1007) claims concentration for generic Lipschitz functions for subgaussian inputs. At first, this may sound too good to be true. Indeed, a famous counterexample (BLM Problem 6.4, p. 211, which itself refers to LT p. 25)
+[Kontorovich 2014](https://arxiv.org/abs/1309.1007) claims concentration for generic Lipschitz functions for subgaussian inputs. At first, this may sound too good to be true. Indeed, a famous counterexample (BLM Problem 6.4, p. 211, which itself refers to LT p. 25) finds a particular \\(f\\) where the following holds for sufficiently large \\(n\\).
+\\[
+\P\ca{f(X)> \E f(X)+cn^{1/4}}\ge 1/4\,.
+\\]
+Technically, the result is shown for the median, not mean value of \\(f\\), but by integrating the median concentration inequality for Lipschitz functions of subgaussian variables (LT p. 21), we can state the above, since the mean and median are within a constant of each of other (bdd rvs with zero mean are sg).
+From the proof (LT, p. 25), \\(f(X)\\) has rate no better than \\(t^2n^{-1/2}\\).
 
-When the concentration rate depends on the dimension, as in the Kontorovich paper, we're actually seeing a different type of phenomenon than the Talagrand-style concentration, where having more inputs actually improves concentration rates.
+Therein lies the resolution for the apparent contradiction: we're *pathologically* dependent on the dimension factor.
+On the other hand, the bound proven in the aforementioned Kontorovich 2014 paper is that for sg \\(X\\), we can achieve a concentration rate \\(t^2/\sum_i\Delta_{\text{SG}}^2\\), where \\(\Delta_{\text{SG}}\\) is a subgaussian diameter, which for our purposes is just a constant times \\(\sigma_i^2\\), the subgaussian parameter for the \\(i\\)-th position in the \\(n\\)-dimensional vector \\(X\\). For some \\(\sigma^2=\max_i\sigma^2\\), note that the hidden dimensionality emerges, since the Kontorovich rate is then \\(t^2/(n\sigma^2)\\).
 
-Per the Ledoux and Talagrand Banach Spaces book (1991), by integrating the median concentration inequality for an L​​-Lipschitz function of subgaussian variables, it must be that the mean and median are within \propto L of each other (p. 21). So then the counterexample from problem 6.4 (p.211) of the Boucheron, Lugosi, and Massart book (2013) seems to contradict with the Kontorovich concentration result I mentioned, where \mathbb{P}\left\{f(X)> \mathbb{M}f(X)+cn^{1/4}\right\}\ge 1/4 for some Lipschitz f and vector of a sufficiently large, even number n of iid subgaussians, X (well, they're even bounded, boolean rvs in the example). From the proof (in Ledoux and Talagrand, p.25), it seems that f basically behaves like a subgaussian with variance \propto n^{1/2}. Then the implication, or at least the way it seems to me, is then that the concentration is at least \mathbb{P}\left\{\left|f(X)-\mathbb{E}f\right|>t\right\}=\Omega(\exp(-t^2/\sqrt{n})), i.e., we're dependent on the dimension factor.
+The Kontorovich paper is a nice generalization of McDiarmid's inequality which replaces the boundedness condition with a subgaussian one. We still incur the dimensionality penalty, but we don't care about this if we're making a one-dimensional or fixed-\\(n\\) statement. In fact, the rest of the Kontorovich paper investigates scenarios where this dimensionality term is cancelled out by a shrinking \\(\sigma^2\sim n^{-1}\\) (in the paper, this is observed for some stable learning algorithms).
 
-On the other hand, the bound proven in the aforementioned Kontorovich 2014 paper is \mathbb{P}\left\{\left|f(X)-\mathbb{E}f\right|>t\right\}=O(\exp(-ct^2/(n\Delta_{\text{SG}}^2))), where \Delta_{\text{SG}} is a "subgaussian diameter", which is a loose notion of a regular subgaussian constant for real-valued subgaussians; by the looks of it they're the same up to a constant.
-
-I think this clears up the confusion we had earlier. There is no contradiction; the Kontorovich paper is just a nice generalization of McDiarmid's inequality which replaces the boundedness condition with a subgaussian one. We still incur the dimensionality penalty, but we don't care about this if we're making a one-dimensional or fixed-n statement.
-
-In fact, there's even quite a bit of room between the Kontorovich bound \exp(-t^2/n) and the counterexample lower bound \exp(-t^2/\sqrt{n})). This next statement might be made out of my own ignorance, but it seems like there's still a lot of open space to map out in terms of what rates are possible to achieve in the non-convex case, if we care about the dimension \\(n\\) (which we do).
+In fact, there's even quite a bit of room between the Kontorovich bound \\(t^2/n\\) (fixing the sg diameter now) and the counterexample lower bound \\(t^2/\sqrt{n}\\). This next statement might be made out of my own ignorance, but it seems like there's still a lot of open space to map out in terms of what rates are possible to achieve in the non-convex case, if we care about the dimension \\(n\\) (which we do).
 
 # References
 
