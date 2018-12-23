@@ -57,8 +57,21 @@ Of course, this is all very extra, but someone who's aware of what's going on at
 
 Now here's where I tell you there are at least three different ways to achieve \\(O(n)\\) run time and \\(O(1)\\) extra memory overhead for this problem.
 
-I won't reveal them here.
-
 They are all meaningfully different, and each one has a different runtime profile. Two of the solutions use \\(\sim 2n\\) array accesses or sets in the worst case, and one of those has the bonus of being cache-friendly.
 
-[//]: # quickselect-style, cuckoo-style graph following, and radix sort
+For starters, we could just apply radix sort to the sorting solution above. This is kind-of cheating since radix sort really needs \\(O(\log n)\\) passes over the data, but we assumed pointers and therefore indices into the array are fixed-width, so we should count this solution as allowed.
+
+After a few iterations, I'm convinced the most elegant solution to this problem is as follows:
+
+    def unwind(xs):
+        while xs[-1] != xs[xs[-1]]:
+             xs[xs[-1]], xs[-1] = xs[-1], xs[xs[-1]]
+        return xs[-1]
+
+The proof that the above takes linear time is the same as its correctness proof: every iteration, the amount of numbers "not in their slot" goes down by one. This value is bounded above by \\(n\\). So the algorithm must terminate, and when it does, the loop condition is broken, which is proof a duplicate was found.
+
+I discovered a note by [Yuval Filmus](https://cs.stackexchange.com/questions/95379/) which performs a similar computation, but without modifying the array (at the cost of running a cycle algorithm, which would require a few more array accesses).
+
+While these solutions are quite satisfying in an aesthetic sense, they might not be the most performant in practice. For what it's worth, I have not found the cache-friendly version online yet :)
+
+[//]: # hint: quickselect
