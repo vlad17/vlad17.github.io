@@ -62,7 +62,7 @@ Our goal here will be to see if there are smooth ways of relaxing the conditions
 
 The concentration of measure bounds above rely on a global Lipschitz property: no matter which way you go, the function \\(f\\) must lie in a slope-bounded double cone, which can be centered at any of its points; this can be summarized by the property that our \\(f:\R^n\rightarrow\R\\) satisfies \\(\abs{f(\vx)-f(\vy)}\le L\norm{\vx-\vy}\\) for all \\(\vx,\vy\\)
 
-[TODO img would be so sick here]
+![lipschitz continuity image](/assets/2018-12-22-subgaussian-concentration/lipschitz_continuity.png){: .center-image }
 
 Moreover, why does it matter that the preimage metric space of our \\(f\\) need to, effectively, be bounded? All that really matters is how the function \\(f\\) responds to changes in inputs, right? 
 
