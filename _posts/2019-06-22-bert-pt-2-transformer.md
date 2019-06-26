@@ -79,7 +79,7 @@ Again, let's view each word in our input sequence as some embedded vector \\(\te
 
 Our goal is to come up with a new embedding for each word, \\(\textbf{a}_i\\), which contains context from all other words. This is done through a mechanism called attention. For a code-level explanation, see [The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html), though I find that focusing on a particular word (the one at position \\(i\\)) helped me understand better.
 
-The following defines a Transformer block. A transformer block just contextualizes embeddings. They can be stacked on top of each other and then handed off to the transformer decoder, which is a more complicated kind of transformer that includes attention over both the inputs and outputs. Luckily, we don't need that for BERT.
+The following defines (one head of) a Transformer block. A transformer block just contextualizes embeddings. They can be stacked on top of each other and then handed off to the transformer decoder, which is a more complicated kind of transformer that includes attention over both the inputs and outputs. Luckily, we don't need that for BERT.
 
 Remember, at the end of the day, we're trying to take one sequence \\(\\{\textbf{e}\_i\\}\_i\\) and convert it into another sequence \\(\\{\textbf{a}\_i\\}\_i\\) which is then used as input for another stage that does the actual transformation. The point is that the representation \\(\\{\textbf{a}\_i\\}\_i\\) is broadly useful for many different decoding tasks.
 
@@ -101,7 +101,7 @@ After computing how important each element \\(\textbf{x}\_j\\) is to the element
 
 This glosses over a couple normalization, multiple heads, and computational details, but it's the gist of self-attention and the Transformer block.
 
-One worth mentioning is the positional encoding, which makes sure that information about a word being present in the \\(i\\)-th position is present before the first Transformer block is applied.
+One thing worth mentioning is the positional encoding, which makes sure that information about a word being present in the \\(i\\)-th position is present before the first Transformer block is applied.
 
 After possibly many transformer blocks, we get our \\(L\\)-th sequence of embeddings, \\(\\{\textbf{a}^{(L)}\_i\\}\_i\\). We plug this as input to another model, the transformer decoder, which uses a similar process to eventually get a loss based on some input-output pair of sentences (e.g., in translation, the decoder converts the previous sequence into \\(\\{\textbf{b}\_j\\}\_j\\), which is compared with the actual translation \\(\\{\textbf{y}^{(L)}\_j\\}\_j\\)
 
@@ -115,7 +115,7 @@ It's not clear which parts are essential, but something is doing its job:
 
 And self-attention looks like it's doing something like what we think it should.
 
-![Transformer Attension](/assets/2019-06-22-bert-pt-2-transformer/attn-viz.png){: .center-image }
+![Transformer Attention](/assets/2019-06-22-bert-pt-2-transformer/attn-viz.png){: .center-image }
 
 Regardless how much of a deep learning believer you are, this architecture solves problems which require contextualizing our representation of words, and it picks the right things to attend to in examples.
 
