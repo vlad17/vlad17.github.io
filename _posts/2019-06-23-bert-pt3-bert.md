@@ -7,7 +7,7 @@ categories: deep-learning
 
 # BERT
 
-In the last two posts, we reviewed [Deep Learning](/2019/03/09/dl-intro.html) and [The Transformer](/2019/03/09/bert-pt-2-transformer.html). Now we can discuss an interesting advance in NLP, BERT, Bidirectional Encoder Representations from Transformers ([arxiv link](https://arxiv.org/abs/1810.04805)).
+In the last two posts, we reviewed [Deep Learning](/2019/03/09/dl-intro.html) and [The Transformer](/2019/06/22/bert-pt-2-transformer.html). Now we can discuss an interesting advance in NLP, BERT, Bidirectional Encoder Representations from Transformers ([arxiv link](https://arxiv.org/abs/1810.04805)).
 
 BERT is a self-supervised method, which uses just a large set of unlabeled textual data to learn representations broadly applicable for different language tasks.
 
