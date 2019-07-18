@@ -124,7 +124,7 @@ Second, the start and end indicators for the span predicted for SQuAD are comput
 
 There are probably many such smaller modeling improvements we could make. But the point is that _it's a waste of time_. If anything is the most powerful table to take away from this paper, it's Table 6.
 
-[TODO bert table 6]
+![bert table 6](/assets/2019-06-23-bert-pt3-bert/tbl6.png){: .center-image }
 
 Above any kind of task-specific tuning or model improvements, the longest pole in the tent is representation. Investing effort in finding the "right" representation (here, bidirectional, deep, contextual word piece embeddings) is what maximizes broad applicability and the potential for transfer learning.
  
