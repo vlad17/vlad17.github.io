@@ -51,8 +51,16 @@ $$
 \newcommand{\card}[1]{\left\lvert{#1}\right\rvert}
 \newcommand{\abs}[1]{\card{#1}}
 \newcommand{\sg}{\mathop{\mathrm{SG}}}
+\newcommand{\se}{\mathop{\mathrm{SE}}}
 
 \newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\cov}{cov}
+
+\newcommand\independent{\perp\kern-5pt\perp}
+\newcommand{\CE}[2]{ \mathExp\left[ #1 \,\middle|\, #2 \right] }
+\newcommand{\disteq}{\overset{d}{=}}
 
 $$
 {% endraw %}
