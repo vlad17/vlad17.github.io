@@ -16,7 +16,7 @@ In short, I was looking for a tool that:
 * would tell me why I'm spending this much
 * would tell me if anything's changed
 
-All the tools out there are in some other weird market of "account management" where they take all your accounts (investment, saving, credit card, checking), not just the spending ones. They're you're one stop shop for managing all your net worth in one place.
+All the tools out there are in some other weird market of "account management" where they take all your accounts (investment, saving, credit card, checking), not just the spending ones. They're your one stop shop for managing all your net worth in one place.
 
 However, I just wanted to be responsible about my spending. And I didn't want to spend any more time dealing with personal finance apps than I had to. Kind of like [Albert](https://albert.com/). But when I tried it, it was way too annoying and didn't support my credit card account.
 
@@ -117,7 +117,7 @@ The above was hacky, but an essentially free service that gave me what I wanted.
 
 The biggest improvement, I think, was "versus" analysis, which identifies what categories you're spending more or less in than usual. I just made up a differencing algorithm here, I don't think anything out there solves this problem super well on its own (it's a harder problem than you'd think, since transactions belong to multiple categories).
 
-![spend](/assets/2019-08-18-making-lavender/time-spend.png){: .center-image }
+![spend](/assets/2019-08-18x-making-lavender/time-spend.png){: .center-image }
 
 The biggest pain point here was that AWS Lambda didn't support deployment packages that are >250MB uncompressed. With scipy at 70MB, this was a pretty annoying thing to extract. I had to manually go into the seaborn package, which I use for viz now, and gut out scipy. Probably a better way is to just download dependencies on init.
 
