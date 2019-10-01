@@ -4,7 +4,7 @@ title: About
 permalink: /about
 ---
 
-Hello! After graduating from Princeton with a degree in Computer Science, I became an EECS Ph.D. student at the University of California, Berkeley at the [RISELab](https://rise.cs.berkeley.edu/). I took leave to work at a startup, [Sisu](http://sisu.ai).
+Hello! After graduating from Princeton with a degree in Computer Science, I became an EECS Ph.D. student at the University of California, Berkeley at the [RISELab](https://rise.cs.berkeley.edu/). I took leave to work at a startup, [Sisu](http://sisu.ai). Come [join me](https://hire.withgoogle.com/public/jobs/sisuai/view/P_AAAAAAFAAFvFocJS-XfAix?trackingTag=vladSBlog).
 
 If you find any typos or incorrect information, I would really appreciate it if you let me know! Please fill in a [GitHub issue form](https://github.com/vlad17/vlad17.github.io/issues/new).
 
