@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Compressed Sensing and Subgaussians"
-date:   2019-08-18
+date:   2019-09-11
 categories: machine-learning
 ---
 
