@@ -7,11 +7,13 @@ categories: interview-question parallel
 
 # The Semaphore Barrier
 
-I wanted to share an interview question I came up with. The idea came from my operating and distributed systems classes, where we were expected to implement synchronization primitives and reason about parallelism, respectively.
+I wanted to share an interview question I came up with. The idea came from my operating and distributed systems classes, where we were expected to implement synchronization primitives and reason about concurrency, respectively.
 
 Synchronization primitives can be used to coordinate across multiple threads working on a task in parallel.
 
 Most primitives can be implemented through the use of a condition variable and lock, but I was wondering about implementing other primitives in terms of semaphores.
+
+Implementing a barrier with semaphores, and just semaphores, might seem a bit contrived but I think this paints a good picture of what it's like to reason about concurrency.
 
 ## Introduction to the Primitives
 
