@@ -35,7 +35,7 @@ We point at this asymmetry and say, this is causality in the real world.
 
 But now I ask us to take a step back. Why does this example even make sense to us, evoking vivid imagery about how ridiculous a ruptured eardrum would be do to manually changing a barometer's needle?
 
-Well, it turns out that we have through media or real-life experiences we learned about and observed barometers. In science class, we may have read about or seen or heard how they turn as pressure changes.
+Well, it turns out that we have, through media or real-life experiences, learned about and observed barometers. In science class, we may have read about or seen or heard how they turn as pressure changes.
 
 We may never have broken a barometer and changed its needle position, but we've certainly seen enough glass being broken in the past and needles moving that we can put two and two together and imagine what that would look like. In those situations, the thing that the needle measures rarely changes.
 
@@ -82,22 +82,26 @@ For what it's worth, maybe the best way to model our new joint density \\((C, E,
 
 But that seems presumptuous. Surely, viewing this as a more abstract statistical learning problem, there might be more generic ways of finding representations that help us efficiently learn the "full joint" which includes interventions.
 
-Another interesting point is asking questions about counterfactuals. Personally, I don't find counterfactuals that useful (unless blame is an end in itself), but that's a discussion for another time. Maybe you can model exogenous noise with the associative machine, or maybe you can't, that's not for this post to figure out.
+Another interesting point is asking questions about counterfactuals. Personally, I don't find counterfactuals that useful (unless blame is an end in itself), but that's a discussion for another time. I didn't want to muddy the waters above, but there's an example of an associative counterfactual analysis below with the epistemic backstep.
 
-Note that the notions introduced here aren't related to the [Tian and Pearl](https://arxiv.org/abs/1301.2312) transfer learning, at least not as far as I can see it. What I'm talking about is definitely more of a "transfer learning" problem, where you're trying to perform a natural matching based on your past experiences, and it's learning this matching function that's interesting to study.
+Note that the notions introduced here aren't related to the [Tian and Pearl](https://arxiv.org/abs/1301.2312) transfer between different environments, at least not as far as I can see it. What I'm talking about is definitely more of a transfer learning problem, where you're trying to perform a natural matching based on your past experiences, and it's learning this matching function that's interesting to study.
 
 So in sum we have an interesting take on [Regularity Theory](https://plato.stanford.edu/entries/causation-probabilistic/), which doesn't have the usual drawbacks. In any case it was fun to think about so here we are.
 
-## Some more worked examples
+## Another worked example
 
-I will add these later, or maybe not, I'm lazy.
+Let's first look at [Pearl's firing squad](https://ftp.cs.ucla.edu/pub/stat_ser/r301-final.pdf).
 
-[Pearl Rifleman example](https://ftp.cs.ucla.edu/pub/stat_ser/r301-final.pdf)
+![firing squad](/assets/2019-12-01-metaphysics-of-causality/firing-squad.png){: .center-image }
 
-1. original causal model picture
+Say the captain gave the order to fire, both \\(R\_1,R\_2\\) did so, and the prisoner died. Now, what would have happened had \\(R\_1\\) not fired?
 
-2. newly introduced intervention variable
+Pearl says the association machine breaks down here, it's a contradiction, since the rifleman always fires when the captain gives the order to. So why aren't we confused when we think about it?
 
-3. why transfer learning should make things possible
+Step back: consider a universe where riflemen can refuse to follow orders. The first rifleman is now wont to be mutinous \\(M\\) (add an arrow \\(M\rightarrow R\_1\\)).
 
-Poker example from Peters Chapter 6. Look up some image of poker. Repeat steps above.
+In situations, where the first rifleman is mutinous, but the second isn't, it's pretty clear what'll happen. The second rifleman still fires, and the prisoner is still shot dead.
+
+To me, it's only because I've seen a lot of movies, read books, heard poems where there's a duty to disobey that I could reason through this. If all of my experience up to this point has confirmed that riflemen _always_ fire when their commanding officer tells them to, I would've been as confused as our associative machine at the counterfactual question.
+
+To close up, we have one big happy joint model \\(p(C, M, R\_1, R\_2, D)\\) now so to ask the counterfactual is just to ask what the value of \\(p(D=1|C=1, M=1, R\_1=0, R\_2=1)\\) is, which is something we can answer given our wider set of observations and the ability to generalize.
