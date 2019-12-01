@@ -88,8 +88,6 @@ Note that the notions introduced here aren't related to the [Tian and Pearl](htt
 
 So in sum we have an interesting take on [Regularity Theory](https://plato.stanford.edu/entries/causation-probabilistic/), which doesn't have the usual drawbacks. In any case it was fun to think about so here we are.
 
-Thanks to Ovidiu Calin, who taught me that probability is just the theory of knowledge and Max Rabinovich, who extended that to statistics, the theory of the limits of knowledge. That framework was helpful when thinking about this.
-
 ## Some more worked examples
 
 I will add these later, or maybe not, I'm lazy.
