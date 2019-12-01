@@ -57,7 +57,7 @@ as opposed to what happens for \\(E\\)
 \\[
 p(E|C=1) = 1\_\{E=1\}\,.
 \\]
-These _observations_ make for natural matches for causal inference, from which we can infer that there won't be much affect on pressure by changing the barometer, but we know this _because_ we may have (at least in theory) built up an associative model for what happens when you manually override what the measurement tool says.
+These _observations_ make for natural matches for causal inference, from which we can infer that there won't be much effect on pressure by changing the barometer, but we _could have known this_ (at least in theory) just by building up an associative model for what happens when you manually override what the measurement tool says.
 
 By considering the associative model over a wider universe, a universe that includes the interventions _themselves_ as observed variables, and having a strong ability to generalize between related interventions and settings, we can view our causal inference as solely an associative one.
 
@@ -86,7 +86,7 @@ Another interesting point is asking questions about counterfactuals. Personally,
 
 Note that the notions introduced here aren't related to the [Tian and Pearl](https://arxiv.org/abs/1301.2312) transfer between different environments, at least not as far as I can see it. What I'm talking about is definitely more of a transfer learning problem, where you're trying to perform a natural matching based on your past experiences, and it's learning this matching function that's interesting to study.
 
-So in sum we have an interesting take on [Regularity Theory](https://plato.stanford.edu/entries/causation-probabilistic/), which doesn't have the usual drawbacks. In any case it was fun to think about so here we are.
+So in sum we have an interesting take on [Regularity Theory](https://plato.stanford.edu/entries/causation-probabilistic/), which doesn't have the usual drawbacks. Maybe all of this is a grand exercise in identifying a motivation for Robins' G-estimation. In any case it was fun to think about so here we are.
 
 ## Another worked example
 
