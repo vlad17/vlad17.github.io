@@ -104,4 +104,12 @@ In situations, where the first rifleman is mutinous, but the second isn't, it's 
 
 To me, it's only because I've seen a lot of movies, read books, heard poems where there's a duty to disobey that I could reason through this. If all of my experience up to this point has confirmed that riflemen _always_ fire when their commanding officer tells them to, I would've been as confused as our associative machine at the counterfactual question.
 
-To close up, we have one big happy joint model \\(p(C, M, R\_1, R\_2, D)\\) now so to ask the counterfactual is just to ask what the value of \\(p(D=1|C=1, M=1, R\_1=0, R\_2=1)\\) is, which is something we can answer given our wider set of observations and the ability to generalize.
+To close up, we have one big happy joint model
+\\[
+p(C, M, R\_1, R\_2, D)\,,
+\\]
+now so to ask the counterfactual is just to ask what the value of
+\\[
+p(D=1|C=1, M=1, R\_1=0, R\_2=1)
+\\]
+is, which is something we can answer given our wider set of observations and the ability to generalize.
