@@ -33,13 +33,13 @@ We point at this asymmetry and say, this is causality in the real world.
 
 ## The Epistemic Backstep
 
-But now I ask us to take a step back. Why does this example even make sense to us, evoking vivid imagery about how ridiculous a ruptured eardrum would be do to manually changing a barometer's needle?
+But now I ask us to take a step back. Why does this example even make sense to us, evoking vivid imagery about how ridiculous a ruptured eardrum would be due to manually changing a barometer's needle?
 
 Well, it turns out that we have, through media or real-life experiences, learned about and observed barometers. In science class, we may have read about or seen or heard how they turn as pressure changes.
 
 We may never have broken a barometer and changed its needle position, but we've certainly seen enough glass being broken in the past and needles moving that we can put two and two together and imagine what that would look like. In those situations, the thing that the needle measures rarely changes.
 
-Stepping back a bit, it turns out that we actually have a lot of observations of some kind of environmental characteristic \\(C\\) (which might be temperature or pressure), its corresponding entailment \\(E\\) (a thermometer or barometer reading), and a _setting_ in which the measurement took place, \\(I\\), where here this represents an indicator for "did we increase the reading of our measurement manually."
+Stepping back a bit, it turns out that we actually have a lot of observations of some kind of environmental characteristic \\(C\\) (which might be temperature or pressure), its corresponding entailment \\(E\\) (a thermometer or barometer reading), and a possible interaction with the measurement took place, \\(I\\), where here this represents an indicator for "did we increase the reading of our measurement manually."
 
 So, we actually have a lot of observational evidence of the more generalized system \\((C, E, I)\\).
 
@@ -55,7 +55,7 @@ p(C) = p(C|E=1,I=1)\,,
 \\]
 as opposed to what happens for \\(E\\)
 \\[
-p(E|C=1) = 1\_\{E=1\}\,.
+\forall i\,,\,\,\,p(E|C=1, I = i) = 1\_\{E=1\}\,.
 \\]
 These _observations_ make for natural matches for causal inference, from which we can infer that there won't be much effect on pressure by changing the barometer, but we _could have known this_ (at least in theory) just by building up an associative model for what happens when you manually override what the measurement tool says.
 
