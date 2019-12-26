@@ -24,9 +24,9 @@ The goal is to have vanishing regret; that is, our average loss should tend to t
 
 This turns out to be a powerful, widely applicable setting, precisely because we have guarantees in spite of any selected sequence of columns \\(j\_t\\), possibly adversarially chosen.
 
-It turns out the above expected regret will have the same guarantees as psuedo-regret \\(\mathbb{E}\left[\sum\_t M(I\_t, j\_t)\right] - \min_i \sum\_tM(i, j\_t)\\) because in our setting \\(j\_t\\) is fixed ([other adversaries exist](http://localhost:4000/2019/12/12/stop-anytime-multiplicative-weights-pt1.html), but in this setting where the algorithm doesn't depend on its own choices even a weak adaptive adversary would work just as well as one that specifies its sequence up-front).
+It turns out the above expected regret will have the same guarantees as pseudo-regret \\(\mathbb{E}\left[\sum\_t M(I\_t, j\_t)\right] - \min_i \sum\_tM(i, j\_t)\\) because in our setting \\(j\_t\\) is fixed ([other adversaries exist](http://localhost:4000/2019/12/12/stop-anytime-multiplicative-weights-pt1.html), but in this setting where the algorithm doesn't depend on its own choices even a weak adaptive adversary would work just as well as one that specifies its sequence up-front).
 
-## Psuedo-regret Guarantees
+## Pseudo-regret Guarantees
 
 Fix our setting as above, with the augmented notation \\(M(i, j)=M\_{ij}\\) and \\(M(\mathcal{D}, j)=\mathbb{E}[M(I, j)]\\) where \\(I\sim \mathcal{D}\\).
 
@@ -38,7 +38,7 @@ w\_i^{(t+1)}=w\_i^{(t)}(1-\epsilon M(i, j\_t))
 \\]
 
 
-**Fixed-rate MW theorem**. Range \\(t\in[T]\\) and \\(i\in[n]\\). Fix any sequence of column selections \\(j\_t \\). For any fixed \\(i\_* \in[n]\\), the average performance of MWUA is characterized by the following psuedo-regret bound:
+**Fixed-rate MW theorem**. Range \\(t\in[T]\\) and \\(i\in[n]\\). Fix any sequence of column selections \\(j\_t \\). For any fixed \\(i\_* \in[n]\\), the average performance of MWUA is characterized by the following pseudo-regret bound:
 \\[
 \sum\_t M(\mathcal{D}\_t, j\_t)\le \frac{\log n}{\epsilon}+\sum\_t M(i\_*, j\_t)\,\,,
 \\]
@@ -160,8 +160,6 @@ We create game matrices \\(M\\) of various sizes with entries sampled from a sym
 ![10 by 100](/assets/2019-12-25-stop-anytime-multiplicative-weights/10x100.png){: .center-image }
 
 ![25 by 40](/assets/2019-12-25-stop-anytime-multiplicative-weights/25x40.png){: .center-image }
-
-Finally, note the curves are optimality gaps, not regrets, which is why \\(T\_*\\) does not line up.
 
 [Code](https://github.com/vlad17/mw) @ `af5ad62`
 
