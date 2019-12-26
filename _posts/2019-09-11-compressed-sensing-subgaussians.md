@@ -85,7 +85,7 @@ Then let \\(\epsilon\\) be an independent Rademacher random variable, and notice
 \\[
 \E\exp\pa{\lambda \pa{X^2-\E X^2}}\le \E \exp\pa{\lambda  \epsilon \pa{X^2-(X')^2}}=\sum_{k=0}^\infty\frac{\lambda^k\E\ha{\epsilon^k(X^2-(X')^2)^k}}{k!}\,.
 \\]
-Next, notice for odd \\O(k\\), \\(\epsilon^k=\epsilon\\) so by symmetry the odd terms vanish, leaving the MGF bound
+Next, notice for odd \\(k\\), \\(\epsilon^k=\epsilon\\) so by symmetry the odd terms vanish, leaving the MGF bound
 \\[
 \E\exp\pa{\lambda \pa{X^2-\E X^2}}\le\sum_{k=0}^\infty\frac{\lambda^{2k}\E\ha{\pa{X^2-(X')^2}^{k}}}{(2k)!}\le 2\sum_{k=0}^\infty\frac{\lambda^{2k}\E\ha{X^{4k}}}{(2k)!}\,,
 \\]
