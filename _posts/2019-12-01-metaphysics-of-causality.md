@@ -84,7 +84,7 @@ But that seems presumptuous. Surely, viewing this as a more abstract statistical
 
 Another interesting point is asking questions about counterfactuals. Personally, I don't find counterfactuals that useful (unless blame is an end in itself), but that's a discussion for another time. I didn't want to muddy the waters above, but there's an example of an associative counterfactual analysis below with the epistemic backstep.
 
-Note that the notions introduced here aren't related to the [Tian and Pearl](https://arxiv.org/abs/1301.2312) transfer between different environments, at least not as far as I can see it. What I'm talking about is definitely more of a transfer learning problem, where you're trying to perform a natural matching based on your past experiences, and it's learning this matching function that's interesting to study.
+Note that the transfer notions introduced here aren't related to the [Tian and Pearl](https://arxiv.org/abs/1301.2312) transportability between different environments, where the nodes of your SCM stay the same ([see here for further developments](https://ftp.cs.ucla.edu/pub/stat_ser/r402.pdf)). What I'm talking about is definitely more of a transfer learning problem, where you're trying to perform a natural matching based on your past experiences, and it's learning this matching function that's interesting to study.
 
 So in sum we have an interesting take on [Regularity Theory](https://plato.stanford.edu/entries/causation-probabilistic/), which doesn't have the usual drawbacks. Maybe all of this is a grand exercise in identifying a motivation for Robins' G-estimation. In any case it was fun to think about so here we are.
 
