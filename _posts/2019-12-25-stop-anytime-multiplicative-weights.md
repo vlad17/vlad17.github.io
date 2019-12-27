@@ -46,7 +46,7 @@ where dividing throughout by \\(T\\) demonstrates vanishing regret.
 
 _Proof_. Bound the weight of our designated index by using induction.
 \\[
-w\_i^{(T)}=\prod\_t(1-\epsilon M(i\_* , j\_t))\ge \prod\_t(1-\epsilon)^{ M(i\_* , j\_t))}=(1-\epsilon)^{ \sum\_t M(i\_* , j\_t))}\,\,,
+w\_{i\_* }^{(T)}=\prod\_t(1-\epsilon M(i\_* , j\_t))\ge \prod\_t(1-\epsilon)^{ M(i\_* , j\_t))}=(1-\epsilon)^{ \sum\_t M(i\_* , j\_t))}\,\,,
 \\]
 with the inequality holding by convexity of the \\((1-\epsilon)\\)-exponential function on the interval \\(x\in[0,1]\\), \\((1-\epsilon)^x\le 1-\epsilon x\\).
 
@@ -103,7 +103,7 @@ Let's bound first the "best action". We'll work with a slightly more common scen
 Then \\(\min\_i M(i, j\_t)\le \rho\\). More generically, any upper bound \\(\lambda\\) on the game value \\(\lambda^*=\max\_\mathcal{P}\min\_iM(i,\mathcal{P})=\min\_\mathcal{D}\max\_jM(\mathcal{D}, j)\\) suffices:
 
 \\[
-\min_i M(i, j\_t)\le\max\_j\min\_i\le \lambda^*\le \lambda
+\min_i M(i, j\_t)\le\max\_j\min\_i M(i, j)\le \lambda^*\le \lambda
 \\]
 
 Based on this, the regret bound above, which requires only knowledge of \\(\lambda\\), can be reduced to:
@@ -117,7 +117,7 @@ Analogously, for fixed up-front \\(\epsilon\\), we get an optimal \\(T_*(\epsilo
 
 Of course we'll do best by choosing \\(\lambda=\lambda^* \\), but figuring that value out takes solving the game, which is what we're trying to do in the first place ([Freund and Schapire 1999](https://cseweb.ucsd.edu/~yfreund/papers/games_long.pdf)).
 
-In some scenarios, we might be looking to reach some absolute value of regret \\(\delta\\) as fast as possible, in which case Corollary 4 of [the survey](https://www.cs.princeton.edu/~arora/pubs/MWsurvey.pdf) essentially makes the same \\(\rho=\lambda > \lambda^* \\) upper bound, then since we know at best we can have \\(2\epsilon \lambda = \delta \\), where then \\(T\\) should be \\(  \frac{4\rho\lambda \log n }{\delta^2} \\).
+In some scenarios, we might be looking to reach some absolute value of regret \\(\delta\\) as fast as possible, in which case Corollary 4 of [the survey](https://www.cs.princeton.edu/~arora/pubs/MWsurvey.pdf) essentially makes the same \\(\rho=\lambda \ge \lambda^* \\) upper bound, then since we know at best we can have \\(2\epsilon \lambda = \delta \\), where then \\(T\\) should be \\(  \frac{4\rho\lambda \log n }{\delta^2} \\).
 
 Note Corollary 4 is worse than this by a factor of 2 because Arora's survey generalizes to negative and positive losses, but then needs to use a weak upper bound of \\(0\\) for the negative losses.
 
