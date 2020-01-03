@@ -180,6 +180,6 @@ In short, I want to summarize what I found as the best resources in a field that
 
 Further, [Elegant AdaHedge](https://arxiv.org/abs/1301.0534) is both anytime and scale-free, while we also have some specializations:
 
-* Constant FTL Regret (FlipFlop, from Elegant AdaHedge paper)
-* Universal Hedge (**open** as far as I'm aware)
-* Stochastic Optimality (using the decaying hedge from above, per a [recent paper](https://arxiv.org/abs/1809.01382))
+* Constant FTL Regret (FlipFlop, from Elegant AdaHedge paper) - constant-factor performance for the worst case and additive-constant performance compared to the follow-the-leader algorithm.
+* Universal Hedge (**open** as far as I'm aware) - the "perform within a constant factor of the optimal-constant MWUA for that horizon" guarantee.
+* Stochastic Optimality (using the decaying hedge from above, per a [recent paper](https://arxiv.org/abs/1809.01382)) - perform the best when the column player plays randomly (i.e., all experts take losses that are just fixed random variables over time).
