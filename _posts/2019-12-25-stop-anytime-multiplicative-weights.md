@@ -136,7 +136,7 @@ T=\Omega\left(\frac{\rho^2\log n}{\delta^2}\right)
 \\]
 holds up, where they find a matrix with \\(\lambda^*=\Omega(\rho)\\).
 
-I'm not aware of other regimes for lower bounds (they are **open**).
+I'm not aware of other regimes for lower bounds (I [Googled around](https://www.google.com/search?q=multiplicative%20weights%20lower%20bound%20site%3Ahttp%3A//proceedings.mlr.press/%2A/%23open-problem)), still looks like open problems since 2012!).
 
 These lower bounds are great, in that they tell us that we should stop looking for improvements. They also tell us that MWUA is optimal and if we want to mess with this setting it's a good target.
 
@@ -181,5 +181,5 @@ In short, I want to summarize what I found as the best resources in a field that
 Further, [Elegant AdaHedge](https://arxiv.org/abs/1301.0534) is both anytime and scale-free, while we also have some specializations:
 
 * Constant FTL Regret (FlipFlop, from Elegant AdaHedge paper) - constant-factor performance for the worst case and additive-constant performance compared to the follow-the-leader algorithm.
-* Universal Hedge (**open** as far as I'm aware) - the "perform within a constant factor of the optimal-constant MWUA for that horizon" guarantee.
+* Universal Hedge (open far as I'm aware) - the "perform within a constant factor of the optimal-constant MWUA for that horizon" guarantee.
 * Stochastic Optimality (using the decaying hedge from above, per a [recent paper](https://arxiv.org/abs/1809.01382)) - perform the best when the column player plays randomly (i.e., all experts take losses that are just fixed random variables over time).
