@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Stop Anytime Multiplicative Weights"
-date:   2019-12-12
+date:   2020-12-25
 categories: machine-learning
 ---
 
@@ -162,6 +162,8 @@ We create game matrices \\(M\\) of various sizes with entries sampled from a sym
 ![25 by 40](/assets/2019-12-25-stop-anytime-multiplicative-weights/25x40.png){: .center-image }
 
 [Code](https://github.com/vlad17/mw) @ `af5ad62`
+
+What's super curious here is that square-root decay **dominates**.
 
 ## Related Work
 
