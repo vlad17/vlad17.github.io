@@ -157,15 +157,17 @@ We create game matrices \\(M\\) of various sizes with entries sampled from a sym
 \frac{1}{T}\sum\_{t}M(\mathcal{D}\_t, j\_ t) - \lambda^*\,\,.
 \\]
 
-![5 by 200](/assets/2019-12-25-stop-anytime-multiplicative-weights/5x200.png){: .center-image }
+![25 by 40](/assets/2019-12-25-stop-anytime-multiplicative-weights/25x40.png){: .center-image }
 
 ![10 by 100](/assets/2019-12-25-stop-anytime-multiplicative-weights/10x100.png){: .center-image }
 
-![25 by 40](/assets/2019-12-25-stop-anytime-multiplicative-weights/25x40.png){: .center-image }
+![5 by 200](/assets/2019-12-25-stop-anytime-multiplicative-weights/5x200.png){: .center-image }
 
 [Code](https://github.com/vlad17/mw) @ `af5ad62`
 
-What's super curious here is that square-root decay **dominates** all of the 
+What's super curious here is that square-root decay **dominates** all of the fixed-rate ones, even at their optimal \\(T\_* \\).
+
+Another curiosity is that \\(T\_*\\) looks really off for the final case, where 5 experts square off against an extremely adversarial environment where the column player can choose from 200 columns. To be honest, I don't know what's going on here.
 
 ## Related Work
 
@@ -182,8 +184,14 @@ I was able to find these relevant notes, that more or less put all the issues me
 
 In short, I want to summarize what I found as the best resources in a field that's quite saturated: ([Freund and Schapire 1999](https://cseweb.ucsd.edu/~yfreund/papers/games_long.pdf)) as the original work and the elegant write-up [in Arora's survey](https://www.cs.princeton.edu/~arora/pubs/MWsurvey.pdf).
 
-Further, [Elegant AdaHedge](https://arxiv.org/abs/1301.0534) is both anytime and scale-free, while we also have some specializations:
+Further, [Elegant AdaHedge](https://arxiv.org/abs/1301.0534) is both anytime and scale-free.
+
+A recent analysis of the [Decreasing Hedge](https://arxiv.org/abs/1809.01382), shown above as the square-root decay rate version of hedge helps tidy some things up.
+
+, while we also have some specializations:
 
 * Constant FTL Regret (FlipFlop, from Elegant AdaHedge paper) - constant-factor performance for the worst case and additive-constant performance compared to the follow-the-leader algorithm.
-* Universal Hedge (open far as I'm aware) - the "perform within a constant factor of the optimal-constant MWUA for that horizon" guarantee.
-* Stochastic Optimality (using the decaying hedge from above, per a [recent paper](https://arxiv.org/abs/1809.01382)) - perform the best when the column player plays randomly (i.e., all experts take losses that are just fixed random variables over time).
+* Universal Hedge (Decreasing Hedge*) - the "perform within a constant factor of the optimal-constant MWUA for that horizon" guarantee.
+* Stochastic Optimality (Decreasing Hedge*) - perform the best when the column player plays randomly (i.e., all experts take losses that are just fixed random variables over time)
+
+*Importantly, decreasing hedge isn't scale-free, so these claims only hold for \\(\rho=1\\).
