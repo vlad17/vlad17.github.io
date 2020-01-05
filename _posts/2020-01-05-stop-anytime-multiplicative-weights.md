@@ -188,7 +188,7 @@ Further, [Elegant AdaHedge](https://arxiv.org/abs/1301.0534) is both anytime and
 
 A recent analysis of the [Decreasing Hedge](https://arxiv.org/abs/1809.01382), shown above as the square-root decay rate version of hedge helps tidy some things up.
 
-, while we also have some specializations:
+We also have some specializations:
 
 * Constant FTL Regret (FlipFlop, from Elegant AdaHedge paper) - constant-factor performance for the worst case and additive-constant performance compared to the follow-the-leader algorithm.
 * Universal Hedge (Decreasing Hedge*) - the "perform within a constant factor of the optimal-constant MWUA for that horizon" guarantee.
