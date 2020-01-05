@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Stop Anytime Multiplicative Weights"
-date:   2020-12-25
+date:   2020-01-05
 categories: machine-learning
 ---
 
@@ -49,7 +49,7 @@ _Proof_. Bound the weight of our designated index by using induction.
 w\_{i\_* }^{(T)}=\prod\_t(1-\epsilon M(i\_* , j\_t))\ge \prod\_t(1-\epsilon)^{ M(i\_* , j\_t))}=(1-\epsilon)^{ \sum\_t M(i\_* , j\_t))}\,\,,
 \\]
 with the inequality holding by convexity of the \\((1-\epsilon)\\)-exponential function on the interval \\(x\in[0,1]\\), \\((1-\epsilon)^x\le 1-\epsilon x\\).
-
+    
 Next, we bound the potential
 \\[
 \Phi\_{t+1}=\sum\_iw\_i^{(t+1)}=\sum\_iw\_i^{(t)}(1-\epsilon M(i, j\_t))=\Phi\_t-\epsilon\Phi\_t\sum\_i \frac{w\_i^{(t)}}{\Phi\_t}M(i, j\_t)\,\,,
@@ -152,10 +152,12 @@ What's more, I need to know \\(\lambda,\rho\\) to do well (or just \\(\rho\\) if
 
 It's easy to see that the longer the time horizon, the smaller the learning rate should be. Choosing a rule like \\(\epsilon\_t = \frac{1}{2\sqrt{t}}\\) does well in an adversarial environment.
 
-We create game matrices \\(M\\) of various sizes with entries sampled from a symmetrice \\(\text{Beta}(0.5, 0.5)\\) and compare performance across different \\(\epsilon\\). `opt` is the optimal value \\(\lambda^* \\) in the games below, which we use to plot \\(T\_* \\) for each of our fixed MWUA runs. At each time \\(T\\), we plot the optimality gap:
+We create game matrices \\(M\\) of various sizes with entries sampled from a symmetric \\(\text{Beta}(0.5, 0.5)\\) and compare performance across different \\(\epsilon\\). `opt` is the optimal value \\(\lambda^* \\) in the games below, which we use to plot \\(T\_* \\) for each of our fixed MWUA runs. At each time \\(T\\), we plot the optimality gap:
 \\[
 \frac{1}{T}\sum\_{t}M(\mathcal{D}\_t, j\_ t) - \lambda^*\,\,.
 \\]
+
+![5 by 200](/assets/2019-12-25-stop-anytime-multiplicative-weights/5x200.png){: .center-image }
 
 ![10 by 100](/assets/2019-12-25-stop-anytime-multiplicative-weights/10x100.png){: .center-image }
 
@@ -163,7 +165,7 @@ We create game matrices \\(M\\) of various sizes with entries sampled from a sym
 
 [Code](https://github.com/vlad17/mw) @ `af5ad62`
 
-What's super curious here is that square-root decay **dominates**.
+What's super curious here is that square-root decay **dominates** all of the 
 
 ## Related Work
 
