@@ -58,7 +58,7 @@ def c2(n):
     return n * (n - 1) // 2
 
 def fromtup(i, j):
-    j = nverts - 1 - j
+    j = j - i - 1
     diagonal = i + j
     return c2(diagonal + 1) + i
 
@@ -162,4 +162,4 @@ That said, you can expand the above approach to an isomorphism betwen larger sub
 
 That's not to say this is unilaterally better than the simpler representation \\(V^k\\). Because the space wasted by the "easy" representation \\(V^k\\) compared to this "hard" isomorphism-based one is \\(k!\\), but the objects we're talking about have size \\(n^k\\), the memory savings isn't really a good argument for using this indexing. It's not a constant worth scoffing at, but the main reason to use this is that it's online, and has no "holes" in the indexing.
 
-[Try the notebook out yourself](/assets/2019-03-07-subset-isomorphism/subset-isomorphism.ipynb).
+[Try the notebook out yourself](/assets/2020-03-07-subset-isomorphism/subset-isomorphism.ipynb).
