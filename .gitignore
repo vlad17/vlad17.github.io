@@ -5,3 +5,5 @@ _site/
 # Editor backups
 *~
 
+
+.ipynb_checkpoints
