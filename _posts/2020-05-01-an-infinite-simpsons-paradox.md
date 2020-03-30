@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "An Infinite Simpsons Paradox"
-date:   2020-03-29
+title:  "An Infinite Simpson's Paradox (Simpson's part 2 of 3)"
+date:   2020-05-01
 categories: causal
 ---
+
+# An Infinite Simpsons Paradox (Simpson's part 2 of 3)
 
 This is Problem 9.11 in Elements of Causal Inference.
 
@@ -100,17 +102,17 @@ Uniqueness of $p(x|\vz\_{\le j})$
 follows inductively, as does
 $\int \d{\vz\_{\le m}}p(x|\vz\_{\le m})p(\vz\_{\le m})=b(x)$.
 
-While above we could \_construct\_ conditional pmfs and marginals pmfs to suit our needs, where they formed valid measures simply by construction (i.e., specifying any open unit interval valued $\alpha$ constructs valid pmfs above), we must now use our assumption to validate that the free function $\beta$ induces a valid measure on $Y$.
+While above we could _construct_ conditional pmfs and marginals pmfs to suit our needs, where they formed valid measures simply by construction (i.e., specifying any open unit interval valued $\alpha$ constructs valid pmfs above), we must now use our assumption to validate that the free function $\beta$ induces a valid measure on $Y$.
 
 It must be the case that for any kernel we define that for all $j\in \N$,
 \\[
-p(y|x, \vz\_{\le j})=\int\d{z\_{j+1}}p(z\_{j+1})p(y|x, \vz\_{\le j+1})\,\,,
+p(y|x, \vz\_{\le j})=\int\d{z\_{j+1}}p(z\_{j+1}|x, \vz\_{\le j})p(y|x, \vz\_{\le j+1})\,\,,
 \\]
 which by the assumption $\beta\_x(\vz)=(1-\alpha\_x(\vz))\beta\_i(\vz:0)+\alpha\_x(\vz)\beta\_x(\vz:1)$ holds precisely when
 \\[
 p(Y=1|x, \vz\_{\le j})=\beta\_x(\vz\_{\le j})\,\,,
 \\]
-by our definition of $p(z\_{j+1})$ above.
+by our definition of $p(z\_{j+1})$ above. Then such a specification of kernels is valid.
 
 ### Configuring $\Delta\_j$
 
