@@ -1,6 +1,33 @@
 {% raw %}
 $$
 \newcommand{\bsth}{{\boldsymbol\theta}}
+\newcommand{\nptime}{\textsf{NP}}
+\newcommand{\ptime}{\textsf{P}}
+\newcommand{\disteq}{\overset{d}{=}}
+%linalg
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\detmat}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\newcommand{\spanb}[1]{\text{span}\{ #1 \}}
+\DeclareMathOperator{\conv}{conv} % convex hull
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\vectorize}{vec}
+\DeclareMathOperator{\matricize}{mat}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\proj}{proj}
+% brackets, norms, cardinalities
+\newcommand{\pa}[1]{ \left({#1}\right) }
+\newcommand{\ha}[1]{ \left[{#1}\right] }
+\newcommand{\ca}[1]{ \left\{{#1}\right\} }
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
+\newcommand{\innercpy}[1]{\inner{ #1, #1 }}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left|{#1}\right|}
+\newcommand{\card}[1]{\left\vert{#1}\right\vert}
+% math vectors
 \newcommand{\va}{\textbf{a}}
 \newcommand{\vb}{\textbf{b}}
 \newcommand{\vc}{\textbf{c}}
@@ -27,40 +54,89 @@ $$
 \newcommand{\vx}{\textbf{x}}
 \newcommand{\vy}{\textbf{y}}
 \newcommand{\vz}{\textbf{z}}
-
-
-\DeclareMathOperator*{\argmin}{argmin}
-\DeclareMathOperator\mathProb{\mathbb{P}}
-\renewcommand{\P}{\mathProb} % need to overwrite stupid paragraph symbol
-\DeclareMathOperator\mathExp{\mathbb{E}}
-\newcommand{\E}{\mathExp}
-
-\DeclareMathOperator\Uniform{Uniform}
-\DeclareMathOperator\poly{poly}
-\DeclareMathOperator\diag{diag}
-
-\newcommand{\pa}[1]{ \left({#1}\right) }
-\newcommand{\ha}[1]{ \left[{#1}\right] }
-\newcommand{\ca}[1]{ \left\{{#1}\right\} }
-\newcommand{\norm}[1]{\left\| #1 \right\|}
-
-\newcommand{\nptime}{\textsf{NP}}
-\newcommand{\ptime}{\textsf{P}}
+\newcommand{\vzero}{\textbf{0}}
+\newcommand{\vone}{\textbf{1}} 
+\newcommand{\valpha}{{\boldsymbol\alpha}}
+\newcommand{\vepsilon}{{\boldsymbol\epsilon}}
+\newcommand{\vnu}{{\boldsymbol\nu}}
+\newcommand{\vpi}{{\boldsymbol\pi}}
+\newcommand{\veta}{{\boldsymbol\eta}}
+\newcommand{\vsigma}{ {\boldsymbol\sigma}}
+\newcommand{\vbeta}{ {\boldsymbol\beta}}
+\newcommand{\vtheta}{ {\boldsymbol\theta}}
+\newcommand{\vdelta}{ {\boldsymbol\delta}}
+\newcommand{\vlambda}{ {\boldsymbol\lambda}}
+\newcommand{\vmu}{ {\boldsymbol\mu}}
+% common math sets
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
-
-\newcommand{\card}[1]{\left\lvert{#1}\right\rvert}
-\newcommand{\abs}[1]{\card{#1}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\T}{\mathbb{T}}
+% limits
+\def\sumn{\sum_{n=0}^\infty}
+\def\limn{\lim_{n\rightarrow\infty}}
+\def\prodn{\prod_{n=0}^\infty}
+% mathcal
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcB}{\mathcal{B}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcD}{\mathcal{D}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcJ}{\mathcal{J}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mcR}{\mathcal{R}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mcU}{\mathcal{U}}
+\newcommand{\mcV}{\mathcal{V}}
+\newcommand{\mcW}{\mathcal{W}}
+\newcommand{\mcX}{\mathcal{X}}
+\newcommand{\mcY}{\mathcal{Y}}
+\newcommand{\mcZ}{\mathcal{Z}}
+% distribs, probability
+\newcommand{\disteq}{\overset{d}{=}}
+\newcommand\independent{\perp \!\!\! \perp}
+\DeclareMathOperator{\Laplace}{Laplace}
+\DeclareMathOperator{\Poisson}{Poisson}
+\DeclareMathOperator{\Exponential}{Exponential}
+\DeclareMathOperator{\Multinomial}{Multinomial}
+\DeclareMathOperator{\Bernoulli}{Bernoulli}
+\DeclareMathOperator{\Categorical}{Categorical}
+\DeclareMathOperator{\Uniform}{Uniform}
+\DeclareMathOperator{\Binomial}{Binomial}
+\DeclareMathOperator{\Hypergeometric}{Hypergeometric}
+\DeclareMathOperator{\GammaDist}{Gamma}
+\DeclareMathOperator{\NegativeBinomial}{NegativeBinomial}
+\DeclareMathOperator\sub{sub}
+\renewcommand{\d}[1]{\mathop{\mathrm{d} #1 }}
+\newcommand{\dkl}[2]{\mathop{D_\mathrm{KL}}\left({#1}\;\middle\|\;{#2}\right)}
 \newcommand{\sg}{\mathop{\mathrm{SG}}}
 \newcommand{\se}{\mathop{\mathrm{SE}}}
-
-\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
-
+%operators
+\DeclareMathOperator{\power}{{\mathcal{P}}}
 \DeclareMathOperator{\var}{var}
 \DeclareMathOperator{\cov}{cov}
-
-\newcommand\independent{\perp\kern-5pt\perp}
+\DeclareMathOperator\mathProb{\mathbb{P}}
+\DeclareMathOperator\mathExp{\mathbb{E}}
+\DeclareMathOperator*\mathExpUnder{\mathbb{E}}
+\DeclareMathOperator*\fat{fat}
+\renewcommand{\P}{\mathProb} % need to overwrite stupid paragraph symbol
+\newcommand{\E}{\mathExp} % need to overwrite stupid paragraph symbol
+\newcommand{\set}[2]{ \left\{ #1 \,\middle|\, #2 \right\} }
 \newcommand{\CE}[2]{ \mathExp\left[ #1 \,\middle|\, #2 \right] }
-\newcommand{\disteq}{\overset{d}{=}}
-
+\renewcommand{\CP}[2]{ \mathProb\left\{ #1 \,\middle|\, #2 \right\} }
 $$
 {% endraw %}
