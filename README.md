@@ -21,3 +21,9 @@ Local deployment:
 ## Credits
 
 Site theme is from [this repository](https://github.com/codeasashu/hcz-jekyll-blog), moderately gutted.
+
+## ipynb -> md page
+
+```bash
+bash mdconvert.sh assets/2020-07-04-complex-hash-collisions.ipynb
+```
