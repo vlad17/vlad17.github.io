@@ -18,7 +18,7 @@ The state-of-the-art here is an [FFT-based approach called DFT-CF](https://www.s
 
 The above paper refers to RF1, which is the straightforward extension of the "coefficient list" approach from the previous post, shown here as a direct convolution by [whuber](https://stats.stackexchange.com/a/41263/37308). For some reason, the article author uses  \\(O(n^2) \\) space for RF1, but this is gratuitous.
 
-Indeed, the coefficient list algorithm (henceforth, CL), requires  \\(O(n) \\) memory and  \\(O(nk) \\) time, computes  \\(\\{\xi\_{k'}\\}\_{k'=1}^k \\), and has the nice property of doing less work if  \\(k \\) is small, but in the worst case  \\(k=n \\) it's still very straightforward to understand. In particular, recall the definition of the PGF  \\(G\_X(t)=\mathbb{E}t^X \\) from the previous post, which we can see satisfies  \\(\xi\_k=\mathbb{P}\\{X=k\\}=\frac{G^{(k)}\_X(0)}{k!} \\) by expanding the series  \\(\mathbb{E}t^X \\).
+Indeed, the coefficient list algorithm (henceforth, CL), requires  \\(O(k) \\) memory and  \\(O(nk) \\) time, computes  \\(\\{\xi\_{k'}\\}\_{k'=1}^k \\), and has the nice property of doing less work if  \\(k \\) is small, but in the worst case  \\(k=n \\) it's still very straightforward to understand. In particular, recall the definition of the PGF  \\(G\_X(t)=\mathbb{E}t^X \\) from the previous post, which we can see satisfies  \\(\xi\_k=\mathbb{P}\\{X=k\\}=\frac{G^{(k)}\_X(0)}{k!} \\) by expanding the series  \\(\mathbb{E}t^X \\).
 
 For our Poisson Binomial  \\(X \\), notice  \\(G\_X(t)=\prod\_j(1-p\_j(1-t)) \\) is a degree- \\(n \\) polynomial, so its  \\(k \\)-th coefficient is exactly  \\(\frac{G^{(k)}\_X(0)}{k!}=\xi\_k \\).
 
