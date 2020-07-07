@@ -26,8 +26,6 @@ urls:
       url: /feed.xml
       icon: fa-feed
 
-logo: /assets/default-open-graph.png
-
 github: https://github.com/vlad17
 
 social:
