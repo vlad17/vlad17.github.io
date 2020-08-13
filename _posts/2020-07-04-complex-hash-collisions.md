@@ -152,6 +152,9 @@ As a fun note for the reader, there's an efficient two-pass streaming algorithm 
 
 There's an interesting connection we made here between complex numbers and discrete random variables. Let's see how far we can take this in the next post.
 
+[Try the notebook out yourself.](/assets/2020-07-04-complex-hash-collisions.ipynb)
+
+
 
 [Try the notebook out yourself.](/assets/2020-07-04-complex-hash-collisions.ipynb)
 
