@@ -96,5 +96,5 @@ Sure enough, our time to solve clearly follows an exponential pattern.
 
 ![time to solve](/assets/2020-08-11-roller-coaster-tycoon-problem/tts.png)
 
-But, how do we _prove_ this?
+But, how do we _prove_ this? Tune in next time for the [RCT2 Solution](/2020/08/12/rct2-solution.html).
 
