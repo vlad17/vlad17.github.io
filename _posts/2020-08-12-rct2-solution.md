@@ -22,7 +22,7 @@ We'll go about solving this "by hand" as we would in a class, but then think abo
 
 If we use our intuition from the video in the previous post, we'll notice that there are two modalities of transitioning between states. You're either moving backwards or forwards, and you have some slight momentum in both directions (but the momentum is stronger going backwards).
 
-In particular, let's introduce two random variables, which are well-defined by the Markov property. Namely, the expected time to reach the end from a given state is a function of the state you're in and not any other history of your maze exploration. 
+In particular, let's introduce two indexed random variables, which are well-defined by the Markov property. Namely, the expected time to reach the end from a given state is a function of the state you're in and not any other history of your maze exploration. 
 
 So, meet  \\(F\_k \\), the expected time to reach the end when you're facing forward (towards the exit) in the  \\(k \\)-th tile.
 
@@ -39,6 +39,8 @@ B\_k&=\frac{3}{4}(1+B\_{k-1})+\frac{1}{8}(3+B\_{k-1})+\frac{1}{8}(3+F\_{k+1})\\\
 F\_{n+1}&=0\,\,.
 \end{align}
 \\]
+
+What each of these equations is doing is expressing the fact that the expected time to finish must respect the local transitions: if a state \\(S\\) transitions to \\(N\\) wp \\(1\\) then it must be that its expected time to finish is exactly \\(1\\) more than \\(N\\)'s time. 
 
 The middle equations are the juicy ones, but they just internalize the transition into the  \\((k, 2) \\) state. In other words, for  \\(F\_k \\), wp  \\(\frac{1}{4} \\) we keep moving forward (costing us a single time step), but wp  \\(\frac{3}{4} \\) we go into the inlet  \\((k, 2) \\), after which we go to  \\((k, 3) \\) and then split our probability mass between going back up or down.  \\(B\_k \\) is similar, but note that this equation only holds for  \\(k\in[n-1] \\), whereas the  \\(F\_k \\) equation holds for  \\(k\in[n] \\) (from the diagram, you can see that  \\(B\_n \\) never gets visited).
 
