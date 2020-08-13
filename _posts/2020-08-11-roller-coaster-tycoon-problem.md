@@ -51,7 +51,7 @@ Given a maze with a single corridor of length \\(n\\) with single-tile inlets to
 
 The [Math SE](https://math.stackexchange.com/questions/3779234/mean-first-hitting-time-of-infinite-markov-chain-in-the-limit) poster took a look at some specific finite values of \\(n\\) to get a sense of what the solution looks like, and in doing so constructed some valuable abstractions for the problem.
 
-First, let's describe every state in the maze explicitly. We have \\(\mathrm{enter},\mathrm{exit}\\) tiles on either side of the maze.
+First, let's describe every state in the maze explicitly. We have \\(\mathrm{start},\mathrm{end}\\) tiles on either side of the maze.
 
 But between those we have a repeated pattern: you're either on the \\(k\\)-th tile of the corridor, where you could be facing forward (towards the exit) or backwards (towards the entrance) or away from the inlet (towards the right hedge, if you came from an inlet), or you're in an inlet, facing into a hedge.
 
@@ -82,7 +82,7 @@ for all \\(k\in[n]\\).
 
 This fully defines a Markov chain on \\(4n+2\\) states. Represented pictorially, each \\(k\\)-th block looks like the following.
 
-TODO IMG
+![png](/assets/2020-08-12-rct2-solution/transitions.png)
 
 ## A Finite Approach
 
