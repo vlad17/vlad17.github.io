@@ -1,4 +1,4 @@
-A First Attempt
+## A First Attempt
 
 Let $\mathbf{x}^\top=\begin{pmatrix}\mathbf{x}_0&\cdots&\mathbf{x}_n\end{pmatrix}$ for conformal $\mathbf{x}_i$ of sizes $s_0,s,\cdots,s$. Inspecting the $i$-th block of $\mathbf{x}=\mathbf{1}+ P\mathbf{x}$ yields for $1<i<n$ that
 $$
@@ -31,7 +31,6 @@ L^\top V^\top R\mathbf{y}_{i+1}\\
 \end{gather*}
 $$
 Above, $A,B$ are suitably defined, where we note that since $L,R$ are unitary, $A$ is nonsingular, and we let $\mathbf{y}_{n+1}=\mathbf{0}$ for the last equation. 
-
 
 Now, to consider fully determined systems, we need to think about re-indexing. Our current block indexing is by $s_0,s,\cdots,s$:
 $$
