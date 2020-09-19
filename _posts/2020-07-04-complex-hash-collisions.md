@@ -154,7 +154,3 @@ There's an interesting connection we made here between complex numbers and discr
 
 [Try the notebook out yourself.](/assets/2020-07-04-complex-hash-collisions.ipynb)
 
-
-
-[Try the notebook out yourself.](/assets/2020-07-04-complex-hash-collisions.ipynb)
-
