@@ -1,5 +1,10 @@
 [
     {
+        "name": "ML Notes",
+	"url": "https://github.com/vlad17/ml-notes",
+	"tags": ["org-mode", "markdown"]
+    },
+    {
         "name": "Numpy Learn",
 	"url": "https://github.com/vlad17/np-learn",
 	"tags": ["python"]
