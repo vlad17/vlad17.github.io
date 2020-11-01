@@ -430,7 +430,7 @@ def trial(seed):
     lbsnp[:len(lbs)] = lbs
     gdsnp[:len(gds)] = gds
     
-    return lbs, gds
+    return lbsnp, gdsnp
 
 lbs_gm = np.zeros(maxit)
 gds_gm = np.zeros(maxit)
@@ -442,8 +442,8 @@ lbs_gm /= trials
 gds_gm /= trials
 
 matrix_name = r'logspace eigenvals,  \\(\kappa = 10^{{{kappa\_log10}}} \\), GM over {trials} trials'.format(kappa_log10=kappa_log10, trials=trials)
-plt.semilogy(np.exp(lbs_gm), c='b', label='GD')
-plt.semilogy(np.exp(gds_gm), c=color,
+plt.semilogy(np.exp(gds_gm), c='b', label='GD')
+plt.semilogy(np.exp(lbs_gm), c=color,
              label=r'L-BFGS ( \\(m = {memory} \\))'.format(memory=memory))
 plt.legend(bbox_to_anchor=(1.05, 0.5), loc='center left')
 plt.xlabel('iterations')
@@ -452,12 +452,7 @@ plt.title(matrix_name)
 plt.show()
 ```
 
-    2020-11-01 18:50:11,941	INFO resource_spec.py:212 -- Starting Ray with 246.68 GiB memory available for workers and up to 109.72 GiB for objects. You can adjust these settings with ray.init(memory=<bytes>, object_store_memory=<bytes>).
-    2020-11-01 18:50:12,174	WARNING services.py:923 -- Redis failed to start, retrying now.
-    2020-11-01 18:50:12,424	WARNING services.py:1151 -- Failed to start the dashboard. The dashboard requires Python 3 as well as 'pip install aiohttp grpcio'.
-
 ![png](/assets/2020-11-01-lbfgs-vs-gd_files/2020-11-01-lbfgs-vs-gd_13_1.png)
-
 
 
 [Try the notebook out yourself.](/assets/2020-11-01-lbfgs-vs-gd.ipynb)
