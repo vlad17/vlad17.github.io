@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Lbfgs Vs Gd
+title:  L-BFGS vs GD
 date:   2020-11-01
 categories: tools
 ---
@@ -58,7 +58,6 @@ class LBFGS:
     # mvm(self, self.g) gives current lbfgs direction
     # - H g
     
-    # returns the secant difference for diagnostics
     def update(self, x, g):
         s = x - self.x
         y = g - self.g
