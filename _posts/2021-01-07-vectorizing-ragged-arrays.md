@@ -4,7 +4,7 @@ title:  Vectorizing Ragged Arrays (Numpy Gems, Part 4)
 date:   2021-01-07
 categories: tools
 ---
-Frequently, we run into situations where need to deal with arrays of varying sizes in `numpy`. These result in much slower code that deals with different sizes individually. Luckily, by extracting commutative and associative operations, we can vectorize even in such scenarios, resulting in significant speed improvements. This is especially pronounced when doing the same thing with deep learning packages like `torch`.
+Frequently, we run into situations where we need to deal with arrays of varying sizes in `numpy`. These result in much slower code that deals with different sizes individually. Luckily, by extracting commutative and associative operations, we can vectorize even in such scenarios, resulting in significant speed improvements. This is especially pronounced when doing the same thing with deep learning packages like `torch`, because vectorization matters a lot more on a GPU.
 
 For instance, take a typical k-means implementation, which has an inner loop for a naive algorithm like the following.
 
@@ -62,12 +62,17 @@ def vcentroids(X, label):
     pos = np.repeat(pos, d[pos]) # repeat for 0-length clusters
     pos = np.append(np.insert(pos, 0, 0), len(X))
     
+    # accumulate dimension sums
     Xz = np.concatenate((np.zeros_like(Xz[0:1]), Xz), axis=0)
     Xsums = np.cumsum(Xz, axis=0)
+
+    # reduce by taking differences of accumulations exactly at the
+    # endpoints for cluster indices, using pos array
     Xsums = np.diff(Xsums[pos], axis=0)
     counts = np.diff(pos)
     c = Xsums / np.maximum(counts, 1)[:, np.newaxis]
     
+    # re-broadcast centroids for final distance calculation
     repeated_centroids = np.repeat(c, counts, axis=0)
     aligned_centroids = repeated_centroids[inverse_permutation(ix)]
     dist = np.sum((X - aligned_centroids) ** 2, axis=1)
