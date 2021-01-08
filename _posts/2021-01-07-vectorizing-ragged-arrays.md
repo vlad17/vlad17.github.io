@@ -103,6 +103,12 @@ np.allclose(c0, c1), np.allclose(dists0, dists1)
     398 ms ± 3.27 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
     3.16 ms ± 104 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
+Wow! A 100x, on a CPU no less. And all thanks to using the key technique:
+
+1. Sort by ragged array membership
+1. Perform an accumulation
+1. Find boundary indices, compute adjacent differences
+
 Thanks to my friend [Ben Eisner](https://scholar.google.com/citations?user=RWe-v0UAAAAJ&hl=en) for inspiring this post with his [SO](https://stackoverflow.com/questions/65623906/pytorch-how-to-vectorize-indexing-and-computation-when-indexed-tensors-are-diff) question.
 
 
