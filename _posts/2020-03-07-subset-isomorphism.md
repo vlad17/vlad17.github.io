@@ -28,11 +28,13 @@ np.all(x == inverse)
 
 
 
-The focus of this post is to expand on a maybe-useful, vectorizable isomorphism between indices, that comes up all the time: indexing pairs. In particular, it's often the case that we'd want to come up with an _a priori_ indexing scheme into a weighted, complete undirected graph on \\(V\\) vertices and \\(E\\) edges.
+The focus of this post is to expand on a vectorizable isomorphism between indices, that comes up all the time: indexing pairs. In particular, it's often the case that we'd want to come up with an _a priori_ indexing scheme into a weighted, complete undirected graph on \\(V\\) vertices and \\(E\\) edges.
 
 In particular, our edge set is \\(\binom{[V]}{2}=\left\\{(0, 0), (0, 1), \cdots, (V-2, V-1)\right\\}\\), the set of ordered \\(2\\)-tuples. Our index set is \\(\left[\binom{V}{2}\right]=\left\\{0, 1, \cdots, \frac{V(V-1)}{2} - 1\right\\}\\) (note we're 0-indexing here).
 
-Can we come up with an isomorphism between these two sets that vectorizes well?
+This often comes up when needing to sample undirected edges: sure, you can write a sampler which simply re-samples or re-orders vertex pairs that aren't ordered, but that's a bit wonky and takes up extra lines of code.
+
+Can we come up with an isomorphism between these two sets that vectorizes well (and can ideally be written in one line)?
 
 A natural question is why not just use a larger index. Say we're training a [GGNN](https://arxiv.org/abs/1511.05493), and we want to maintain embeddings for our edges. Our examples might be in a format where we have two vertices \\((v_1, v_2)\\) available. We'd like to index into an edge array maintaining the corresponding embedding. Here, you may very well get away with using an array of size \\(V^2\\). That takes about twice as much memory as you need, though.
 
