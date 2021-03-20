@@ -195,9 +195,9 @@ for kappa, ls in [(10, '-'), (50, '--')]:
     memory = 10
     lbs = lbfgs(A, memory)
     matrix_name = 'linspace eigenvals'
-    plt.semilogy(gds, c='b', label=r'GD ( \\(\kappa = {kappa} \\))'.format(kappa=kappa), ls=ls)
+    plt.semilogy(gds, c='b', label=r'GD ($\kappa = {kappa}$)'.format(kappa=kappa), ls=ls)
     plt.semilogy(lbs, c='r', ls=ls,
-                 label=r'L-BFGS ( \\(m = {memory}, \kappa = {kappa} \\))'.format(
+                 label=r'L-BFGS ( $m = {memory}, \kappa = {kappa}$)'.format(
                      kappa=kappa, memory=memory))
 plt.legend(bbox_to_anchor=(1.05, 0.5), loc='center left')
 plt.xlabel('iterations')
@@ -372,9 +372,9 @@ plt.show()
 for cosine, memory in zip(cosines, memories):
     cosine = np.array(cosine)
     plt.plot(cosine,
-                 label=r' \\(m = {memory} \\)'.format(memory=memory))
+                 label=r'$m = {memory}$'.format(memory=memory))
 plt.xlabel('iterations')
-plt.ylabel(r' \\(\cos \theta\_k \\)')
+plt.ylabel(r'$\cos \theta\_k$')
 plt.title('L-BFGS and GD Cosine')
 plt.show()
 ```
@@ -441,10 +441,11 @@ for i, fut in enumerate([trial.remote(seed) for seed in child_seeds]):
 lbs_gm /= trials
 gds_gm /= trials
 
-matrix_name = r'logspace eigenvals,  \\(\kappa = 10^{{{kappa\_log10}}} \\), GM over {trials} trials'.format(kappa_log10=kappa_log10, trials=trials)
+
+matrix_name = r'logspace eigenvals,  $\kappa = 10^{kappa_{log10} }$, GM over {trials} trials'.format(kappa_log10=kappa_log10, trials=trials)
 plt.semilogy(np.exp(gds_gm), c='b', label='GD')
 plt.semilogy(np.exp(lbs_gm), c=color,
-             label=r'L-BFGS ( \\(m = {memory} \\))'.format(memory=memory))
+             label=r'L-BFGS ($m = {memory}$)'.format(memory=memory))
 plt.legend(bbox_to_anchor=(1.05, 0.5), loc='center left')
 plt.xlabel('iterations')
 plt.ylabel('function optimality gap')
