@@ -67,7 +67,7 @@ As we increase the number of threads, so too does the percentage of unsuccessful
 
 ![locking conflicts in parallel sampling](/assets/2021-03-20-parallel-glauber-inference/conflict.png){: .img-responsive.center-image}
 
-Despite using biased transition dynamics, natural parallelism within our MRF makes the “just use more cores” approach could be worth it for sparse graphs. This was all a ton of fun to code up, and had lots of little interesting systems problems:
+Despite using biased transition dynamics (but only slightly so, as the above demonstrates), natural parallelism within our MRF makes the “just use more cores” approach appealing for sparse graphs. This was all a ton of fun to code up, and had lots of little interesting systems problems:
 
 * How would one actually build this many fast RW locks?
 * How might one avoid deadlock?
