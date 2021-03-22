@@ -63,7 +63,7 @@ Here’s a plot of how long it takes to reach a given transition step count acro
 
 ![scalability of parallel sampling](/assets/2021-03-20-parallel-glauber-inference/scale.png){: .img-responsive.center-image}
 
-As we increase the number of threads, so too does the percentage of unsuccessful lock attempts, as expected. However, for this sparse graph, even with 32 threads, the percentage of lock attempts that are unsuccessful remains less than about half a percent.
+As we increase the number of threads, so too does the percentage of unsuccessful lock attempts, as expected. However, for this sparse graph, even with 32 threads (this is hyperthreading 2x for 16-core machine), the percentage of lock attempts that are unsuccessful remains less than about half a percent.
 
 ![locking conflicts in parallel sampling](/assets/2021-03-20-parallel-glauber-inference/conflict.png){: .img-responsive.center-image}
 
