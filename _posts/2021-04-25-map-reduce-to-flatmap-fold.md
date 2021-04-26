@@ -20,7 +20,7 @@ tail -1 enwik9.clean  | tr -s " "; echo
 # breathing high-pressure oxygen for long periods can causes oxygen toxicity one of the side effects 
 ```
 
-Let's do a typical map-reduce with to get the top words. 
+Let's do a typical map-reduce with spark to get the top words.
 
 ```
 pyspark
