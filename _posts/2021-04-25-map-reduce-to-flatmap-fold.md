@@ -106,7 +106,7 @@ Much better! The flatmap operation `tr " " "\n" | rg -v "^$"`, which puts every 
 There's all sorts of interesting extensions to be made for `slb`; check out the [repo](https://github.com/vlad17/slb) for details and examples.
 
 * How could we support multiple input files?
-* Do buffer and queue size affect performance? Can they be autotuned?
+* Do buffer and queue sizes affect performance? Can they be autotuned?
 * Are stragglers causing problems?
 
 _Illustrations provided by [Olivia Wynkoop](https://www.linkedin.com/in/olivia-wynkoop-b48375b2/)._
