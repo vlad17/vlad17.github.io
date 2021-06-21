@@ -4,6 +4,13 @@ title: About
 permalink: /about
 ---
 
+<!-- //DONE: about page for upwork project https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051 -->
+<!-- about image with caption -->
+<figure class="about-page-image">
+  <img src="/static/img/about-page.JPG" alt="Vlad Feinberg" style="width:100%">
+  <figcaption>Vlad Fienberg</figcaption>
+</figure>
+
 Hello! After graduating from Princeton with a degree in Computer Science, I became an EECS Ph.D. student at the University of California, Berkeley at the [RISELab](https://rise.cs.berkeley.edu/). I dropped out to work at a startup, [Sisu](http://sisu.ai), where I'm Head of ML. Come [join me](https://jobs.lever.co/sisu/091da572-9c63-469f-963d-cedc64fcfff2?lever-origin=applied&lever-source%5B%5D=Vlad%20Blog).
 
 If you find any typos or incorrect information, I would really appreciate it if you let me know! Please fill in a [GitHub issue form](https://github.com/vlad17/vlad17.github.io/issues/new).

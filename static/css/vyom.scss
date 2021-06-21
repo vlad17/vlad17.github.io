@@ -1,0 +1,17 @@
+---
+---
+
+// Custom CSS added as per job post https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051 by Akash <vyom@vyom.site>
+
+.about-page-image {
+    // center align items
+    text-align: center;
+    // give space from following text
+    margin-bottom: 20px;
+    
+    figcaption {
+        // make caption different from rest
+        color: gray;
+        font-style: italic;
+    }
+}
