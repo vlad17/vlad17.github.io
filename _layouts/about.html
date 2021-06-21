@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<div class="well">
+    {% if page.subtitle %}
+    <h4 class="home-subtitle">{{ page.subtitle }}</h4>
+    {% endif %}
+    <div>
+        <!-- //DONE: about page for upwork project https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051 -->
+        <!-- about image with caption -->
+        <figure class="about-page-image">
+            <img src="{{ site.about_page_image_url }}" alt="{{ site.about_page_image_caption }}">
+            <figcaption>{{ site.about_page_image_caption }}</figcaption>
+        </figure>
+        {{ content }}
+    </div>
+</div>
