@@ -55,3 +55,6 @@ plugins:
   - jekyll-sitemap
 
 permalink: /:year/:month/:day/:title.html
+# update about page featured image content here
+about_page_image_url: "/static/img/about-page.JPG"
+about_page_image_caption: "Vlad Fienberg"
