@@ -57,4 +57,4 @@ plugins:
 permalink: /:year/:month/:day/:title.html
 # update about page featured image content here
 about_page_image_url: "/static/img/about-page.JPG"
-about_page_image_caption: "Vlad Fienberg"
+about_page_image_caption: "My friends and I at Pinecrest Lake after a hike to Eagle Peak."
