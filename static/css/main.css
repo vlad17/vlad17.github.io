@@ -126,16 +126,8 @@ li.current-menu-item:before {
     color: #01c87b;
     font-weight: 300;
 }
-/* vyom: 210623
-    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
-    Updated blog title color to be visible in whitespace. Made bold and center as well.
-h2.blog-title-pro{color: #fff;} */
-h2.blog-title-pro {
-    color: #009587;
-    font-weight: bolder;
-    text-align: center;
-}
-h2.blog-title-pro:after {
+h2.blog-title-pro{color: #fff;}
+/* h2.blog-title-pro:after {
     content: "";
     display: block;
     width: 70px;
@@ -147,7 +139,7 @@ h2.blog-title-pro:after {
     margin-top: 10px;
     margin-left: 3px;
     background: rgba(255, 255, 255, 0.72);
-}
+} */
 span.tags {
     margin: 0 2px;
     cursor: pointer;
