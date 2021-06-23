@@ -20,3 +20,27 @@
     color: #009688;
     font-style: italic;
 }
+
+@media (min-width: 1200px) {
+    .vyom-blog-archive-post-container {
+        clear: both;
+        .vyom-featured-image-container {
+            float: left;
+            width: 30%;
+            padding-right: 20px;
+        }
+        .vyom-blog-excerpt-container {
+            float: right;
+            width: 70%;
+        }
+        
+    }
+}
+
+@media (max-width: 1200px) {
+    .vyom-featured-image-container {
+        img {
+            max-width: 200px;
+        }
+    }
+}
