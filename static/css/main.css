@@ -1,10 +1,23 @@
-.main.outer{padding-top: 50px;}
+/* vyom: 210623
+    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+    Reduced main container padding to remove unwanted whitespace
+.main.outer{padding-top: 50px;} */
+.main.outer {
+    padding-top: 10px;
+}
+
 .header-panel.shadow-z-2 {
     background-color: #009587;
-    padding: 50px 0 15px 0;
+    /* vyom: 210623
+    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+    Reduced top padding to make header thinner
+    padding: 50px 0 15px 0; */
+    padding: 20px 0 15px 0;
     width: 100%;
 }
-.full{ font-size: 16px; }
+.full {
+    font-size: 16px;
+}
 .logo-img {
     width: 56px;
     height: 56px;
@@ -18,7 +31,7 @@
     margin-top: 10px;
     letter-spacing: 2px;
 }
-.row-content{
+.row-content {
     vertical-align: top;
 }
 .row-picture {
@@ -38,10 +51,11 @@ p.info a {
     color: #fff;
     text-decoration: underline;
 }
-.full ul,.full ol {
+.full ul,
+.full ol {
     margin-left: 15px;
 }
-.full img{
+.full img {
     display: block;
     max-width: 100%;
     height: auto;
@@ -70,8 +84,10 @@ p.info a {
     margin: 5px 0;
 }
 
-.menu ul li a:hover, .menu ul li a:focus, li.current-menu-item > a{
-    background: #007D72;
+.menu ul li a:hover,
+.menu ul li a:focus,
+li.current-menu-item > a {
+    background: #007d72;
 }
 li.current-menu-item:before {
     content: "";
@@ -81,7 +97,7 @@ li.current-menu-item:before {
     position: absolute;
     left: 9px;
     vertical-align: middle;
-    background: #B8CA28;
+    background: #b8ca28;
 }
 .menu ul li a {
     font-size: 15px;
@@ -89,8 +105,19 @@ li.current-menu-item:before {
     cursor: pointer;
     display: block;
     text-decoration: none;
-    padding: 0 0 0 10px;
+    /* vyom: 210623
+    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+    Make left padding less */
+    padding: 0 0 0 0px;
+    /* vyom: 210623
+    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+    Give padding for selected link background color impression */
+    padding-right: 20px;
     color: #fff;
+    /* vyom: 210623
+    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+    Give space from siblings */
+    margin-right: 10px;
 }
 .home-subtitle {
     font-size: 26px;
@@ -99,18 +126,34 @@ li.current-menu-item:before {
     color: #01c87b;
     font-weight: 300;
 }
-h2.blog-title-pro{color: #fff;}
+/* vyom: 210623
+    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+    Updated blog title color to be visible in whitespace. Made bold and center as well.
+h2.blog-title-pro{color: #fff;} */
+h2.blog-title-pro {
+    color: #009587;
+    font-weight: bolder;
+    text-align: center;
+}
 h2.blog-title-pro:after {
     content: "";
     display: block;
     width: 70px;
     height: 4px;
-    margin-top: 16px;
+    /* vyom: 210623
+    upwork project : https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+    Reduced blog title margin
+    margin-top: 16px; */
+    margin-top: 10px;
     margin-left: 3px;
     background: rgba(255, 255, 255, 0.72);
 }
-span.tags{ margin: 0 2px;cursor: pointer;display: inline-block;}
-.card .card-image .card-image-headline-custom{
+span.tags {
+    margin: 0 2px;
+    cursor: pointer;
+    display: inline-block;
+}
+.card .card-image .card-image-headline-custom {
     position: absolute;
     margin-bottom: 0;
     bottom: 0px;
@@ -119,10 +162,10 @@ span.tags{ margin: 0 2px;cursor: pointer;display: inline-block;}
     padding: 5px 0 12px;
     color: #fff;
     font-size: 2em;
-    background: -moz-linear-gradient(bottom,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 83%, rgba(0,0,0) 100%);
-background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 83%,rgba(0,0,0) 100%);
-background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgba(0,0,0,0.9) 83%,rgb(0, 0, 0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 83%, rgba(0, 0, 0) 100%);
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 83%, rgba(0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 83%, rgb(0, 0, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 }
 .card .card-footer a {
     margin: 0 !important;
@@ -133,7 +176,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 #filters {
     margin: 0 0 25px 0;
 }
-.list-separator li > a i{
+.list-separator li > a i {
     width: 56px;
     height: 56px;
     text-align: center;
@@ -141,17 +184,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     font-size: 20px;
 }
 .error {
-    color: #EF7272!important;
-    font-size: 12px!important;
+    color: #ef7272 !important;
+    font-size: 12px !important;
 }
 #portfolio-filter {
-        margin-top: 50px;
+    margin-top: 50px;
 }
 .navbar-toggle i {
-    color: #BCCCBF;
+    color: #bcccbf;
 }
-.menu .list-group-item-heading, .menu .list-group-item-text{
-    color:#fff!important;
+.menu .list-group-item-heading,
+.menu .list-group-item-text {
+    color: #fff !important;
 }
 @media (max-width: 768px) {
     #portfolio-filter {
@@ -159,7 +203,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     }
 }
 footer {
-    border-top: 1px solid #C5C0C0;
+    border-top: 1px solid #c5c0c0;
     width: 100%;
     height: 10px;
     margin-top: 10px;
@@ -173,10 +217,7 @@ footer {
 .pager li.active a {
     background: rgba(89, 148, 129, 0.3);
 }
-.center-image
-{
+.center-image {
     margin: 0 auto;
     display: block;
 }
-
-

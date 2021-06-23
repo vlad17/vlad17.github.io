@@ -22,9 +22,10 @@ urls:
     - text: Search
       url: /search.html
       icon: fa-search
-    - text: XML Feed
-      url: /feed.xml
-      icon: fa-feed
+    # vyom: temporary disable xml feed from header site navigation
+    # - text: XML Feed
+    #   url: /feed.xml
+    #   icon: fa-feed
 
 github: https://github.com/vlad17
 
