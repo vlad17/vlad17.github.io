@@ -18,7 +18,7 @@ urls:
       icon: fa-folder
     - text: Featured
       url: /featured
-      icon: fa-desktop
+      icon: fa-star
     - text: Search
       url: /search.html
       icon: fa-search
