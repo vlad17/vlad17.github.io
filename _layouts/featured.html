@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="well">
+    {% if page.subtitle %}
+    <h4 class="home-subtitle">{{ page.subtitle }}</h4>
+    {% endif %}
+    <div>
+        <figure class="featured-page-image">
+            <img src="{{ site.about_page_image_url }}" alt="{{ site.about_page_image_caption }}">
+            <figcaption>{{ site.about_page_image_caption }}</figcaption>
+        </figure>
+        {{ content }}
+    </div>
+</div>
