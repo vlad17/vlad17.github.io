@@ -67,3 +67,5 @@ featured_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPLsXA0X
 # upwork project:
 # Set custom excerpts for posts
 excerpt_separator: <!--more-->
+# vyom: 210624 Add site level meta keywords if not set
+global_meta_keywords: Vlad Feinberg, Princeton, Computer Science

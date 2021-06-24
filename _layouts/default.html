@@ -20,8 +20,15 @@
   <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.author }}{% endif %}</title>
   <meta name="author" content="{{ site.author }}" />
   <meta name="description" content="{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}" />
+  {% comment %}
+  vyom:210624
+  upwork project: https://www.upwork.com/jobs/Renovate-static-blog-HTML-and-CSS_%7E01065076083bfce051
+  Adding explicit keywords to post
   <meta name="keywords"
-    content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for categ in page.categories %}{{ categ }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for category in site.categories %}{% capture categories_slug %}{{ category | first }}{% endcapture %}{% for categ in categories_slug %}{{ categ }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %}" />
+  content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for categ in page.categories %}{{ categ }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for category in site.categories %}{% capture categories_slug %}{{ category | first }}{% endcapture %}{% for categ in categories_slug %}{{ categ }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %}" />
+  {% endcomment %}
+  <meta name="keywords" content="{% if page.meta_keywords %}{{ page.meta_keywords }}{% else %}{{ page.title }}, {{ site.global_meta_keywords }}{% endif %}" />
+  
 
   <meta content="{{ site.share.fb_appid }}" property="fb:app_id">
   <meta content="{{ site.title }}" property="og:site_name">
