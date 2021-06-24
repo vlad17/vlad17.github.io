@@ -1,4 +1,4 @@
-<nav class="menu">
+<nav class="menu vyom-site-nav">
 	<div class="collapse navbar-collapse" style="padding: 0px" id="bs-example-navbar-collapse-1">
 		<ul class="list-separator nav navbar-nav well well-primary {{ page.layout }} vyom-no-box-shadow vyom-remove-padding vyom-remove-margin">
 			{% for i in site.urls %}
@@ -18,7 +18,7 @@
 						class="fa {{ i.icon }}"></i> {{ i.text }}</a></li>
 			{% endcomment %}
 			<li class="{{ current }} {{ pageurl }}"><a href="{{ linkurl }}"><i
-						class="fa {{ i.icon }}"></i> {{ i.text }}</a></li>
+						class="fa {{ i.icon }} vyom-remove-line-height"></i> {{ i.text }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>

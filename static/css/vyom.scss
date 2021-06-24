@@ -33,7 +33,6 @@
             float: right;
             width: 70%;
         }
-        
     }
 }
 // remove box shadow from navigation menu
@@ -49,4 +48,31 @@
 
 .vyom-remove-margin {
     margin: 0px !important;
+}
+
+.vyom-remove-line-height {
+    // remove unwanted margin due to icon
+    line-height: 0px !important;
+    height: 0px !important;
+}
+
+li.current-menu-item::before {
+    // remove the unwanted vertical yellow line
+    width: 0px;
+}
+
+.vyom-site-nav {
+    li {
+        // align menu items with site branding
+        margin-top: 0px !important;
+        a {
+            // give padding to menu items to make them look good
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+        }
+    }
+    @media (max-width: 1200px) {
+        // give space to menu from site branding
+        margin-top: 10px;
+    }
 }
