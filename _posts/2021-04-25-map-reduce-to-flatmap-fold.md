@@ -4,6 +4,7 @@ title:  Map Reduce to Flatmap Fold
 date:   2021-04-25
 categories: parallel
 feature_image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?crop=entropy&cs=srgb&dl=pexels-josh-sorenson-1714208.jpg&fit=crop&fm=jpg&h=1280&w=1920"
+is_featured_post: true
 ---
 
 Step aside, [map reduce](https://research.google/pubs/pub62/). In this post, I’ll introduce a single-machine utility for parallel processing that significantly improves upon the typical map-reduce approach. When dealing with GB-to-TB size datasets, using a large multiprocessing machine should be enough for fast computation, but performance falls short of expectations due to naive `reduce` implementations.
