@@ -18,8 +18,10 @@ title: Featured posts
                 featured image container
                 {% endcomment%}
                 <div class="vyom-featured-image-container">
-                    <img alt="{{ post.title }} featured image"
-                        src="{% if post.feature_image %}{{ post.feature_image }}{% else %}{{ site.featured_image }}{% endif %}">
+                    <a href="{{ post.url | prepend: site.baseurl }}">
+                        <img alt="{{ post.title }} featured image"
+                            src="{% if post.feature_image %}{{ post.feature_image }}{% else %}{{ site.featured_image }}{% endif %}">
+                    </a>
                 </div>
                 {% comment %}
                 Post excerpt container
@@ -50,7 +52,8 @@ title: Featured posts
                         {% else %}
                         <p class="list-group-item-text">{{ post.content | strip_html | strip_newlines | truncate: 500 }}
                             <span class="vyom-read-more-button"><a href="{{ post.url | prepend: site.baseurl }}">Read
-                                    More</a></span></p>
+                                    More</a></span>
+                        </p>
                         {% endif %}
                     </div>
                 </div>
