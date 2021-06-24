@@ -36,15 +36,7 @@
         
     }
 }
-
-@media (max-width: 1200px) {
-    .vyom-featured-image-container {
-        img {
-            max-width: 200px;
-        }
-    }
-}
-
+// remove box shadow from navigation menu
 .vyom-no-box-shadow {
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
