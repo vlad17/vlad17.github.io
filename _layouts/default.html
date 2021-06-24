@@ -57,7 +57,7 @@
   {% if page.feature_image %}
   <meta content="{{ page.feature_image }}" property="og:image">
   {% else %}
-  <meta content="{{ site.url }}/{{ site.global_site_logo }}" property="og:image">
+  <meta content="{{ site.url }}{{ site.global_site_logo }}" property="og:image">
   {% endif %}
   {% if page.categories %}
   {% for category in page.categories limit:1 %}
