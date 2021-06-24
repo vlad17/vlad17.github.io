@@ -16,8 +16,8 @@ urls:
     - text: Categories
       url: /categories
       icon: fa-folder
-    - text: Projects
-      url: /projects
+    - text: Featured
+      url: /featured
       icon: fa-desktop
     - text: Search
       url: /search.html
