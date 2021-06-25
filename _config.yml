@@ -63,7 +63,7 @@ about_page_image_caption: "My friends and I at Pinecrest Lake after a hike to Ea
 # vyom: 210623
 # upwork project:
 # featured image used on posts if no image is set for it in the post front matter
-featured_image: "/static/img/logo.png"
+featured_image: "/static/img/logo.jpg"
 # vyom: 210623
 # upwork project:
 # Set custom excerpts for posts
@@ -72,4 +72,4 @@ excerpt_separator: <!--more-->
 global_meta_keywords: Vlad Feinberg, Princeton, Computer Science
 # vyom: 210624 Add og:image
 # site logo for og:image. site_url is added infront of this path. To enable external file links, {{ site_url }} needs to be removed from default.html file og:image meta tag
-global_site_logo: "/static/img/logo-vyom.jpg"
+global_site_logo: "/static/img/logo.jpg"
