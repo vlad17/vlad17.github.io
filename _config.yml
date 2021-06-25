@@ -63,7 +63,7 @@ about_page_image_caption: "My friends and I at Pinecrest Lake after a hike to Ea
 # vyom: 210623
 # upwork project:
 # featured image used on posts if no image is set for it in the post front matter
-featured_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPLsXA0X_gaVwIUsBlpjNddQ8ego1KNODsw&usqp=CAU"
+featured_image: "/static/img/logo.png"
 # vyom: 210623
 # upwork project:
 # Set custom excerpts for posts
