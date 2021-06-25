@@ -41,7 +41,8 @@ share:
   twitter_username: \#
   fb_appid: 000000000000
 
-url: "https://vlad17.github.io"
+#url: "https://vlad17.github.io"
+url: "https://amazing-hoover-335b7f.netlify.app"
 
 enableTags: true
 tagarray: []
