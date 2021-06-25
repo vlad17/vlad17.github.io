@@ -54,11 +54,7 @@
   <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
   <meta content="{{ site.url }}/about/" property="article:author">
   {% endif %}
-  {% if page.feature_image %}
-  <meta content="{{ page.feature_image }}" property="og:image">
-  {% else %}
-  <meta content="{{ site.url }}{{ site.global_site_logo }}" property="og:image">
-  {% endif %}
+  <meta content="{% if post.featured_image %}{% if post.featured_image contains 'https://' %}{{ post.featured_image }}{% else %}{{ site.url }}{{ post.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.url }}{{ site.featured_image }}{% endif %}{% endif %}" property="og:image">
   {% if page.categories %}
   {% for category in page.categories limit:1 %}
   <meta content="{{ category }}" property="article:section">
