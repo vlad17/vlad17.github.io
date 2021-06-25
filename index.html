@@ -19,7 +19,7 @@ title: Blog
         <div class="vyom-featured-image-container">
           <a href="{{ post.url | prepend: site.baseurl }}">
             <img alt="{{ post.title }} featured image"
-              src="{% if post.featured_image %}{% if post.featured_image contains 'https://' %}{{ post.featured_image }}{% else %}{{ site.url }}{{ post.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.url }}{{ site.featured_image }}{% endif %}{% endif %}">
+              src="{% if post.featured_image %}{% if post.featured_image contains 'https://' %}{{ post.featured_image }}{% else %}{{ site.baseurl }}{{ post.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.baseurl }}{{ site.featured_image }}{% endif %}{% endif %}">
           </a>
         </div>
         {% comment %}

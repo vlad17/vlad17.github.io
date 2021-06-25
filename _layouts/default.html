@@ -48,13 +48,13 @@
   <meta content="{{ site.description }}" property="og:description">
   {% endif %}
   {% if page.url %}
-  <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+  <meta content="{{ site.baseurl }}{{ page.url }}" property="og:url">
   {% endif %}
   {% if page.date %}
   <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
-  <meta content="{{ site.url }}/about/" property="article:author">
+  <meta content="{{ site.baseurl }}/about/" property="article:author">
   {% endif %}
-  <meta content="{% if post.featured_image %}{% if post.featured_image contains 'https://' %}{{ post.featured_image }}{% else %}{{ site.url }}{{ post.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.url }}{{ site.featured_image }}{% endif %}{% endif %}" property="og:image">
+  <meta content="{% if post.featured_image %}{% if post.featured_image contains 'https://' %}{{ post.featured_image }}{% else %}{{ site.baseurl }}{{ post.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.baseurl }}{{ site.featured_image }}{% endif %}{% endif %}" property="og:image">
   {% if page.categories %}
   {% for category in page.categories limit:1 %}
   <meta content="{{ category }}" property="article:section">
