@@ -3,6 +3,7 @@ layout: post
 title:  L-BFGS vs GD
 date:   2020-11-01
 categories: tools
+featured_image: /assets/2020-11-01-lbfgs-vs-gd_files/2020-11-01-lbfgs-vs-gd_13_1.png
 ---
 # L-BFGS vs GD
 

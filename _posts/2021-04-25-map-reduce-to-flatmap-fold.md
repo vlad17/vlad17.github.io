@@ -3,7 +3,7 @@ layout: post
 title:  Map Reduce to Flatmap Fold
 date:   2021-04-25
 categories: parallel
-featured_image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?crop=entropy&cs=srgb&dl=pexels-josh-sorenson-1714208.jpg&fit=crop&fm=jpg&h=1280&w=1920"
+featured_image: "/assets/2021-04-25-map-reduce-to-flatmap-fold/tree-reduce.png"
 is_featured_post: true
 ---
 

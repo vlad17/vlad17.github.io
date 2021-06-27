@@ -3,6 +3,7 @@ layout: post
 title:  Discrete Residues
 date:   2020-07-05
 categories: tools
+featured_image: https://i.stack.imgur.com/ElHJI.png
 ---
 # Discrete Residues
 
