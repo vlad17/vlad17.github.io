@@ -130,16 +130,6 @@ h2.blog-title-pro {
     color: #fff;
     margin-top: 5px;
 }
-h2.blog-title-pro:after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 4px;
-    /* margin-top: 16px; */
-    margin-top: 10px;
-    margin-left: 3px;
-    background: rgba(255, 255, 255, 0.72);
-}
 span.tags {
     margin: 0 2px;
     cursor: pointer;
