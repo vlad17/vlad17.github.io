@@ -3,6 +3,9 @@ layout: post
 title:  Parallel Glauber Inference
 date:   2021-03-20
 categories: parallel
+is_featured_post: true
+meta_keywords: parallel
+featured_image: /assets/2021-03-20-parallel-glauber-inference/parallel-2.png
 ---
 
 Markov Chain Monte Carlo methods (MCMC) are, functionally, very cool: they enable us to convert a specification of a probability distribution from a likelihood \\(\ell\\) into samples from that likelihood. The main downside is that they’re very slow. That’s why lots of effort has been invested in data-parallel MCMC (e.g., [EPMCMC](http://willieneis.github.io/research/embParMCMC/index.html)). This blog post takes a look at a specialized MCMC sampler which is transition-parallel, for a simple distribution:

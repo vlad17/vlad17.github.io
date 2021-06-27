@@ -3,6 +3,7 @@ layout: post
 title:  Roller Coaster Tycoon 2 (RCT2) Problem
 date:   2020-08-11
 categories: tools
+featured_image: /assets/2020-08-11-roller-coaster-tycoon-problem/probs.png
 ---
 # Roller Coaster Tycoon 2 (RCT2) Problem
 

@@ -3,6 +3,7 @@ layout: post
 title:  "Observational Causal Inference (Simpson's part 1 of 3)"
 date:   2020-04-01
 categories: causal
+featured_image: /assets/2020-simpsons-series/simpson.png
 ---
 
 # Observational Causal Inference (Simpson's part 1 of 3)

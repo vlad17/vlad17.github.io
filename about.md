@@ -2,6 +2,7 @@
 layout: about
 title: About
 permalink: /about
+featured_image: "/static/img/about-page.JPG"
 ---
 
 Hello! After graduating from Princeton with a degree in Computer Science, I became an EECS Ph.D. student at the University of California, Berkeley at the [RISELab](https://rise.cs.berkeley.edu/). I dropped out to work at a startup, [Sisu](http://sisu.ai), where I'm Head of ML. Come [join me](https://jobs.lever.co/sisu/091da572-9c63-469f-963d-cedc64fcfff2?lever-origin=applied&lever-source%5B%5D=Vlad%20Blog).

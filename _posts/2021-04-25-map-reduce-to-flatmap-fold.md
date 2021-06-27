@@ -3,11 +3,13 @@ layout: post
 title:  Map Reduce to Flatmap Fold
 date:   2021-04-25
 categories: parallel
+featured_image: "/assets/2021-04-25-map-reduce-to-flatmap-fold/tree-reduce.png"
+is_featured_post: true
 ---
 
 Step aside, [map reduce](https://research.google/pubs/pub62/). In this post, I’ll introduce a single-machine utility for parallel processing that significantly improves upon the typical map-reduce approach. When dealing with GB-to-TB size datasets, using a large multiprocessing machine should be enough for fast computation, but performance falls short of expectations due to naive `reduce` implementations.
 
-Let’s take the canonical map reduce example, word count, where our goal is to take a corpus of text and construct a map from words to the number of times they appear in the corpus. We'll be working with a 16-core machine throughout this post.
+Let’s take the canonical map reduce example, word count, where our goal is to take a corpus of text and construct a map from words to the number of times they appear in the corpus. We'll be working with a 16-core machine throughout this post. <!--more-->
 
 Let's grab 1GB of English wikipedia for a running example and do some lightweight cleaning.
 
