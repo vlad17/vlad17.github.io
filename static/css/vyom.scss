@@ -84,3 +84,20 @@ li.current-menu-item::before {
         font-weight: bolder;
     }
 }
+
+.vyom-vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vyom-blog-archive-post-container {
+    .vyom-featured-image-container {
+        img {
+            // center align smaller images
+            margin: auto auto;
+            // reduce image size to match with sibling preview text
+            max-height: 170px;
+            width: auto;
+        }
+    }
+}
