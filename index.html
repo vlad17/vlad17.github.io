@@ -26,7 +26,7 @@ title: Blog
         Post excerpt container
         {% endcomment%}
         <div class="vyom-blog-excerpt-container">
-          <div class="least-content">{{ post.date | date_to_string }}</div>
+          <div class="least-content vyom-article-date">{{ post.date | date_to_string }}</div>
           <h4 class="list-group-item-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
 
           {% comment %}
