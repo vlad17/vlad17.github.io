@@ -3,6 +3,7 @@ layout: post
 title:  "Metaphysics of Causality"
 date:   2019-12-01
 categories: philosophy
+featured_image: /assets/2019-12-01-metaphysics-of-causality/ladder.png
 ---
 
 # Metaphysics of Causality

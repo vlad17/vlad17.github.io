@@ -3,6 +3,7 @@ layout: post
 title:  Fast SVMlight to CSR in Python with Rust
 date:   2021-01-17
 categories: tools
+featured_image: https://www.mathworks.com/help/examples/matlab/win64/PlotSparsityPatternExample_02.png
 ---
 
 Lots of sparse datasets are kept around in a convenient text format called [SVMlight](http://svmlight.joachims.org/). It's easy to manipulate with unix tools and very easily compressed so it's perfect to distribute.

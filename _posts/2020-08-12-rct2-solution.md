@@ -3,6 +3,7 @@ layout: post
 title:  RCT2 Solution
 date:   2020-08-12
 categories: tools
+featured_image: /assets/2020-08-12-rct2-solution_files/2020-08-12-rct2-solution_12_0.png
 ---
 
 # RCT2 Problem Solution

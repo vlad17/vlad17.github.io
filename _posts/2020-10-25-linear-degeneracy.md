@@ -3,6 +3,7 @@ layout: post
 title:  Linear Degeneracy and Standardization
 date:   2020-10-25
 categories: tools
+featured_image: https://vladfeinberg.com/assets/2020-10-25-linear-degeneracy_files/2020-10-25-linear-degeneracy_7_1.png
 ---
 
 # Linear Degeneracy and Standardization

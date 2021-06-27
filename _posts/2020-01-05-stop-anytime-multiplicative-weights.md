@@ -3,6 +3,7 @@ layout: post
 title:  "Stop Anytime Multiplicative Weights"
 date:   2020-01-05
 categories: machine-learning
+featured_image: /assets/2019-12-25-stop-anytime-multiplicative-weights/5x200.png
 ---
 
 # Stop Anytime Multiplicative Weights
