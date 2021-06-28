@@ -83,6 +83,12 @@ li.current-menu-item::before {
         font-size: 30px;
         font-weight: bolder;
     }
+    a {
+        // make link visible
+        color: #ffffff;
+        font-weight: bolder;
+        text-decoration: none;
+    }
 }
 
 .vyom-vertical-center {
