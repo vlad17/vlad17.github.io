@@ -94,6 +94,20 @@
 </head>
 
 <body class="home overflow-hidden">
+  <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Ajax.config.path["img"] = "https://cdn.rawgit.com/pkra/mathjax-img/1.0.0/";
+      MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[img]/img.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+      });
+    </script>
+    <p hidden>
+      {% include tex-preamble.html %}
+    </p>
   <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
         your browser</a> to improve your experience.</p>
@@ -101,7 +115,7 @@
   <div class="header-panel shadow-z-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-sm-4 col-xs-12 px-4">
+        <div class="col-md-3 col-sm-4 col-xs-12 px-4 vyom-site-branding">
           <div class="row-details">
             <h4 class="list-group-item-heading vyom-site-title">{{ site.author }}</h4>
             {% comment %}
@@ -127,7 +141,7 @@
           {% include navigation.html %}
           <h2 class="blog-title-pro">{{ page.title }}</h2>
         </div>
-        <p class="info">
+        <p class="info" style="padding-left: 15px;">
           {% if page.date %}
           <span class="time">{{ page.date | date_to_string }}</span>
           {% endif %}
