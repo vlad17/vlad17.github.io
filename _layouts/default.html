@@ -115,7 +115,7 @@
   <div class="header-panel shadow-z-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-sm-4 col-xs-12 px-4">
+        <div class="col-md-3 col-sm-4 col-xs-12 px-4 vyom-site-branding">
           <div class="row-details">
             <h4 class="list-group-item-heading vyom-site-title">{{ site.author }}</h4>
             {% comment %}
@@ -141,7 +141,7 @@
           {% include navigation.html %}
           <h2 class="blog-title-pro">{{ page.title }}</h2>
         </div>
-        <p class="info">
+        <p class="info" style="padding-left: 15px;">
           {% if page.date %}
           <span class="time">{{ page.date | date_to_string }}</span>
           {% endif %}
