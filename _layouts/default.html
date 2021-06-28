@@ -54,7 +54,9 @@
   <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
   <meta content="{{ site.canonical_url }}/about/" property="article:author">
   {% endif %}
-  <meta content="{% if post.featured_image %}{% if post.featured_image contains 'https://' %}{{ post.featured_image }}{% else %}{{ site.canonical_url }}{{ post.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.canonical_url }}{{ site.featured_image }}{% endif %}{% endif %}" property="og:image">
+
+  <meta content="{% if page.featured_image %}{% if page.featured_image contains 'https://' %}{{ page.featured_image }}{% else %}{{ site.canonical_url }}{{ page.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.canonical_url }}{{ site.featured_image }}{% endif %}{% endif %}" property="og:image">
+
   {% if page.categories %}
   {% for category in page.categories limit:1 %}
   <meta content="{{ category }}" property="article:section">
@@ -94,6 +96,20 @@
 </head>
 
 <body class="home overflow-hidden">
+  <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Ajax.config.path["img"] = "https://cdn.rawgit.com/pkra/mathjax-img/1.0.0/";
+      MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[img]/img.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+      });
+    </script>
+    <p hidden>
+      {% include tex-preamble.html %}
+    </p>
   <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
         your browser</a> to improve your experience.</p>
@@ -101,9 +117,9 @@
   <div class="header-panel shadow-z-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-sm-4 col-xs-12 px-4">
+        <div class="col-md-3 col-sm-4 col-xs-12 px-4 vyom-site-branding">
           <div class="row-details">
-            <h4 class="list-group-item-heading vyom-site-title">{{ site.author }}</h4>
+            <h4 class="list-group-item-heading vyom-site-title"><a href="/">{{ site.author }}</a></h4>
             {% comment %}
             remove site description
             <p class="list-group-item-text">{{ site.about }}</p>
@@ -127,7 +143,7 @@
           {% include navigation.html %}
           <h2 class="blog-title-pro">{{ page.title }}</h2>
         </div>
-        <p class="info">
+        <p class="info" style="padding-left: 15px;">
           {% if page.date %}
           <span class="time">{{ page.date | date_to_string }}</span>
           {% endif %}

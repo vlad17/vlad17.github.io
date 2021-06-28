@@ -83,6 +83,12 @@ li.current-menu-item::before {
         font-size: 30px;
         font-weight: bolder;
     }
+    a {
+        // make link visible
+        color: #ffffff;
+        font-weight: bolder;
+        text-decoration: none;
+    }
 }
 
 .vyom-vertical-center {
@@ -92,12 +98,40 @@ li.current-menu-item::before {
 }
 .vyom-blog-archive-post-container {
     .vyom-featured-image-container {
+        // give space from bottom separator
+        margin-bottom: 10px;
         img {
             // center align smaller images
             margin: auto auto;
             // reduce image size to match with sibling preview text
             max-height: 170px;
             width: auto;
+        }
+    }
+}
+
+.vyom-date {
+    // make date less prominent
+    color: #808080;
+    float: left;
+}
+
+.vyom-list-item-meta-container {
+    .vyom-list-item-date {
+        color: #808080;
+    }
+    @media (min-width: 1200px) {
+        overflow: auto;
+        ::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .vyom-list-item-heading {
+            float: left;
+        }
+        .vyom-list-item-date {
+            float: right;
         }
     }
 }
