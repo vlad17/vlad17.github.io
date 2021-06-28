@@ -5,7 +5,12 @@ title: Blog
 <div class="well">
   <div class="list-group">
     {% for post in paginator.posts %}
-    <div class="list-group-item">
+    {% comment%}
+    vyom: 210628
+    upwork project: https://www.upwork.com/ab/f/contracts/27412710
+    removed the use of Bootstrap class by adding 1 to its name to make sure full width content can be displayed
+    {% endcomment %}
+    <div class="list-group-item1">
       <div class="row-content vyom-blog-archive-post-container">
         {% comment %}
         vyom: 210623
@@ -30,8 +35,11 @@ title: Blog
           removing date from grid
           <div class="least-content">{{ post.date | date_to_string }}</div>
           {% endcomment %}
-          <h4 class="list-group-item-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
-          <p class="vyom-date">{{ post.date | date_to_string }}</p>
+          <div class="vyom-list-item-meta-container">
+            <h4 class="list-group-item-heading vyom-list-item-heading"><a
+                href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
+            <p class="vyom-list-item-date">{{ post.date | date_to_string }}</p>
+          </div>
 
           {% comment %}
           vyom: 210623
@@ -39,7 +47,7 @@ title: Blog
           Truncate preview text on will with `
           <!--more-->` tag else truncate to 1000 words
           Thanks to:
-          - https://stackoverflow.com/a/4   6996146/1598006
+          - https://stackoverflow.com/a/4 6996146/1598006
           - https://jonnylangefeld.com/blog/how-to-add-a-read-more-button-that-doesnt-suck-to-your-jekyll-blog
           {% endcomment %}
           <div class="vyom-blog-excerpt">

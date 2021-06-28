@@ -92,6 +92,8 @@ li.current-menu-item::before {
 }
 .vyom-blog-archive-post-container {
     .vyom-featured-image-container {
+        // give space from bottom separator
+        margin-bottom: 10px;
         img {
             // center align smaller images
             margin: auto auto;
@@ -105,4 +107,25 @@ li.current-menu-item::before {
 .vyom-date {
     // make date less prominent
     color: #808080;
+    float: left;
+}
+
+.vyom-list-item-meta-container {
+    .vyom-list-item-date {
+        color: #808080;
+    }
+    @media (min-width: 1200px) {
+        overflow: auto;
+        ::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .vyom-list-item-heading {
+            float: left;
+        }
+        .vyom-list-item-date {
+            float: right;
+        }
+    }
 }
