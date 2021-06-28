@@ -81,12 +81,11 @@ li.current-menu-item::before {
     @media (min-width: 1200px) {
         // make title bigger and bolder to match with sibling menu row height
         font-size: 30px;
-        font-weight: bolder;
+        color: #ffffff;
     }
     a {
         // make link visible
         color: #ffffff;
-        font-weight: bolder;
         text-decoration: none;
     }
 }
