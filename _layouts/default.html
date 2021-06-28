@@ -54,7 +54,9 @@
   <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
   <meta content="{{ site.canonical_url }}/about/" property="article:author">
   {% endif %}
-  <meta content="{% if post.featured_image %}{% if post.featured_image contains 'https://' %}{{ post.featured_image }}{% else %}{{ site.canonical_url }}{{ post.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.canonical_url }}{{ site.featured_image }}{% endif %}{% endif %}" property="og:image">
+
+  <meta content="{% if page.featured_image %}{% if page.featured_image contains 'https://' %}{{ page.featured_image }}{% else %}{{ site.canonical_url }}{{ page.featured_image }}{% endif %}{% else %}{% if site.featured_image contains 'https://' %}{{ site.featured_image }}{% else %}{{ site.canonical_url }}{{ site.featured_image }}{% endif %}{% endif %}" property="og:image">
+
   {% if page.categories %}
   {% for category in page.categories limit:1 %}
   <meta content="{{ category }}" property="article:section">
@@ -117,7 +119,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-12 px-4 vyom-site-branding">
           <div class="row-details">
-            <h4 class="list-group-item-heading vyom-site-title">{{ site.author }}</h4>
+            <h4 class="list-group-item-heading vyom-site-title"><a href="/">{{ site.author }}</a></h4>
             {% comment %}
             remove site description
             <p class="list-group-item-text">{{ site.about }}</p>
