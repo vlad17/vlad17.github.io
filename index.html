@@ -3,6 +3,20 @@ layout: default
 title: Blog
 ---
 <div class="well">
+  <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Ajax.config.path["img"] = "https://cdn.rawgit.com/pkra/mathjax-img/1.0.0/";
+      MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[img]/img.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+      });
+    </script>
+    <p hidden>
+      {% include tex-preamble.html %}
+    </p>
   <div class="list-group">
     {% for post in paginator.posts %}
     <div class="list-group-item">
