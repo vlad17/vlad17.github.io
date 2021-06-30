@@ -4,6 +4,7 @@ title:  Complex Hash Collisions
 date:   2020-07-04
 categories: tools
 featured_image:  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPLsXA0X_gaVwIUsBlpjNddQ8ego1KNODsw&usqp=CAU
+is_featured_post: true
 ---
 # Complex Hash Collisions
 

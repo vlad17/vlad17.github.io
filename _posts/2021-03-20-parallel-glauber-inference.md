@@ -3,7 +3,6 @@ layout: post
 title:  Parallel Glauber Inference
 date:   2021-03-20
 categories: parallel
-is_featured_post: true
 meta_keywords: parallel
 featured_image: /assets/2021-03-20-parallel-glauber-inference/parallel-2.png
 ---

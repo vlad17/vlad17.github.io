@@ -4,6 +4,7 @@ title:  Vectorizing Ragged Arrays (Numpy Gems, Part 4)
 date:   2021-01-07
 categories: tools
 featured_image: https://miro.medium.com/max/1280/1*5UHmgCaTD8EegsPuKcxC1Q.png
+is_featured_post: true
 ---
 Frequently, we run into situations where we need to deal with arrays of varying sizes in `numpy`. These result in much slower code that deals with different sizes individually. Luckily, by extracting commutative and associative operations, we can vectorize even in such scenarios, resulting in significant speed improvements. This is especially pronounced when doing the same thing with deep learning packages like `torch`, because vectorization matters a lot more on a GPU.
 
