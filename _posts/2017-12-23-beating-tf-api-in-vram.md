@@ -3,6 +3,7 @@ layout: post
 title:  "Beating TensorFlow Training in-VRAM"
 date:   2017-12-23
 categories: hardware-acceleration machine-learning tools
+meta_keywords: deep learning, tensorflow, GPU, data preprocessing, pipelining
 ---
 
 # Beating TensorFlow Training in-VRAM

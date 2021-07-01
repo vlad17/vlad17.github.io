@@ -4,6 +4,7 @@ title:  Amazon Reviewers With Sketches
 date:   2021-06-29
 featured_image: "/assets/2021-06-29-amazon-reviewers-with-sketches_files/2021-06-29-amazon-reviewers-with-sketches_13_0.png"
 categories: tools parallel
+meta_keywords: Amazon dataset, sketches, rolling average, data science, logs
 ---
 To show off a recent command line tool for sketching, [dsrs](https://github.com/vlad17/datasketches-rs), let's plot the rolling 28-day average daily count of active reviewers on Amazon.
 

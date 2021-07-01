@@ -3,6 +3,7 @@ layout: post
 title:  "Deep Learning Learning"
 date:   2017-07-09
 categories: deep-learning
+meta_keywords: deep learning, papers, literature review
 ---
 
 # Deep Learning Learning Plan

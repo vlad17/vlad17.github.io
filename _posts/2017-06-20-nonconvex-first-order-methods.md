@@ -3,6 +3,7 @@ layout: post
 title:  "Non-convex First Order Methods"
 date:   2017-06-20
 categories: machine-learning optimization deep-learning
+meta_keywords: SGD, AdaGrad, Adam, AdaDelta, RMSProp, Accelerated
 ---
 
 # Non-convex First Order Methods

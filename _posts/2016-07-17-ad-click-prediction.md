@@ -3,6 +3,7 @@ layout: post
 title:  "Ad Click Prediction"
 date:   2016-07-17
 categories: parallel distributed-systems online-learning machine-learning
+meta_keywords: CTR, click prediction, click propensity, online learning
 ---
 
 # Ad Click Prediction: a View from the Trenches

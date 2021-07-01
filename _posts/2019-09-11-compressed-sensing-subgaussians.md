@@ -3,6 +3,7 @@ layout: post
 title:  "Compressed Sensing and Subgaussians"
 date:   2019-09-11
 categories: machine-learning
+meta_keywords: compressed sensing, subgaussian, concentration, statistical recovery, lasso
 ---
 
 # Compressed Sensing and Subgaussians

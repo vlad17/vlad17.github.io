@@ -3,6 +3,7 @@ layout: post
 title:  "Neural Network Optimization Methods"
 date:   2017-06-19
 categories: machine-learning optimization deep-learning
+meta_keywords: optimization, neural networks, stochastic gradient descent
 ---
 
 # Neural Network Optimization Methods

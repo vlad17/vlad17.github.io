@@ -3,6 +3,7 @@ layout: post
 title:  "Jupyter Tricks"
 date:   2017-05-25
 categories: tools
+meta_keywords: jupyter, ipython, notebooks, shortcuts
 ---
 
 # Jupyter Tricks

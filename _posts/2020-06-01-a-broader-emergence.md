@@ -3,6 +3,7 @@ layout: post
 title:  "A Broader Emergence (Simpson's part 3 of 3)"
 date:   2020-06-01
 categories: causal
+meta_keywords: causality, Simpson's paradox, plate notation, Bayesian networks
 featured_image: /assets/2020-simpsons-series/plate-demo.jpg
 ---
 

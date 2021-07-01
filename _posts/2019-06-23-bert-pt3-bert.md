@@ -3,6 +3,7 @@ layout: post
 title:  "BERT, Part 3: BERT"
 date:   2019-06-23
 categories: deep-learning
+meta_keywords: deep learning, BERT, NLP, embedding
 ---
 
 # BERT

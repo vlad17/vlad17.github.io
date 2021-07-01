@@ -4,6 +4,7 @@ title:  "Metaphysics of Causality"
 date:   2019-12-01
 categories: philosophy
 featured_image: /assets/2019-12-01-metaphysics-of-causality/ladder.png
+meta_keywords: causality, metaphysics, judea pearl, book of why
 ---
 
 # Metaphysics of Causality

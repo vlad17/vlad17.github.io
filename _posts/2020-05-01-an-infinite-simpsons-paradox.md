@@ -3,6 +3,7 @@ layout: post
 title:  "An Infinite Simpson's Paradox (Simpson's part 2 of 3)"
 date:   2020-05-01
 categories: causal
+meta_keywords: causality, Simpson's paradox, plate notation, Bayesian networks
 featured_image: /assets/2020-simpsons-series/diagram.jpg
 ---
 

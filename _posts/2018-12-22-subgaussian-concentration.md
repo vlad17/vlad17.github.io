@@ -3,6 +3,7 @@ layout: post
 title:  "Subgaussian Concentration"
 date:   2018-12-22
 categories: machine-learning
+meta_keywords: subgaussian, concentration, independence, inequality
 ---
 
 # Subgaussian Concentration

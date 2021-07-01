@@ -3,6 +3,7 @@ layout: post
 title:  "My Princeton Senior Thesis"
 date:   2017-05-23
 categories: my-whitepapers machine-learning 
+meta_keywords: Gaussian Process, maximum likelihood, thesis
 ---
 
 # My Princeton Senior Thesis

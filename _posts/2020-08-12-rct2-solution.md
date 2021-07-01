@@ -4,6 +4,7 @@ title:  RCT2 Solution
 date:   2020-08-12
 categories: tools
 featured_image: /assets/2020-08-12-rct2-solution_files/2020-08-12-rct2-solution_12_0.png
+meta_keywords: Roller Coaster Tycoon 2, markov chain, absorption time, sympy
 ---
 
 # RCT2 Problem Solution

@@ -3,6 +3,7 @@ layout: post
 title:  "MapReduce"
 date:   2016-09-17
 categories: parallel distributed-systems 
+meta_keywords: map reduce, programming paradigm
 ---
 
 # MapReduce: Simplified Data Processing on Large Clusters

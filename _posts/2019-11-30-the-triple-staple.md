@@ -3,6 +3,7 @@ layout: post
 title:  "The Triple Staple"
 date:   2019-11-30
 categories: tools joke-post
+meta_keywords: staple
 ---
 
 # The Triple Staple

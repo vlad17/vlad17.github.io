@@ -3,6 +3,7 @@ layout: post
 title:  "The Semaphore Barrier"
 date:   2017-01-24
 categories: interview-question parallel
+meta_keywords: semaphore, synchronization, barrier, interview question
 ---
 
 # The Semaphore Barrier

@@ -4,6 +4,7 @@ title:  "Stop Anytime Multiplicative Weights"
 date:   2020-01-05
 categories: machine-learning
 featured_image: /assets/2019-12-25-stop-anytime-multiplicative-weights/5x200.png
+meta_keywords: multiplicative weights, experts algorithm, anytime, online learning
 ---
 
 # Stop Anytime Multiplicative Weights

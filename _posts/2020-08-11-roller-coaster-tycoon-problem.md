@@ -4,6 +4,7 @@ title:  Roller Coaster Tycoon 2 (RCT2) Problem
 date:   2020-08-11
 categories: tools
 featured_image: /assets/2020-08-11-roller-coaster-tycoon-problem/probs.png
+meta_keywords: Roller Coaster Tycoon 2, markov chain, absorption time
 ---
 # Roller Coaster Tycoon 2 (RCT2) Problem
 
