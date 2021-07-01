@@ -7,8 +7,6 @@ featured_image: https://sisudata.com/static/f79790e6bbb3b6fa294bb88dba8ebb07/715
 meta_keywords: graph coloring, machine learning, dimensionality reduction
 ---
 
-# Graph Coloring for Machine Learning
-
 This month, I posted a blog entry on Sisu's engineering blog post. I discuss an effective strategy for lossless column reduction on sparse datasets.
 
 [Check out the blog post there.](https://sisu.ai/blog/graph-coloring-for-machine-learning)

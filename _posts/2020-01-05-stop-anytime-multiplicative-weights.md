@@ -7,8 +7,6 @@ featured_image: /assets/2019-12-25-stop-anytime-multiplicative-weights/5x200.png
 meta_keywords: multiplicative weights, experts algorithm, anytime, online learning
 ---
 
-# Stop Anytime Multiplicative Weights
-
 Multiplicative weights is a simple, randomized algorithm for picking an option among \\(n\\) choices against an adversarial environment.
 
 The algorithm has widespread applications, but its analysis frequently introduces a learning rate parameter, \\(\epsilon\\), which we'll be trying to get rid of.

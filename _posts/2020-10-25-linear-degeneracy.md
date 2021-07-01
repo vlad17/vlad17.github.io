@@ -7,8 +7,6 @@ featured_image: https://vladfeinberg.com/assets/2020-10-25-linear-degeneracy_fil
 meta_keywords: linear regression, degeneracy, standardization, low rank
 ---
 
-# Linear Degeneracy and Standardization
-
 This notebook comes from my [Linear Regression Analysis notes](https://github.com/vlad17/ml-notes/blob/master/linear-regression-analysis/).
 
 In the ordinary least squares setting, we model our outputs  \\(\mathbf{y}=X\boldsymbol\beta+\boldsymbol\varepsilon \\) where  \\(\boldsymbol\varepsilon\sim N(\mathbf{0}, \sigma^2 I) \\), with  \\(\boldsymbol\beta,\sigma^2 \\) unknown.

@@ -7,8 +7,6 @@ meta_keywords: causality, Simpson's paradox, plate notation, Bayesian networks
 featured_image: /assets/2020-simpsons-series/plate-demo.jpg
 ---
 
-# A Broader Emergence (Simpson's part 3 of 3)
-
 One neat takeaway from the previous post was really around the structure of what we were doing.
 
 What did it take for the infinite DAG we were building to become a valid probability distribution?

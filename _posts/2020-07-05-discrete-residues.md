@@ -6,7 +6,6 @@ categories: tools
 featured_image: https://i.stack.imgur.com/ElHJI.png
 is_featured_post: true
 ---
-# Discrete Residues
 
 In the previous post, we discussed a particular quantity,  \\(\mathbb{P}\\{X=1\\} \\), where  \\(X \\) follows a Poisson Binomial distribution, parameterized by  \\(\\{p\_j\\}\_{j=1}^n \\). This means that  \\(X=\sum\_jX\_j \\), where  \\(X\_j \\) are Bernoulli- \\(p\_j \\) independent random variables.
 

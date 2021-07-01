@@ -7,8 +7,6 @@ meta_keywords: causality, Simpson's paradox
 featured_image: /assets/2020-simpsons-series/simpson.png
 ---
 
-# Observational Causal Inference (Simpson's part 1 of 3)
-
 In most data analysis, especially in business contexts, we're looking for answers about how we can do better. This implies that we're looking for a change in our actions that will improve some measure of performance.
 
 There's an abundance of passively collected data from analytics. Why not point fancy algorithms at that?

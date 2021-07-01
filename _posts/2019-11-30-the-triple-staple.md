@@ -6,8 +6,6 @@ categories: tools joke-post
 meta_keywords: staple
 ---
 
-# The Triple Staple
-
 When reading, I prefer paper to electronic media. Unfortunately, a lot of my reading involves manuscripts from 8 to 100 pages in length, with the original document being an electronic PDF.
 
 Double-sided printing works really well to resolve this issue partway. It lets me convert PDFs into paper documents, which I can focus on. This works great up to 15 pages. I print the page out and staple it. I've tried not-stapling the printed pages before, but then the individual papers frequently get out of order or generally all over the place.

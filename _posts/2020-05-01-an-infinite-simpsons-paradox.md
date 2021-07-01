@@ -7,8 +7,6 @@ meta_keywords: causality, Simpson's paradox, plate notation, Bayesian networks
 featured_image: /assets/2020-simpsons-series/diagram.jpg
 ---
 
-# An Infinite Simpsons Paradox (Simpson's part 2 of 3)
-
 This is Problem 9.11 in Elements of Causal Inference.
 
 _Construct a single Bayesian network on binary $X,Y$ and variables $\\{Z\_j\\}\_{j=1}^\infty$ where the difference in conditional expectation,

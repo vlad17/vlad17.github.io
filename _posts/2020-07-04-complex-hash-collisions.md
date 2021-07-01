@@ -6,7 +6,6 @@ categories: tools
 featured_image:  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPLsXA0X_gaVwIUsBlpjNddQ8ego1KNODsw&usqp=CAU
 is_featured_post: true
 ---
-# Complex Hash Collisions
 
 This article investigates a fun thought experiment about the [Poisson-Binomial distribution](https://en.wikipedia.org/wiki/Poisson_binomial_distribution).
 

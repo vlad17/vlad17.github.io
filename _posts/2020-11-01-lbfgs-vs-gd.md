@@ -6,7 +6,6 @@ categories: tools
 featured_image: /assets/2020-11-01-lbfgs-vs-gd_files/2020-11-01-lbfgs-vs-gd_13_1.png
 meta_keywords: optimization, L-BFGS, gradient descent, quasi-newton
 ---
-# L-BFGS vs GD
 
 Curiously, the original L-BFGS convergence proof essentially reduces the L-BFGS iteration to GD. This establishes L-BFGS converges globally for sufficiently regular functions and also that it has local linear convergence, just like GD, for smooth and strongly convex functions.
 

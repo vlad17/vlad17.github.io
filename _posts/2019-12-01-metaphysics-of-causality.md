@@ -7,8 +7,6 @@ featured_image: /assets/2019-12-01-metaphysics-of-causality/ladder.png
 meta_keywords: causality, metaphysics, judea pearl, book of why
 ---
 
-# Metaphysics of Causality
-
 If you read Judea Pearl's _The Book of Why_, it makes it seem like exercising observational statistics makes you an ignoramus. Look at the stupid robot:
 
 ![ladder](/assets/2019-12-01-metaphysics-of-causality/ladder.png){: .center-image }

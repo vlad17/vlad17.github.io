@@ -7,8 +7,6 @@ featured_image: /assets/2020-08-12-rct2-solution_files/2020-08-12-rct2-solution_
 meta_keywords: Roller Coaster Tycoon 2, markov chain, absorption time, sympy
 ---
 
-# RCT2 Problem Solution
-
 [Last time](/2020/08/11/roller-coaster-tycoon-problem.html), we discussed the RCT2 problem, which we won't delve into in great detail, but at a high level, we have an inductively defined Markov chain, parameterized by  \\(n \\), with special start and end states and the following outgoing arrows, such that for  \\(k\in[n] \\), we have the following transition dynamics:
 
 ```python
