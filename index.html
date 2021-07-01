@@ -60,7 +60,7 @@ title: Blog
             <div>
             </div>
             {% else %}
-            <p class="list-group-item-text">{{ post.content | strip_html | strip_newlines | truncate: 500 }} <span
+            <p class="list-group-item-text">{{ post.content | strip_html | newline_to_br | strip_newlines | replace: '<br />', ' ' | truncate: 500 }} <span
                 class="vyom-read-more-button"><a href="{{ post.url | prepend: site.baseurl }}">Read More</a></span></p>
             {% endif %}
           </div>
