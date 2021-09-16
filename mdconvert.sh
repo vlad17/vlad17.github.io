@@ -5,11 +5,13 @@
 # of insane latex escaping
 
 if [ $# -ne 1 ] ; then
-    echo "Usage: bash mdconvert.sh assets/some-jupyter-notebook.ipynb" >&2
+    echo "Usage: bash mdconvert.sh assets/blog-nb/some-jupyter-notebook.ipynb" >&2
 fi
 
+pushd assets/blog-nb
 nbfile="$1"
-jupyter nbconvert --to markdown $nbfile
+poetry run jupyter nbconvert --to markdown $(basename "$nbfile")
+popd
 mv ${nbfile%.ipynb}.md _posts/
 mdfile=_posts/$(basename ${nbfile%.ipynb}.md)
 mv $mdfile ${mdfile}-old
@@ -52,7 +54,7 @@ BEGIN { inside_equation = 0 }
 }' | \
   sed '/^\\\\[()]/N;s/\n//' | \
   sed -e :a -e '$!N;s/\n\\\\\([()]\)/ \\\\\1/;ta' -e 'P;D' | \
-  sed 's/!\[png\](/![png](\/assets\//g' > $mdfile
+  sed 's/!\[png\](/![png](\/assets\/blog-nb\//g' > $mdfile
 mv $mdfile ${mdfile}-old
 dt=$(basename $mdfile | cut -c1-10)
 echo $dt
