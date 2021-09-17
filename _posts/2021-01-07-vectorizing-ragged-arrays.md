@@ -2,7 +2,7 @@
 layout: post
 title:  Vectorizing Ragged Arrays (Numpy Gems, Part 4)
 date:   2021-01-07
-categories: numpy, tricks
+categories: numpy tricks
 featured_image: https://miro.medium.com/max/1280/1*5UHmgCaTD8EegsPuKcxC1Q.png
 is_featured_post: true
 meta_keywords: ragged array, vectorization, numpy, simd, jagged array

@@ -2,7 +2,7 @@
 layout: post
 title:  Scatter Reduction (Numpy Gems, Part 5)
 date:   2021-09-15
-categories: numpy, tricks
+categories: numpy tricks
 featured_image: /assets/blog-nb/2021-09-15-scatter-reduction_files/2021-09-15-scatter-reduction_1_0.png
 is_featured_post: true
 meta_keywords: ragged array, vectorization, numpy, simd, jagged array, jax, scatter, scatter-gather, scientific computing, reduce, parallel, TPU
