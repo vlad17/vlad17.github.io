@@ -11,7 +11,7 @@ The [VLAD](https://lear.inrialpes.fr/pubs/2010/JDSP10/jegou_compactimagerepresen
 
 A reader of my blog referred me to this algorithm, noting that the supposedly vectorized version turns out slower than non-vectorized code. We review indexing and broadcasting rules to diagnose the slowdown and prescribe a fix with a lesser-known numpy gem for what's known as a scatter-reduce operation. If you've ever found yourself in a numpy setting wanting to "collect" the sum of some data into buckets determined at runtime, this gem is for you.
 
-Along the way, we'll learn some pretty surprising facts about vectorization! What I thought was an idiomatic numpy solution using [`ufunc.at`](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.at.html) turns out to be pretty non-performant!
+Along the way, we'll learn some pretty surprising facts about vectorization! What I thought was an idiomatic numpy solution using [`ufunc.at`](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.at.html) turns out to be pretty non-performant! Luckily, a solid vectorized solution exists out there, gaining us a 400% improvement on a TPU (via Colab).
 
 ```python
 from IPython.display import Image
