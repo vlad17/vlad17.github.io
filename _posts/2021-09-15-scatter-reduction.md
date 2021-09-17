@@ -190,7 +190,7 @@ assert np.allclose(result_looping, result_optvec), sum(result_looping != result_
 
 OK, so with all this work, we've gotten a modest improvement of around 40%, but I'm sure in some settings, such as when  \\(F \\) is large or  \\(L\gg K \\), the original python loop approach works fine. This is because there's enough work being done in the inner loop of the `looping()` function that additional vectorization is not that necessary.
 
-However, one benefit to the final implementation is it could, with a little bit of effort, be translated to `jax`. This would let us run the same computation entirely on a hardware accelerator. Experimenting with this ([Collab link](https://colab.research.google.com/drive/1kz3MZKhVt3zcsz9tD4F49-3nnZi0xjiy?usp=sharing)), I was able to get a `4x` improvement over the original looping code by leveraging a TPU. Now that's more like it!
+However, one benefit to the final implementation is it could, with a little bit of effort, be translated to `jax`. This would let us run the same computation entirely on a hardware accelerator. Experimenting with this ([Colab](https://colab.research.google.com/drive/1kz3MZKhVt3zcsz9tD4F49-3nnZi0xjiy?usp=sharing)), I was able to get a `4x` improvement over the original looping code by leveraging a TPU. Now that's more like it!
 
 I'd like to extend a special thank you to [Ashwin Nair](https://stackoverflow.com/questions/69085744/vectorise-vlad-computation-in-numpy) for emailing me this interesting challenge. I always find these numpy questions fun and encourage my other readers to reach out! If they require a new technique I haven't covered in my previous "Numpy Gems" posts, I'd be happy to take a look.
 
