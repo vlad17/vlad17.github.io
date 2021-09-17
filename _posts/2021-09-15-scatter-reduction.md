@@ -24,7 +24,13 @@ Image(filename='2021-09-15-vlad.png')
 
 For each of our  \\(T \\) images, we have  \\(L \\) "local descriptions", i.e., some  \\(F \\)-dimensional feature vectors that semantically characterize certain attributes of each image. In other words, every image  \\(t\in[T] \\) has  \\(L \\) vectors  \\(\textbf{v}\_\ell^{(t)}\in\mathbb{R}^F \\). Since  \\(L \\) may be large, and we'd like to compact the  \\(L\times F \\) data that we have per image, across all  \\(L\times T \\) feature vectors, we may consider some  \\(K \\) centroids  \\(\textbf{c}\_k \\) from a  \\(K \\)-means computation (again, looking indiscriminantly across all local descriptions).
 
-Then VLAD defines, for each image  \\(t \\), a set of residual vectors which is the _sum of the errors_ that you get by approximating each local description to its closest centroid, i.e., for  \\(k\in[K] \\),  \\(\textbf{r}\_{k}^{(t)}=\sum\_{\ell\in M\_k^{(t)}}\textbf{v}\_{\ell}^{(t)}-\textbf{c}\_k \\), where  \\(M\_k^{(t)}=\\{\ell\in[L]\,\big\|\,k=\mathrm{argmin}\_{k'}\\|\textbf{c}\_{k'}-\textbf{v}\_\ell^{(t)}\\|\_2\\} \\).
+Then VLAD defines, for each image  \\(t \\), a set of residual vectors which is the _sum of the errors_ that you get by approximating each local description to its closest centroid, i.e., for  \\(k\in[K] \\),  \\(\textbf{r}\_{k}^{(t)}=\sum\_{\ell\in M\_k^{(t)}}\textbf{v}\_{\ell}^{(t)}-\textbf{c}\_k \\), where 
+
+\\[M\_k^{(t)}=\\{\ell\in[L]\,\big\|\,k=\mathrm{NN}(\textbf{v}\_\ell^{(t)})\\}\,\,,\\]
+
+and the nearest neighbor function \\(\mathrm{NN}\\) is given by
+
+\\[\mathrm{NN}(\textbf{x})=\mathrm{argmin}\_{k'}\\|\textbf{c}\_{k'}-\textbf{x}\\|\_2\\}\,\,. \\]
 
 Finally, the actual VLAD encoding for the  \\(t \\)-th image is the  \\(D \\)-sized vector  \\(n(\textbf{u}) \\), where  \\(\textbf{u}=\mathrm{stack}\left(\\{\textbf{r}\_k^{(t)}\\}\_{k\in[K]}\right) \\),  \\(D=K\times F \\), and  \\(n \\) is some normalization (varies between implementations). Speaking very intuitively, we can imagine the components of VLAD to being something like the score statistic for a GMM model, assuming the latent assignment (from local aggregate to the cluster it belongs to) is known.
 
