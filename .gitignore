@@ -1,9 +1,10 @@
 _site/
 .sass-cache/
 .jekyll-metadata
+.bundle
+vendor/
 
 # Editor backups
 *~
-
 
 .ipynb_checkpoints

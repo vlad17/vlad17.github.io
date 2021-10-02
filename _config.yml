@@ -3,7 +3,7 @@ description: Vlad's Blog
 author: Vlad Feinberg
 about: dev | ml | math
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "LICENSE", "Gemfile", "Gemfile.lock"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "LICENSE", "Gemfile", "Gemfile.lock", "vendor", ".bundle"]
 
 urls:
     - text: Home
