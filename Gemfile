@@ -6,3 +6,5 @@ gem "jekyll", ">= 3.6.3"
 gem 'jekyll-paginate'
 gem 'github-pages', group: :jekyll_plugins
 gem 'jekyll-sitemap'
+
+gem "webrick", "~> 1.7"
