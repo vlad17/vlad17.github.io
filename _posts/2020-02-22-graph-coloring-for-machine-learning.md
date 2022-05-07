@@ -3,7 +3,7 @@ layout: post
 title:  "Graph Coloring for Machine Learning"
 date:   2020-02-22
 categories: machine-learning
-featured_image: https://sisudata.com/static/f79790e6bbb3b6fa294bb88dba8ebb07/71514/Header-1060-x-400%402x.png
+featured_image: /assets/2020-02-22-graph-coloring-for-machine-learning.png
 meta_keywords: graph coloring, machine learning, dimensionality reduction
 ---
 
