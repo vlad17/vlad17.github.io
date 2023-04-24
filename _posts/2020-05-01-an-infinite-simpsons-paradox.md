@@ -10,9 +10,16 @@ featured_image: /assets/2020-simpsons-series/diagram.jpg
 This is Problem 9.11 in Elements of Causal Inference.
 
 _Construct a single Bayesian network on binary $X,Y$ and variables $\\{Z\_j\\}\_{j=1}^\infty$ where the difference in conditional expectation,
-\\[
-\Delta\_j(\vz\_{\le j}) = \CE{Y}{X=1, Z\_{\le j}=\vz\_{\le j}}-\CE{Y}{X=0, Z\_{\le j}=\vz\_{\le j}}\,\,,
-\\]
+{% raw %}
+$$
+\begin{align}
+\Delta_j(\vz_{\le j}) &=\\
+& \CE{Y}{X=1, Z_{\le j}=\vz_{\le j}}-\\
+& \CE{Y}{X=0, Z_{\le j}=\vz_{\le j}}\,\,,
+\end{align}
+$$
+{% endraw %}
+
 satisfies $\DeclareMathOperator\sgn{sgn}\sgn \Delta\_j=(-1)^{j}$ and $\abs{\Delta\_j}\ge \epsilon\_j$ for some fixed $\epsilon\_j>0$. $\Delta\_0$ is unconstrained._
 
 ### Proof overview
