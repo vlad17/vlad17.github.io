@@ -203,3 +203,8 @@ footer {
     margin: 0 auto;
     display: block;
 }
+.center-image-half {
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+}
