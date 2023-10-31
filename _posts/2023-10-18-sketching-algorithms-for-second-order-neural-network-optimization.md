@@ -85,6 +85,8 @@ If you have many devices, and therefore large batch sizes, training your neural 
 ||| [TPUv2 to TPUv3](https://ieeexplore.ieee.org/document/9499913)   ||| 2.67×            ||| 1.29×                     |||
 ||| [V100 to A100](https://ieeexplore.ieee.org/document/9623445)     ||| 5×               ||| 2.2×                      |||
 
+This means that if we have an algorithm that improves quality while using nearly the same amount of memory bandwidth (e.g., it is a low-memory optimizer which is applied to the same-size neural net and requires scanning through the same number of examples), but perhaps more compute, then we expect this algorithm to speed up over time as compute increases faster than memory bandwidth.
+
 # Overview
 
 On the face of it, we should be suspect that we can use asymptotically equivalent memory to Adam and still achieve near-Shampoo levels of quality (there are other buffers which require memory linear in parameter size, for learning rate [grafting](https://openreview.net/forum?id=FpKgG31Z_i9), momentum, etc.).
