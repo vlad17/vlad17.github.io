@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sketching Algorithms for Second Order Neural Network Optimization
+title: Sketching Algorithms for Matrix Preconditioning in Neural Network Optimization
 date: 2023-10-18
 categories: optimization
 featured_image: /assets/2023-08-18/svd-topk.png
@@ -13,7 +13,7 @@ In this blog post, I'll provide data stream background, applied context, motivat
 
 I really enjoyed working on this project because it simultaneously scratches different methodological itches of mine, from [data stream sketching](https://datasketches.apache.org/) to [online convex optimization](https://arxiv.org/abs/1909.05207). However, the algorithm introduced here was borne out of necessity; I didn't go around with those two hammers a priori (though, presented with a nail, it made sense to reach for what's readily available in my tool belt)!
 
-This work is a big step in making second-order training methods more accessible for deep learning by removing a critical memory bottleneck. For a deeper analysis, skip to the [Motivation](#motivation) section below. Using second-order training is probably one of the most under-appreciated techniques in modern neural network training, but for good reason. Shipping second order is quite challenging:
+This work is a big step in making matrix preconditioning training methods more accessible for deep learning by removing a critical memory bottleneck. For a deeper analysis, skip to the [Motivation](#motivation) section below. Using matrix preconditioning training is probably one of the most under-appreciated techniques in modern neural network training, but for good reason. Shipping matrix preconditioning is quite challenging:
 
   - It takes engineering work to eliminate overheads and numerical linear algebra bugs from the required matrix operations.
   - Like any drastic optimizer change, it requires hyperparameter tuning.
@@ -64,7 +64,7 @@ Nowadays, when you're getting ready to train a transformer, or whatever, you don
 
 ![Sketchy infographic](/assets/2023-08-18/sketchy-infographic.png){: .center-image-half }
 
-This is where Sketchy enters the picture: can we retain the quality wins of Shampoo but drop memory to AdaGrad/Adam levels? Previous work like AdaFactor shows we can give up quality to reduce memory. But can we leverage second-order information to use less memory than Adam and still beat it?
+This is where Sketchy enters the picture: can we retain the quality wins of Shampoo but drop memory to AdaGrad/Adam levels? Previous work like AdaFactor shows we can give up quality to reduce memory. But can we leverage second moment information to use less memory than Adam and still beat it?
 
 # Motivation
 
@@ -130,7 +130,7 @@ This happens to be exactly the observation Edo Liberty made when introducing [Fr
 
 In the above, the sketch \\(B\_i\\) has the property that \\(B\_i^\top B\_i\\) approximates the covariance \\(A\_i^\top A\_i\\) in operator norm, with error that scales in the lowest \\(d-\ell\\) singular values of \\(A\_i\\).
 
-Replace \\(A\_i\\) with \\(C\_t\\) and we have the opportunity to apply sketching for second order! The real work in Sketchy came in not from the idea of applying sketches to data streams, but from proving that the approximation from FD can be made good-enough to use for optimization, and that your error at the end of optimizing also only depens on lower-order eigenvalues of your gradient covariance.
+Replace \\(A\_i\\) with \\(C\_t\\) and we have the opportunity to apply sketching for second moment capture! The real work in Sketchy came in not from the idea of applying sketches to data streams, but from proving that the approximation from FD can be made good-enough to use for optimization, and that your error at the end of optimizing also only depens on lower-order eigenvalues of your gradient covariance.
 
 ![Sketchy curves test losses](/assets/2023-08-18/sketchy-curves.png){: .center-image-half }
 
