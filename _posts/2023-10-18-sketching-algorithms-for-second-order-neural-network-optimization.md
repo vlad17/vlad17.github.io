@@ -40,7 +40,7 @@ The magic of the AdaGrad's analysis is in identifying that the running root-mean
 
 The problem here is that our gradients would be correlated across dimensions, and decorrelating them requires a full whitening matrix \\(H_t^{-1}\\) as pictured above. Unfortunately, this is a showstopper for all but the smallest problems. Full matrix Adagrad analysis states that the optimal preconditioner is the inverse matrix square root of the gradient covariance, \\(C_t=\sum\_t g\_tg\_t^\top\\), the sum of gradient outer products. This would require petabytes to represent in modern neural networks!
 
-![unrealistic resnet](/assets/2023-08-18/schematic.jpg){: .center-image-half }
+![unrealistic resnet](/assets/2023-08-18/resnet-img/resnet-schematic.png){: .center-image-half }
 
 Enter Shampoo. Shampoo tells us that for convex functions with matrix-shaped inputs, we can use a structured approximation to the full covariance \\(C\_t\\) instead (DNNs are non-convex functions of multiple matrix-shaped inputs, but the convex-inspired approach seems to work!). In particular, given a weight matrix of shape \\(a\times b\\), rather than using the full flat gradient \\(\textbf{g}\_t\in\mathbb{R}^{ab}\\), whose outer product is a matrix of size \\(ab\times ab\\), we can use the Kronecker product of reshaped matrix gradient's tensor products. Specifically, we set 
 
