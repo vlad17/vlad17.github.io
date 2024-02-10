@@ -24,11 +24,11 @@ Distillation is a powerful technique, but a couple things about it are quite mys
 At an algorithmic level, distillation, introduced by [Hinton, Vinyals, and Dean 2015](https://arxiv.org/abs/1503.02531), applied to a classification problem with labels  \\(y=1,\cdots,d \\) proceeds as follows.
 
 1. Train a large, expensive teacher network  \\(T(x;\mu) \\) to predict the distribution  \\(y\|x \\) (a categorical distribution on  \\([d] \\),  \\(\Delta\_d \\)) from a large dataset of  \\((x, y) \\) pairs; this is done by minimizing negative log-likelihood (NLL) of the teacher's prediction  \\(\min\_\mu -\log T(x; \mu)\_y \\), yielding  \\(\mu\_* \\).
-2. Train your smaller, cheaper network  \\(S(x;\theta) \\) on a combined loss from the data NLL and matching the teacher distribution by minimzing cross-entropy  \\(H(S(x;\theta)\|\|T(x;\mu\_\*))=-\sum\_{i=1}^d T(x; \mu\_\*)\log S(x; \theta) \\), i.e.,  \\(\min\_\theta   -\log S(x; \theta)\_y + \alpha H(S(x;\theta)\|\|T(x;\mu\_\*)) \\). Since  \\(\mu\_\* \\) is fixed, optimizing the latter term is equivalent to minimizing  \\(D\_{\mathrm{KL}}(S\|\|T) \\), where  \\(\alpha \\) is some hyper.
+2. Train your smaller, cheaper network  \\(S(x;\theta) \\) on a combined loss from the data NLL and matching the teacher distribution by minimizing cross-entropy  \\(H(S(x;\theta)\|\|T(x;\mu\_\*))=-\sum\_{i=1}^d T(x; \mu\_\*)\_i\log S(x; \theta)\_i\\), i.e.,  \\(\min\_\theta   -\log S(x; \theta)\_y + \alpha H(S(x;\theta)\|\|T(x;\mu\_\*)) \\). Since  \\(\mu\_\* \\) is fixed, optimizing the latter term is equivalent to minimizing  \\(D\_{\mathrm{KL}}(S\|\|T) \\), where  \\(\alpha \\) is some hyper.
 
 This has been scaled up to language models too, see [Anil et al 2018](https://arxiv.org/abs/1804.03235).
 
-## Why woudn't it work?
+## Why wouldn't it work?
 
 At first, I found the fact that distillation helps mind-bending. To understand why I was confused, let's look at the distillation loss for  \\(\theta \\):
 
@@ -36,15 +36,19 @@ At first, I found the fact that distillation helps mind-bending. To understand w
 -\log S(x; \theta)\_y + \alpha H(S(x;\theta)\|\|T(x;\mu\_\*)) = c\_\alpha H\left(S(x;\theta)\bigg\|\bigg\|\frac{\delta\_y +\alpha T(x;\mu\_\*)}{1+\alpha}\right)
 \\]
 
-That is, distillation loss is, up to a constant  \\(c\_\alpha \\), equivalent to softening our data label  \\(y \\) by the teacher's predictions  \\(T(x;\mu\_\*) \\)
+That is, distillation loss is, up to a constant  \\(c\_\alpha \\), equivalent to softening our data label  \\(y \\) by the teacher's predictions  \\(T(x;\mu\_\*) \\). Above, $\delta\_y$ stands for the atomic distribution which concentrates all the mass on \\(y\\); we perform a weighted average with the teacher distribution for the label \\(T(x;\mu\_\*)\\).
 
 We started with a dataset. Ran it through some matmuls,  \\(T(x;\mu\_\*) \\). So if we view the dataset as a huge random variable (rv)  \\(D \\),  \\(\mu\_\* \\) and indeed  \\(T(x;\mu\_\*) \\) is just some other rv which is a very complicated function of  \\(D \\) (since they resulted from SGD or some training process applied to  \\(D \\)).
 
-So we just took our clean labels  \\(y \\) and added noise to them! And it helped! Indeed, we can formalize this concern in the case  \\(\alpha=\infty \\) (so that the distillation label  \\(y'=T(x;\mu\_\*) \\). In practice, and even in the linear setting I discuss next, this still works, in that train and test loss improve over using  \\(y \\).
+So we just took our clean labels  \\(y \\) and added noise to them! And it helped! Indeed, we can formalize this concern in the case  \\(\alpha=\infty \\) (so that the distillation label  \\(y'=T(x;\mu\_\*) \\)). In practice, and even in the linear setting I discuss next, this still works, in that train and test loss improve over using  \\(y \\).
 
 If we train with just  \\(y' \\) then the training process forms a Markov chain conditioned on all  \\(x \\):  \\(y \rightarrow \mu\_\*\rightarrow \theta\_\* \\) (given  \\(\mu\_\* \\), and therefore  \\(y' \\), the training of  \\(\theta\_\* \\) is conditionally independent of  \\(y \\)).
 
-Then by the [data processing inequality](https://en.wikipedia.org/wiki/Data_processing_inequality), the mutual information  \\(I(y, \mu\_\*)\ge I\_{\alpha=\infty}(y, \theta\_\*) \\). There's no paradox here, obviously, since distillation works, and the teacher does do better than the student, but it feels wrong to distance ourselves from the true label. We don't know the relationship between  \\( I\_{\alpha=\infty}(y, \theta\_\*) \\) and  \\( I\_{\alpha=0}(y, \theta\_\*) \\) but this seems like a step in the wrong direction.
+Then by the [data processing inequality](https://en.wikipedia.org/wiki/Data_processing_inequality), the mutual information  \\(I(y, \mu\_\*)\ge I\_{\alpha=\infty}(y, \theta\_\*) \\).
+
+**This implies that, in the case of self-distillation, where you can globally optimize the learner (find the true minimum \\(\mu\_\*,\theta\_\*\\)), we shouldn't expect any improvement over the teacher---this would violate the DPI!**
+
+There's no paradox with the example below, since our teacher is of a different class than the student, but, still, it feels wrong to distance ourselves from the true label. We don't know the relationship between  \\( I\_{\alpha=\infty}(y, \theta\_\*) \\) and  \\( I\_{\alpha=0}(y, \theta\_\*) \\) but this seems like a step in the wrong direction.
 
 This concern could be framed as an invocation [Vapnik's principle](https://unknowngenius.com/blog/archives/2010/11/24/vapniks-principle/): "When solving a problem of interest, do not solve a more general problem as an intermediate step."
 
@@ -166,7 +170,7 @@ for split in ['train', 'test']:
 
 ## Is that all there is to it?
 
-Not quite. With neural nets, we do see some really intersting training phenomena not fully accounted for by the story above. For instance, self-distillation (where the "teacher" is the same size as the student) somehow _works_!
+Not quite. With neural nets, we do see some really interesting training phenomena not fully accounted for by the story above. For instance, self-distillation (where the "teacher" is the same size as the student) somehow _works_!
 
 There are interactions with imperfect non-convex optimization in the deep neural network setting which are still a research topic. For more, check out a [Zeyuan Allen-Zhu and Yuanzhi Li blog post from MSR](https://www.microsoft.com/en-us/research/blog/three-mysteries-in-deep-learning-ensemble-knowledge-distillation-and-self-distillation/).
 
