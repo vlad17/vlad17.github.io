@@ -24,7 +24,7 @@ Distillation is a powerful technique, but a couple things about it are quite mys
 At an algorithmic level, distillation, introduced by [Hinton, Vinyals, and Dean 2015](https://arxiv.org/abs/1503.02531), applied to a classification problem with labels  \\(y=1,\cdots,d \\) proceeds as follows.
 
 1. Train a large, expensive teacher network  \\(T(x;\mu) \\) to predict the distribution  \\(y\|x \\) (a categorical distribution on  \\([d] \\),  \\(\Delta\_d \\)) from a large dataset of  \\((x, y) \\) pairs; this is done by minimizing negative log-likelihood (NLL) of the teacher's prediction  \\(\min\_\mu -\log T(x; \mu)\_y \\), yielding  \\(\mu\_* \\).
-2. Train your smaller, cheaper network  \\(S(x;\theta) \\) on a combined loss from the data NLL and matching the teacher distribution by minimizing cross-entropy  \\(H(S(x;\theta)\|\|T(x;\mu\_\*))=-\sum\_{i=1}^d T(x; \mu\_\*)\_i\log S(x; \theta)\_i\\), i.e.,  \\(\min\_\theta   -\log S(x; \theta)\_y + \alpha H(S(x;\theta)\|\|T(x;\mu\_\*)) \\). Since  \\(\mu\_\* \\) is fixed, optimizing the latter term is equivalent to minimizing  \\(D\_{\mathrm{KL}}(S\|\|T) \\), where  \\(\alpha \\) is some hyper.
+2. Train your smaller, cheaper network  \\(S(x;\theta) \\) on a combined loss from the data NLL and matching the teacher distribution by minimizing cross-entropy  \\(H(T(x;\mu\_\*),S(x;\theta))=-\sum\_{i=1}^d T(x; \mu\_\*)\_i\log S(x; \theta)\_i\\), i.e.,  \\(\min\_\theta   -\log S(x; \theta)\_y + \alpha H(T(x;\mu\_\*),S(x;\theta)) \\). Since  \\(\mu\_\* \\) is fixed, optimizing the latter term is equivalent to minimizing  \\(D\_{\mathrm{KL}}(T\|\|S) \\), where  \\(\alpha \\) is some hyper.
 
 This has been scaled up to language models too, see [Anil et al 2018](https://arxiv.org/abs/1804.03235).
 
@@ -33,7 +33,7 @@ This has been scaled up to language models too, see [Anil et al 2018](https://ar
 At first, I found the fact that distillation helps mind-bending. To understand why I was confused, let's look at the distillation loss for  \\(\theta \\):
 
 \\[
--\log S(x; \theta)\_y + \alpha H(S(x;\theta)\|\|T(x;\mu\_\*)) = c\_\alpha H\left(S(x;\theta)\bigg\|\bigg\|\frac{\delta\_y +\alpha T(x;\mu\_\*)}{1+\alpha}\right)
+-\log S(x; \theta)\_y + \alpha H(T(x;\mu\_\*), S(x;\theta)) = c\_\alpha H\left(\frac{\delta\_y +\alpha T(x;\mu\_\*)}{1+\alpha},S(x;\theta)\right)
 \\]
 
 That is, distillation loss is, up to a constant  \\(c\_\alpha \\), equivalent to softening our data label  \\(y \\) by the teacher's predictions  \\(T(x;\mu\_\*) \\). Above, $\delta\_y$ stands for the atomic distribution which concentrates all the mass on \\(y\\); we perform a weighted average with the teacher distribution for the label \\(T(x;\mu\_\*)\\).
