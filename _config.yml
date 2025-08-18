@@ -57,8 +57,8 @@ plugins:
 
 permalink: /:year/:month/:day/:title.html
 # update about page featured image content here
-about_page_image_url: "/static/img/about-page.JPG"
-about_page_image_caption: "My friends and I at Pinecrest Lake after a hike to Eagle Peak."
+about_page_image_url: "/static/img/nyc-boat.JPEG"
+about_page_image_caption: "Me with some friends during my 30th (it was finally time to update my about picture)."
 # vyom: 210623
 # upwork project:
 # featured image used on posts if no image is set for it in the post front matter
