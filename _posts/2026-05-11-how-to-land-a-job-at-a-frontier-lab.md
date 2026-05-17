@@ -40,7 +40,7 @@ The reason this cohort is so successful is because the underlying traits are hig
 
 1. **Intent**. They picked a high-value problem space to focus on.
 2. **Mathematical maturity**. Generalized problem solving is the key tool for ambiguous domains.
-3. **Grit**. They have gone through the soul-crushing difficulty (at least for some, including myself) and workload that technically rigorous, proof based classes put you under.
+3. **Grit**. They have gone through the soul-crushing difficulty and workload that technically rigorous, proof based classes put you under.
 
 ## What if I'm just starting college?
 
@@ -178,4 +178,4 @@ Derive chinchilla laws for this; see how they differ for dense vs MoE architectu
 
 Next, assuming you used `jax.lax.ragged_dot` for the MoE layer; write a pallas kernel that beats ragged dot for `F > D` by fusing the up/down projections. Find a setting where you notices a measurable forward pass speedup and explain why it's there.
 
-I'll put my money where my mouth is: record yourself doing the jax scaling book exercises above with paper and pencil (all of them). Then have a chatbot convert scanned versions of those results to latex. Send it to me (be ready for me to ask for a random subset of videos of you doing the problems!). Similarly screencap yourself manually writing the code for implementing the transformer from scratch and deriving the chinchilla laws. It's a lot of work, but if you do all that, just know I'm hiring in NYC and like to show myself as self-consistent. Send me an email with the scaling law report and the exercise writeup.
+I'll put my money where my mouth is: record yourself doing the jax scaling book exercises above with paper and pencil (all of them). Then have a chatbot convert scanned versions of those results to latex. Send it to me (be ready for me to ask for a random subset of videos of you doing the problems!). Similarly screen-record yourself manually writing the code for implementing the transformer from scratch and deriving the chinchilla laws. It's a lot of work, but if you do all that, just know I'm hiring in NYC and like to show myself as self-consistent. Send me an email with the scaling law report and the exercise writeup.
