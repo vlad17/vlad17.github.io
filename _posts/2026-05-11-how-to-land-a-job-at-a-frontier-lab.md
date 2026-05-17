@@ -23,7 +23,7 @@ I assume this blog post will pop off a bit since it's pretty click-baity, so to 
 
 ![Career Slide](/assets/2026-05-12-how-to-land-a-job-at-a-frontier-lab/career.png){: .img-responsive.center-image }
 
-I've been incredibly fortunate for all my mentors throughout the process. I wish I could say I plotted this course for myself with long-term planning and intention, but the reality is I just
+I've been incredibly fortunate for all my mentors throughout the process. Being pointed to the right direction is one of the most valuable external factors to success. I wish I could say I plotted this course for myself (or maybe just listened more carefully to the advice I've gotten) with long-term planning and intention, but the reality is I just
 
 1. consistently locally optimized by reflecting on what I want to accomplish and where I want to be every 6 months and
 2. never turned up my nose at "menial" work. If you found the right place to dig for gold, just keep digging. Don't complain about the dirt.
@@ -101,7 +101,7 @@ PL research aims to extract the right abstractions to perform this correctness r
 
 ![yarsolav tweet](/assets/2026-05-12-how-to-land-a-job-at-a-frontier-lab/yaroslav-tweet.png){: .center-image-half }
 
-That [tweet](https://x.com/yaroslavvb/status/2053669022684877076) is also an excellent study list, from which I would specifically call out [ThunderKittens](https://arxiv.org/abs/2410.20399)
+That [tweet](https://x.com/yaroslavvb/status/2053669022684877076) is also an excellent study list, from which I would specifically call out [ThunderKittens](https://arxiv.org/abs/2410.20399).
 
 
 ##### Flash Attention Series
