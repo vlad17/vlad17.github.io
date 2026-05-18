@@ -77,7 +77,7 @@ For the most part, reviewing existing research work is a great way to see how pe
 
 The biggest bottleneck and innermost loop of all LLM work is performance work that makes abstract, logical changes to the LLM practical to run. Every project needs people who can tune the LLMs at the kernel level. It is a skill you can pick up and is the most direct path into the labs.
 
-No, LLMs themselves cannot do this yet. Systems thinking and the math involved is always simple at the face of it: a little bit of algebra will tell you if you're bottleneck is communication, or flops, or memory. And your coding agent will always beat you when you set up a question that introduces these concepts. But systems are challenging because they connect to the real world and require lateral thinking and developing new abstractions to resolve. Unless you tell your coding agent to watch out for latch boundedness, it will happily analyze just comms/flops/HBM rooflines, for instance. And whatever the next physical constraint is that didn't get modeled after that.
+No, LLMs themselves cannot do this yet. Systems thinking and the math involved is always simple at the face of it: a little bit of algebra will tell you if your bottleneck is communication, or flops, or memory. And your coding agent will always beat you when you set up a question that introduces these concepts. But systems are challenging because they connect to the real world and require lateral thinking and developing new abstractions to resolve. Unless you tell your coding agent to watch out for latch boundedness, it will happily analyze just comms/flops/HBM rooflines, for instance. And whatever the next physical constraint is that didn't get modeled after that.
 
 How do you get good at kernel work?
 
@@ -99,7 +99,7 @@ Programming language design has come up as an ancillary area of study to acceler
 
 PL research aims to extract the right abstractions to perform this correctness reasoning into the programming setting directly, without performance compromises. It is an excellent example of "working at the edges" of the LLM that has very high impact, and explains the incentives behind this observation from Yaroslav.
 
-![yarsolav tweet](/assets/2026-05-12-how-to-land-a-job-at-a-frontier-lab/yaroslav-tweet.png){: .center-image-half }
+![yaroslav tweet](/assets/2026-05-12-how-to-land-a-job-at-a-frontier-lab/yaroslav-tweet.png){: .center-image-half }
 
 That [tweet](https://x.com/yaroslavvb/status/2053669022684877076) is also an excellent study list, from which I would specifically call out [ThunderKittens](https://arxiv.org/abs/2410.20399).
 
@@ -108,7 +108,7 @@ That [tweet](https://x.com/yaroslavvb/status/2053669022684877076) is also an exc
 
 A perfect segue would be the [Flash Attention Series](https://arxiv.org/abs/2603.05451) of papers, here I link the recent fourth one targeting B200 GPUs, which itself calls out [CuTe DSL](https://docs.nvidia.com/cutlass/latest/media/docs/pythonDSL/cute_dsl.html). Reading these papers is the best example of the "lateral systems thinking" which you should sharpen to write efficient accelerator code.
 
-In what now seems light a trite pedagogical example, but was worth detailing in a full paper at the time, the "Flash Attention trick" demonstrated how modelling flops alone might steer one to believe that the unfused attention implementation that is a direct transcription of attention math might come about.
+In what now seems like a trite pedagogical example, but was worth detailing in a full paper at the time, the "Flash Attention trick" demonstrated how modelling flops alone might steer one to believe that the unfused attention implementation that is a direct transcription of attention math might come about.
 
 ![flash unfused](/assets/2026-05-12-how-to-land-a-job-at-a-frontier-lab/flash-unfused.png){: .center-image-half }
 
@@ -123,7 +123,7 @@ For folks already familiar with the flash attention trick, I urge you not to be 
 
 Quantization is an excellent field to enter as well, which exists at the edges of the LLM stack. It requires minimal resources and exposes you to the full quality-performance tradeoff.
 
-I recommend starting with [LLM.int8()](https://arxiv.org/abs/2208.07339), a classic which exposes you to a strong set of tricks to walk the quality-performence tradeoff. There's then another good series of papers from Chris De Sa's group:
+I recommend starting with [LLM.int8()](https://arxiv.org/abs/2208.07339), a classic which exposes you to a strong set of tricks to walk the quality-performance tradeoff. There's then another good series of papers from Chris De Sa's group:
 
  - [QuiP](https://arxiv.org/abs/2307.13304)
  - [QuiP#](https://arxiv.org/abs/2402.04396)
@@ -174,10 +174,10 @@ An exercise:
     Generate a dataset of simple up-to-3-digit numbers, have it learn addition.
     Should train quickly on T4 GPU (pad examples to fixed length)
 
-Derive chinchilla laws for this; see how they differ for dense vs MoE architectures. Code your solution from scratch in jax by hand if you actually want the learning experience.
+Derive Chinchilla laws for this; see how they differ for dense vs MoE architectures. Code your solution from scratch in jax by hand if you actually want the learning experience.
 
-Next, assuming you used `jax.lax.ragged_dot` for the MoE layer; write a pallas kernel that beats ragged dot for `F > D` by fusing the up/down projections. Find a setting where you notices a measurable forward pass speedup and explain why it's there.
+Next, assuming you used `jax.lax.ragged_dot` for the MoE layer; write a pallas kernel that beats ragged dot for `F > D` by fusing the up/down projections. Find a setting where you notice a measurable forward pass speedup and explain why it's there.
 
-I'll put my money where my mouth is: record yourself doing the jax scaling book exercises above with paper and pencil (all of them). Then have a chatbot convert scanned versions of those results to latex. Send it to me (be ready for me to ask for a random subset of videos of you doing the problems!). Similarly screen-record yourself manually writing the code for implementing the transformer from scratch and deriving the chinchilla laws. It's a lot of work, but if you do all that, just know I'm hiring in NYC and like to show myself as self-consistent. Send me an email with the scaling law report and the exercise writeup.
+I'll put my money where my mouth is: record yourself doing the jax scaling book exercises above with paper and pencil (all of them). Then have a chatbot convert scanned versions of those results to latex. Send it to me (be ready for me to ask for a random subset of videos of you doing the problems!). Similarly screen-record yourself manually writing the code for implementing the transformer from scratch and deriving the Chinchilla laws. It's a lot of work, but if you do all that, just know I'm hiring in NYC and like to show myself as self-consistent. Send me an email with the scaling law report and the exercise writeup.
 
-I want to emphasize: doing the couple of exercises above is a good start, but it's not a short circuit that avoids the 5-10 years of signaling the traditional college path would you. However, it sets you up for the skills and question-asking that might end you up with a public github repo demonstrating something useful and adopted widely by the industry. After that, you get to pick where you want to work.
+I want to emphasize: doing the couple of exercises above is a good start, but it's not a short circuit that avoids the 5-10 years of signaling the traditional college path would give you. However, it sets you up for the skills and question-asking that might end you up with a public github repo demonstrating something useful and adopted widely by the industry. After that, you get to pick where you want to work.
