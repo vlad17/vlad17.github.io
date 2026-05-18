@@ -19,11 +19,11 @@ I'll rehash those directly at the end of this post, but wanted to focus most of 
 
 ## Who are you to be giving advice on this anyway?
 
-I assume this blog post will pop off a bit since it's pretty click-baity, so to any new readers here is an overview of my career.
+To any new readers here is an overview of my career.
 
 ![Career Slide](/assets/2026-05-12-how-to-land-a-job-at-a-frontier-lab/career.png){: .img-responsive.center-image }
 
-I've been incredibly fortunate for all my mentors throughout the process. Being pointed to the right direction is one of the most valuable external factors to success. I wish I could say I plotted this course for myself (or maybe just listened more carefully to the advice I've gotten) with long-term planning and intention, but the reality is I just
+I've been incredibly fortunate for all my mentors throughout the process. Being pointed in the right direction is one of the most valuable external factors to success. I wish I could say I plotted this course for myself (or maybe just listened more carefully to the advice I've gotten) with long-term planning and intention, but the reality is I just
 
 1. consistently locally optimized by reflecting on what I want to accomplish and where I want to be every 6 months and
 2. never turned up my nose at "menial" work. If you found the right place to dig for gold, just keep digging. Don't complain about the dirt.
@@ -50,7 +50,7 @@ Work like a dog.
 
 Take difficult, proof-based classes. Code, obviously. Use AI for what you already know how to do, only, but aggressively so.
 
-Give up your weekends and nights. Burned into my mind is the typical workflow my college friends and I have gone through. In a feeble attempt to try to make it through the stack of the upcoming week's assignments, we would start from the very morning of Saturday with two big quadruple-shot Panera iced coffees until late, then come back and do it again the following day, hoping to finish early enough to trudge back to our rooms on the other side of campus to get to sleep on time for the start of another gruelling week of psets and classes. Rolling deadlines collapse on each other with nothing but another such weekend to look forward to. Outside, beautiful, clear blue skies host a warm sun shining over the Cottage Club, an eating club we never set foot in, where, locked in our tower atop Lewis Library, the blasting music from its backyard reverberated off the windows as Sunday Funday proceeded differently for those inside versus outside. Tough. Not for you. Study. Get that soft sponge in your head, which was mostly a primitive state machine tuned by evolution to hunt and eat and fuck, to think abstractly. Construct concepts in your mind, erect theoretical cities from axiomatic foundations. Learn to build thought.
+Give up your weekends and nights. Burned into my mind is the typical workflow my college friends and I have gone through. We would start from the very morning of Saturday with two big quadruple-shot Panera iced coffees until late, then come back and do it again the following day, hoping to finish early enough to trudge back to our rooms on the other side of campus to get to sleep on time for the start of another week of psets. Rolling deadlines collapse on each other with nothing but another such weekend to look forward to. Outside, clear blue skies host a warm sun shining over the Cottage Club, an eating club we never set foot in, where, locked in our tower atop Lewis Library, the blasting music from its backyard reverberated off the windows as Sunday Funday proceeded differently for those inside versus outside. Not for you. Get that soft sponge in your head, which was mostly a primitive state machine tuned by evolution to hunt and eat and fuck, to think abstractly. Learn to build thought.
 
 ![lewis library](/assets/2026-05-12-how-to-land-a-job-at-a-frontier-lab/lewis.jpg){: .center-image-half }
 
@@ -64,7 +64,7 @@ There is no substitute to the above for achieving mathematical maturity, which i
 
 It seems like a catch-22, how do you get these skills and problems without already being there?
 
-The way out of this is to work at the edges of where frontier labs operate: they spend their time creating LLMs. What do LLMs require to run, and what are the touchpoints for their outputs? This is the direction where frontier labs expand their scope, and thus are a the few specific areas that don't require training LLMs, but are nontheless essential to the business. They happen to be exactly where you would expect, one below the LLM stack and one above.
+The way out of this is to work at the edges of where frontier labs operate: they spend their time creating LLMs. What do LLMs require to run, and what are the touchpoints for their outputs? This is the direction where frontier labs expand their scope, and thus are the few specific areas that don't require training LLMs, but are nonetheless essential to the business. They happen to be exactly where you would expect, one below the LLM stack and one above.
 
 1. Below the LLM stack sit kernels. Kernels are carefully designed pieces of code which compute part of a neural network program.
 2. Above the LLM abstraction sit agentic loops. Leveraging the LLM as a grey box, you can harness it to produce useful results.
@@ -95,7 +95,7 @@ It's helpful to review how researchers have made progress in the area to see wha
 
 ##### DSLs
 
-Programming language design has come up as an ancillary area of study to accelerate kernel development. Kernels are difficult pieces of concurrent low-level code. Reasoning about concurrency in this setting requires a deep understanding of the scheduling guarantees the hardware provides. I've [posted](2017/01/24/semaphore-barrier.html) about similar problems in the past.
+Programming language design has come up as an ancillary area of study to accelerate kernel development. Kernels are difficult pieces of concurrent low-level code. Reasoning about concurrency in this setting requires a deep understanding of the scheduling guarantees the hardware provides. I've [posted](/2017/01/24/semaphore-barrier.html) about similar problems in the past.
 
 PL research aims to extract the right abstractions to perform this correctness reasoning into the programming setting directly, without performance compromises. It is an excellent example of "working at the edges" of the LLM that has very high impact, and explains the incentives behind this observation from Yaroslav.
 
@@ -106,7 +106,7 @@ That [tweet](https://x.com/yaroslavvb/status/2053669022684877076) is also an exc
 
 ##### Flash Attention Series
 
-A perfect segue would be the [Flash Attention Series](https://arxiv.org/abs/2603.05451) of papers, here I link the recent fourth one targetting B200 GPUs, which itself calls out [CuTe DSL](https://docs.nvidia.com/cutlass/latest/media/docs/pythonDSL/cute_dsl.html). Reading these papers is the best example of the "lateral systems thinking" which you should sharpen to write efficient accelerator code.
+A perfect segue would be the [Flash Attention Series](https://arxiv.org/abs/2603.05451) of papers, here I link the recent fourth one targeting B200 GPUs, which itself calls out [CuTe DSL](https://docs.nvidia.com/cutlass/latest/media/docs/pythonDSL/cute_dsl.html). Reading these papers is the best example of the "lateral systems thinking" which you should sharpen to write efficient accelerator code.
 
 In what now seems light a trite pedagogical example, but was worth detailing in a full paper at the time, the "Flash Attention trick" demonstrated how modelling flops alone might steer one to believe that the unfused attention implementation that is a direct transcription of attention math might come about.
 
