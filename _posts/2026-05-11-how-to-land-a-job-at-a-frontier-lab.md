@@ -156,7 +156,7 @@ Of course, it's not enough to demonstrate that you can contribute above and belo
 
 A general history of the very empirical theory of LLMs, outside of the papers mentioned in the slides I just linked above, would include further ML history as well, which now feels ancient but nonetheless arms you with powerful concepts that we still work with every day. Not to mention doing the exercises in these texts helps develop that mathematical maturity I keep talking about.
 
-Great general list of papers on LMs, DL that are worth reading through. A biased lineage from my own history and understanding of the topic is perhaps something I should put together, but out of scope for this article. With enough demand maybe I'll put something together! For now, I'll just refer you to my [pretraining lecture again](/2025/04/24/gemini-flash-pretraining.html) again.
+Great general list of papers on LMs, DL that are worth reading through. A biased lineage from my own history and understanding of the topic is perhaps something I should put together, but out of scope for this article. With enough demand maybe! For now, I'll just refer you to my [pretraining lecture again](/2025/04/24/gemini-flash-pretraining.html).
 
 ## Practical Next Steps
 
